@@ -10,3 +10,15 @@ C:\Users\User\Desktop\Курсовая работа\KR.Models\obj\Debug\net6.0\K
 C:\Users\User\Desktop\Курсовая работа\KR.Models\obj\Debug\net6.0\refint\KR.Models.dll
 C:\Users\User\Desktop\Курсовая работа\KR.Models\obj\Debug\net6.0\KR.Models.pdb
 C:\Users\User\Desktop\Курсовая работа\KR.Models\obj\Debug\net6.0\ref\KR.Models.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\bin\Debug\net6.0\KR.Models.deps.json
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\bin\Debug\net6.0\KR.Models.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\bin\Debug\net6.0\KR.Models.pdb
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\obj\Debug\net6.0\KR.Models.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\obj\Debug\net6.0\KR.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\obj\Debug\net6.0\KR.Models.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\obj\Debug\net6.0\KR.Models.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\obj\Debug\net6.0\KR.Models.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\obj\Debug\net6.0\KR.Models.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\obj\Debug\net6.0\refint\KR.Models.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\obj\Debug\net6.0\KR.Models.pdb
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Models\obj\Debug\net6.0\ref\KR.Models.dll
