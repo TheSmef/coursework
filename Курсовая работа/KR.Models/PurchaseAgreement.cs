@@ -10,13 +10,13 @@ namespace Kr.Models
         public Guid Id_Purchase_Agreement { get; set; } = new Guid();
         [Required]
         public DateTime Date_Of_Purchase { get; set; }
-        [Required]
-        [StringLength(50)]
-        [MinLength(3)]
+        [Required(ErrorMessage = "Название организации-поставщика - необходимое поле")]
+        [StringLength(50, ErrorMessage = "Название организации-поставщика должно быть не более 50 символов")]
+        [MinLength(3, ErrorMessage = "Название организации-поставщика должно быть не менее 3 символов")]
         public string Provider { get; set; }
-        [AllowNull]
-        [StringLength(20)]
-        [MinLength(3)]
+        [Required(ErrorMessage = "Код договора - необходимое поле")]
+        [StringLength(20, ErrorMessage = "Код договора должен быть не более 20 символов")]
+        [MinLength(3, ErrorMessage = "Код договора должен быть не менее 3 символов")]
         public string Agreement_Code { get; set; }
         public virtual ICollection<Purchase>? Purchases { get; set; } 
 

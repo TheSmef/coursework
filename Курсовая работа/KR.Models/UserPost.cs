@@ -12,6 +12,7 @@ namespace Kr.Models
         [Required]
         public virtual User User { get; set; }
         [Required]
+        [Range(0.00, 1.00, ErrorMessage = "Ставка является значением от 0 до 1")]
         public decimal Share { get; set; }
         public virtual ICollection<SalaryHistory>? SalaryHistories { get; set; }
     }

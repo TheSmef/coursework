@@ -1,0 +1,77 @@
+﻿@page "/login"
+
+
+
+@layout LoginLayout
+@using Blazored.LocalStorage
+@using KR.Models
+@using KR.Web.Constants
+@using KR.Web.Models
+@using KR.Web.Security
+@using KR.Web.Services
+@using Kr.Web.Models
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Authorization
+@using System.ComponentModel
+<PageTitle>Авторизация</PageTitle>
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@account" TItem="AccountModel" Submit="@HandleLogin">
+                    <ChildContent>
+                        <RadzenHeading Size="H1" Text="Авторизация">
+                        </RadzenHeading>
+                        @if (@HaveErrors)
+                        {
+                            <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
+                            </RadzenHeading>
+                        }
+                        <DataAnnotationsValidator />
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Логин/Электронная почта" Component="Login" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(account.Login)">
+                                </RadzenTextBox>
+                                <ValidationMessage For="@(() => account.Login)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Пароль" Component="Password" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenPassword MaxLength="30" style="display: block; width: 100%" @bind-Value="@(account.Password)">
+                                </RadzenPassword>
+                                <ValidationMessage For="@(() => account.Password)" />
+                            </div>
+                        </div>
+                        <div class="row footer">
+                            <div>
+                                <RadzenButton ButtonType="ButtonType.Submit" Text="Войти" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonType="ButtonType.Button" Text="Регистрация" ButtonStyle="ButtonStyle.Danger" Click="@ToRegistration">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+
+
+
+
+
+
+

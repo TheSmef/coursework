@@ -1,0 +1,69 @@
+﻿@page "/user"
+@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using Kr.Models
+@using System.ComponentModel
+@using KR.Web.Services
+@attribute [Authorize]
+
+
+<PageTitle>Пользователи</PageTitle>
+
+
+<AuthorizeView Roles="Администратор, Отдел кадров">
+    <Authorized>
+        <RadzenContent Container="main">
+            <ChildContent>
+                <RadzenHeading Size="H1" Text="Пользователи">
+                </RadzenHeading>
+                <div class="row">
+                    <div class="col-md-12">
+                        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="@AddUser">
+                        </RadzenButton>
+                        <RadzenDataGrid @ref="grid" RowSelect="@UserRowSelect" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" Data="@getUserResult" AllowPaging="true" AllowSorting="true" TItem="User" EmptyText="@ConstantValues.COLLECTION_EMPTY">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="User" Property="Last_name" Title="Фамилия">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="User" Property="First_name" Title="Имя">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="User" Property="Otch" Title="Отчество">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="User" Property="BirthDate" Title="Дата рождения">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="User" Property="Account" SortProperty="Account.Login" GroupProperty="Account.Login" FilterProperty="Account.Login" Title="Логин">
+                                    <Template Context="data">
+                                        @(data.Account?.Login)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="User" Property="Account" SortProperty="Account.Email" GroupProperty="Account.Email" FilterProperty="Account.Email" Title="Электронная почта">
+                                    <Template Context="data">
+                                        @(data.Account?.Email)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="User" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                                    <Template Context="_context">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" @onclick:stopPropagation="true" Click="@((args) => DeleteUser(args, _context))">
+                                        </RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGrid>
+                    </div>
+                </div>
+            </ChildContent>
+        </RadzenContent>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center" Text="@ConstantValues.ERROR_CLAIMS" />
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+
+
+
+
+
+

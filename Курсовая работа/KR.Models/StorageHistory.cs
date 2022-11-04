@@ -9,7 +9,7 @@ namespace Kr.Models
         [Key]
         public Guid Id_StorageHistory { get; set; } = new Guid();
         [Required]
-        public virtual ProductStorage? ProductStorage { get; set; }
+        public virtual ProductStorage ProductStorage { get; set; }
         [Required]
         [StringLength(100)]
         public string Summary { get; set; }

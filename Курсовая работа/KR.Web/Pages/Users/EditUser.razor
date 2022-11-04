@@ -1,0 +1,139 @@
+﻿@page "/edit-user/{Id_User}"
+@layout MainLayout
+
+@using KR.Web.Constants
+@using KR.Web.Models
+@using KR.Web.Security
+@using KR.Web.Services
+@using Kr.Models
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Администратор, Отдел кадров")]
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@account" TItem="EditUserModel" Submit="@HandleEdit">
+                    <ChildContent>
+                        <DataAnnotationsValidator/>
+                        @if (@HaveErrors)
+                        {
+                                <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
+                                </RadzenHeading>
+                        }
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Фамилия" Component="Lastname" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(account.Last_name)">
+                                </RadzenTextBox>
+                                <ValidationMessage For="@(() => account.Last_name)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Имя" Component="Name" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(account.First_name)">
+                                </RadzenTextBox>
+                                <ValidationMessage For="@(() => account.First_name)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Отчество" Component="Otch" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(account.Otch)">
+                                </RadzenTextBox>
+                                <ValidationMessage For="@(() => account.Otch)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Дата рождения" Component="Date" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenDatePicker @bind-Value=@account.BirthDate DateFormat="d" Class="w-100" />
+                                <ValidationMessage For="@(() => account.BirthDate)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Роли пользователя" Component="Roles" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenDropDown AllowFiltering="true" TValue="List<Role>" Data="@roles" Multiple="true" TextProperty="Name" SelectedItemsText="Выбранных элементов" @bind-Value="@(account.Roles)" style="width: 100%" Name="Roles">
+                                 </RadzenDropDown>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Электронная почта" Component="Email" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenTextBox MaxLength="255" style="display: block; width: 100%" @bind-Value="@(account.Email)">
+                                </RadzenTextBox>
+                                <ValidationMessage For="@(() => account.Email)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Логин" Component="Login" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenTextBox MaxLength="40" style="display: block; width: 100%" @bind-Value="@(account.Login)">
+                                </RadzenTextBox>
+                                <ValidationMessage For="@(() => account.Login)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Пароль (если в смене не нуждается, оставте поле пустым)" Component="Password" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenPassword MaxLength="30" style="display: block; width: 100%" @bind-Value="@(account.Password)">
+                                </RadzenPassword>
+                                <ValidationMessage For="@(() => account.Password)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Повторите пароль" Component="Password" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenPassword MaxLength="30" style="display: block; width: 100%" @bind-Value="@(account.PasswordConfirm)">
+                                </RadzenPassword>
+                                <ValidationMessage For="@(() => account.PasswordConfirm)" />
+                            </div>
+                        </div>
+                        <div class="row footer">
+                            <div>
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Сохранить" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonType="ButtonType.Button" Text="Закрыть" ButtonStyle="ButtonStyle.Danger" Click="@Close">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+

@@ -29,7 +29,8 @@ namespace KR.API.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Login")
                         .IsRequired()
@@ -38,8 +39,8 @@ namespace KR.API.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.HasKey("UserId");
 
@@ -455,7 +456,7 @@ namespace KR.API.Migrations
                     b.HasOne("KR.Models.Account", "AccountUser")
                         .WithMany("Roles")
                         .HasForeignKey("AccountUserUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AccountUser");

@@ -1,0 +1,48 @@
+﻿@page "/category"
+@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using Kr.Models
+@using System.ComponentModel
+@attribute [Authorize]
+
+
+<PageTitle>Категории</PageTitle>
+
+
+
+<AuthorizeView Roles="Администратор, Отдел продаж, Отдел закупок">
+    <Authorized >
+        <RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H1" Text="Категории">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-md-12">
+                        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="AddCategory">
+                </RadzenButton>
+                        <RadzenDataGrid @ref="grid" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getCategoriesResult" TItem="Category" RowSelect="@CategoryRowSelect" EmptyText="@ConstantValues.COLLECTION_EMPTY">
+                    <Columns>
+                        <RadzenDataGridColumn TItem="Category" Property="Name" Title="Название категории">
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="Category" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                            <Template Context="_context">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>DeleteCategory(args, _context))" @onclick:stopPropagation="true">
+                                </RadzenButton>
+                            </Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </RadzenDataGrid>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center"  Text="@ConstantValues.ERROR_CLAIMS"/>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+

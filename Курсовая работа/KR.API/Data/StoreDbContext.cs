@@ -23,7 +23,7 @@ namespace KR.API.Data
             modelBuilder.Entity<Order>().HasOne(e => e.UserPost).WithMany().OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<OrderProduct>().HasOne(e => e.Product).WithMany().OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<OrderProduct>().HasOne(e => e.Order).WithMany(x => x.OrderProducts).OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<Role>().HasOne(e => e.AccountUser).WithMany(x => x.Roles).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Role>().HasOne(e => e.AccountUser).WithMany(x => x.Roles).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<ProductStorage>().HasOne(e => e.Category).WithMany(x => x.ProductStorages).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<UserPost>().HasOne(e => e.User).WithMany().OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<UserPost>().HasOne(e => e.Post).WithMany(x => x.UserPosts).OnDelete(DeleteBehavior.Restrict);

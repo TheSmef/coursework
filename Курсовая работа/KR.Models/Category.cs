@@ -8,10 +8,11 @@ namespace Kr.Models
     {
         [Key]
         public Guid Id_Category { get; set; } = new Guid();
-        [Required]
-        [StringLength(30)]
-        [MinLength(3)]
+        [Required(ErrorMessage = "Название категории - необходимое поле")]
+        [StringLength(30, ErrorMessage = "Назвение категории не может быть больше 30 символов")]
+        [MinLength(3, ErrorMessage = "Название категории не может быть меннее 3 символов")]
         public string Name { get; set; }
-        public virtual ICollection<ProductStorage>? ProductStorages { get; set; } 
+        public virtual ICollection<ProductStorage>? ProductStorages { get; set; }
+
     }
 }

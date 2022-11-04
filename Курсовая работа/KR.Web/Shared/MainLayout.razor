@@ -1,0 +1,77 @@
+﻿@inherits LayoutComponentBase
+@attribute [Authorize]
+
+
+
+
+<RadzenDialog />
+<RadzenNotification />
+<RadzenTooltip />
+<RadzenContextMenu />
+
+<RadzenLayout>
+    <ChildContent>
+        <RadzenHeader>
+            <ChildContent>
+                <div class="row justify-content-start align-items-center">
+                    <div class="col-6 d-flex align-items-center">
+                        <RadzenSidebarToggle Click="@SidebarToggle0Click">
+                        </RadzenSidebarToggle>
+                        <RadzenLabel Text="Информационная система продуктового магазина">
+                        </RadzenLabel>
+                    </div>
+                    <div class="col-6 text-right">
+                    </div>
+                </div>
+            </ChildContent>
+        </RadzenHeader>
+        <RadzenBody @ref="body0">
+            <ChildContent>
+                <RadzenContentContainer Name="main">
+                    @Body
+                </RadzenContentContainer>
+            </ChildContent>
+        </RadzenBody>
+        <RadzenSidebar @ref="sidebar0">
+            <ChildContent>
+                <RadzenPanelMenu style="height: 100%" Click="@NavMenuClicked">
+                    <ChildContent>
+                        <AuthorizeView Roles="Администратор">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Counter" Path="counter">
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="Администратор, Отдел закупок, Отдел продаж">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Категории" Path="category">
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="Администратор, Отдел кадров">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Должности" Path="post">
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="Администратор, Отдел кадров">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Пользователи" Path="user">
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <RadzenHtmlEditorSeparator></RadzenHtmlEditorSeparator>
+                        <AuthorizeView>
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Выход из аккаунта" Value="1">
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                    </ChildContent>
+                </RadzenPanelMenu>
+            </ChildContent>
+        </RadzenSidebar>
+    </ChildContent>
+</RadzenLayout>
+
+
