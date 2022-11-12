@@ -1,0 +1,85 @@
+﻿@page "/product"
+@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using Kr.Models
+@using MudBlazor
+@using System.ComponentModel
+@using KR.Web.Services
+@attribute [Authorize]
+
+
+<PageTitle>Продукты (товары)</PageTitle>
+
+
+<AuthorizeView Roles="Администратор, Отдел продаж, Отдел закупок, Работник склада" Context="_context_">
+    <Authorized>
+        <RadzenContent Container="main">
+            <ChildContent>
+                <RadzenHeading Size="H1" Text="Продукты (Товары)">
+                </RadzenHeading>
+                <div class="row">
+                    <div class="col-md-12">
+                        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="@AddProduct">
+                        </RadzenButton>
+                        <RadzenButton Icon="assignment_returned" style="margin-bottom: 10px" Text="Экспорт товаров" Click="@GetDoc">
+                        </RadzenButton>
+                         <MudFileUpload T="IBrowserFile" FilesChanged="UploadFile" Accept=".csv" style="margin-bottom: 10px">
+                            <ButtonTemplate>
+                                <MudButton HtmlTag="label"
+                                            Variant="MudBlazor.Variant.Filled"
+                                            DisableElevation="true"
+                                            Color="Color.Primary"
+                                            StartIcon="@Icons.Filled.CloudUpload"
+                                            for="@context">
+                                        Импортировать товары
+                                </MudButton>
+                            </ButtonTemplate>
+                        </MudFileUpload>
+                        <RadzenDataGrid @ref="grid" RowSelect="@ProductRowSelect" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" Data="@getProductResult" AllowPaging="true" AllowSorting="true" TItem="ProductStorage" EmptyText="@ConstantValues.COLLECTION_EMPTY" AllowColumnResize="true" PageSize="8"
+                                        EqualsText="Равно" NotEqualsText="Не равно" ContainsText="Содержит" DoesNotContainText="Не содержит" IsNotEmptyText="Не пустое" AndOperatorText="И" OrOperatorText="Или"
+                                        StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
+                                        GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно"FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="ProductStorage" Property="Name" Title="Название товара">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="ProductStorage" Property="Cost" Title="Цена товара">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="ProductStorage" Property="Amount" Title="Количество товара в наличии">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="ProductStorage" Property="Exipiration_Date" Title="Срок годности товара (в днях)">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="ProductStorage" Property="Category" SortProperty="Category.Name" GroupProperty="Category.Name" FilterProperty="Category.Name" Title="Категория товара">
+                                    <Template Context="data">
+                                        @(data.Category?.Name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="ProductStorage" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                                    <Template Context="_context">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" @onclick:stopPropagation="true" Click="@((args) => DeleteProduct(args, _context))">
+                                        </RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGrid>
+                    </div>
+                </div>
+            </ChildContent>
+        </RadzenContent>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center" Text="@ConstantValues.ERROR_CLAIMS" />
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+
+
+
+
+
+
+
+
+

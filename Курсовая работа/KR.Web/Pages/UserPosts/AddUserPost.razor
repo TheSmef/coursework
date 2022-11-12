@@ -1,0 +1,90 @@
+﻿@layout MainLayout
+
+@using KR.Web.Constants
+@using KR.Web.Models
+@using KR.Web.Services
+@using Kr.Models
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Администратор, Отдел кадров")]
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@userpost" TItem="UserPost" Submit="@HandleUserPostCreation">
+                    <ChildContent>
+                        <DataAnnotationsValidator/>
+                        @if (@HaveErrors)
+                        {
+                            <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
+                            </RadzenHeading>
+                        }
+                        <div>
+                            <RadzenLabel Text="Сотрудник" Component="User" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div>
+                            <RadzenDropDownDataGrid @ref="grid" SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="User" Data="@users" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(userpost.User)" style="width: 100%" TextProperty="Last_name">
+                                    <Columns>
+                                    <RadzenDropDownDataGridColumn Property="Last_name" Title="Фамилия">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="First_name" Title="Имя">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Otch" Title="Отчество">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="BirthDate" Title="Дата рождения">
+                                        </RadzenDropDownDataGridColumn>
+                                    </Columns>
+                                </RadzenDropDownDataGrid>
+                            <ValidationMessage For="@(() => userpost.User)" />
+                        </div>
+                        <div>
+                            <RadzenLabel Text="Должность" Component="Post" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div>
+                            <RadzenDropDownDataGrid SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="Post" Data="@posts" Multiple="false" SelectedItemsText="Выбранных элементов" TextProperty="Name" @bind-Value="@(userpost.Post)" style="width: 100%">
+                                <Columns>
+                                    <RadzenDropDownDataGridColumn Property="Name" Title="Название должности">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Salary" Title="Зарплата">
+                                        </RadzenDropDownDataGridColumn>
+                                </Columns>
+                            </RadzenDropDownDataGrid>
+                            <ValidationMessage For="@(() => userpost.User)" />
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Ставка" Component="Share" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(userpost.Share)">
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => userpost.Share)" />
+                            </div>
+                        </div>
+                        <div class="row footer">
+                            <div>
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Сохранить" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonType="ButtonType.Button" Text="Закрыть" ButtonStyle="ButtonStyle.Danger" Click="@Close">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+
+
+
+
+
+

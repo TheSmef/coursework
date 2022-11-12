@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "y6dJO2kJrjKeB8MBxqZmpbHKJzanNILNWqXC+7Eaw+oDjmFt1/Vyh92P9VRYpjO9657yhru8QuJjwsQzlM8zpA==",
+  "dgSpecHash": "2zpAG0jt1oTX4nG+elXeZ0GRvFRrvxDCnyReKFz4rjeYiCrF/INvnvlSJwCZyyR81nl9AmtzgP6z7zLUT/Bh6Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Models\\KR.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\csvhelper\\30.0.0\\csvhelper.30.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

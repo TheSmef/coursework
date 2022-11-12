@@ -1,0 +1,101 @@
+﻿@page "/edit-product/{Id_Product}"
+@layout MainLayout
+
+@using KR.Web.Constants
+@using KR.Web.Models
+@using KR.Web.Services
+@using Kr.Models
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Администратор, Отдел продаж, Отдел закупок, Работник склада")]
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@product" TItem="ProductStorage" Submit="@HandleUserCreation">
+                    <ChildContent>
+                        <DataAnnotationsValidator/>
+                        @if (@HaveErrors)
+                        {
+                            <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
+                            </RadzenHeading>
+                        }
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Название товара" Component="Name" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenTextBox MaxLength="40" style="display: block; width: 100%" @bind-Value="@(product.Name)">
+                                </RadzenTextBox>
+                                <ValidationMessage For="@(() => product.Name)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Цена" Component="Cost" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(product.Cost)">
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => product.Cost)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Количество на складе" Component="Amount" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(product.Amount)">
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => product.Amount)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Срок годности (в днях)" Component="Expire" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(product.Exipiration_Date)">
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => product.Exipiration_Date)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Категория" Component="Category" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenDropDown AllowFiltering="true" TValue="Category" Data="@categories" Multiple="false" TextProperty="Name" SelectedItemsText="Выбранных элементов" @bind-Value="@(product.Category)" style="width: 100%">
+                                 </RadzenDropDown>
+                                 <ValidationMessage For="@(() => product.Category)" />
+                            </div>
+                        </div>
+                        <div class="row footer">
+                            <div>
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Сохранить" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonType="ButtonType.Button" Text="Закрыть" ButtonStyle="ButtonStyle.Danger" Click="@Close">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+
+
+
+
+
+

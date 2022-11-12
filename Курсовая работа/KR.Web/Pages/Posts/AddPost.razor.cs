@@ -51,7 +51,7 @@ namespace KR.Web.Pages.Posts
             }
             catch (Exception ex)
             {
-                Error = ConstantValues.ERROR_USER_ADD;
+                Error = ConstantValues.ERROR_POST_ADD;
                 HaveErrors = true;
             }
         }

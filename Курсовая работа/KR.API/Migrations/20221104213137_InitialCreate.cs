@@ -362,11 +362,11 @@ namespace KR.API.Migrations
                 table: "UserPosts",
                 column: "UserId_User");
 
-
             using (StreamReader reader = new StreamReader("Migrations/SqlQuery.sql"))
             {
                 migrationBuilder.Sql(reader.ReadToEnd());
             }
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

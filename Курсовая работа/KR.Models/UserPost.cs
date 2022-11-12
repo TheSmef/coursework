@@ -7,12 +7,12 @@ namespace Kr.Models
     {
         [Key]
         public Guid Id_User_Post { get; set; } = new Guid();
-        [Required]
+        [Required(ErrorMessage = "Должность - необходимое поле")]
         public virtual Post Post { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Сотрудник - необходимое поле")]
         public virtual User User { get; set; }
-        [Required]
-        [Range(0.00, 1.00, ErrorMessage = "Ставка является значением от 0 до 1")]
+        [Required(ErrorMessage = "Ставка - необходимое поле")]
+        [Range(0.01, 1.00, ErrorMessage = "Ставка является значением от 0 (не включительно) до 1")]
         public decimal Share { get; set; }
         public virtual ICollection<SalaryHistory>? SalaryHistories { get; set; }
     }

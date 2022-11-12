@@ -1,0 +1,91 @@
+﻿@page "/purchase"
+@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using Kr.Models
+@using System.ComponentModel
+@using KR.Web.Services
+@attribute [Authorize]
+
+
+<PageTitle>Закупки</PageTitle>
+
+
+<AuthorizeView Roles="Администратор, Отдел закупок">
+    <Authorized>
+        <RadzenContent Container="main">
+            <ChildContent>
+                <RadzenHeading Size="H1" Text="Закупки">
+                </RadzenHeading>
+                <div class="row">
+                    <div class="col-md-12">
+                        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="@AddPurchase">
+                        </RadzenButton>
+                        <RadzenDataGrid @ref="grid" RowSelect="@PurchaseRowSelect" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" Data="@getPurchaseResult" AllowPaging="true" AllowSorting="true" TItem="Purchase" EmptyText="@ConstantValues.COLLECTION_EMPTY" AllowColumnResize="true" PageSize="8"
+                                        EqualsText="Равно" NotEqualsText="Не равно" ContainsText="Содержит" DoesNotContainText="Не содержит" IsNotEmptyText="Не пустое" AndOperatorText="И" OrOperatorText="Или"
+                                        StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
+                                        GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно"FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="Purchase" Property="PurchaseAgreement" SortProperty="PurchaseAgreement.Agreement_Code" GroupProperty="PurchaseAgreement.Agreement_Code" FilterProperty="PurchaseAgreement.Agreement_Code" Title="Номер договора поставки">
+                                    <Template Context="data">
+                                        @(data.PurchaseAgreement.Agreement_Code)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Purchase" Property="PurchaseAgreement" SortProperty="PurchaseAgreement.Agreement_Code" GroupProperty="PurchaseAgreement.Agreement_Code" FilterProperty="PurchaseAgreement.Agreement_Code" Title="Огранизация - поставщик">
+                                    <Template Context="data">
+                                        @(data.PurchaseAgreement.Provider)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Purchase" Property="PurchaseAgreement" SortProperty="PurchaseAgreement.Date_Of_Purchase" GroupProperty="PurchaseAgreement.Date_Of_Purchase" FilterProperty="PurchaseAgreement.Date_Of_Purchase" Title="Дата договора">
+                                    <Template Context="data">
+                                        @(data.PurchaseAgreement.Date_Of_Purchase)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Purchase" Property="Product" SortProperty="Product.Name" GroupProperty="Product.Name" FilterProperty="Product.Name" Title="Название продукта">
+                                    <Template Context="data">
+                                        @(data.ProductStorage.Name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Purchase" Property="Price" Title="Цена">
+                                    <FooterTemplate>
+                                        Сумма стоимостей элементов: <b>@(grid.View.Sum(x => x.Price))</b>
+                                    </FooterTemplate>
+                                </RadzenDataGridColumn> 
+                                <RadzenDataGridColumn TItem="Purchase" Property="Amount" Title="Количество">
+                                    <FooterTemplate>
+                                        Количество товаров: <b>@(grid.View.Sum(x => x.Amount))</b>
+                                    </FooterTemplate>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Purchase" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                                    <Template Context="_context">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" @onclick:stopPropagation="true" Click="@((args) => DeletePurchase(args, _context))">
+                                        </RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGrid>
+                    </div>
+                </div>
+            </ChildContent>
+        </RadzenContent>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center" Text="@ConstantValues.ERROR_CLAIMS" />
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

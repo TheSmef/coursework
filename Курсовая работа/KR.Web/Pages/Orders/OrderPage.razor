@@ -1,0 +1,80 @@
+﻿@page "/order"
+@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using Kr.Models
+@using System.ComponentModel
+@using KR.Web.Services
+@attribute [Authorize]
+
+
+<PageTitle>Заказы</PageTitle>
+
+
+<AuthorizeView Roles="Администратор, Отдел продаж">
+    <Authorized>
+        <RadzenContent Container="main">
+            <ChildContent>
+                <RadzenHeading Size="H1" Text="Заказы">
+                </RadzenHeading>
+                <div class="row">
+                    <div class="col-md-12">
+                        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="@AddOrder">
+                        </RadzenButton>
+                        <RadzenDataGrid @ref="grid" RowSelect="@OrderRowSelect" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" Data="@getOrderResult" AllowPaging="true" AllowSorting="true" TItem="Order" EmptyText="@ConstantValues.COLLECTION_EMPTY" AllowColumnResize="true" PageSize="8"
+                                        EqualsText="Равно" NotEqualsText="Не равно" ContainsText="Содержит" DoesNotContainText="Не содержит" IsNotEmptyText="Не пустое" AndOperatorText="И" OrOperatorText="Или"
+                                        StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
+                                        GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно" FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="Order" Property="Id_Order" Title="Номер заказа">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Order" Property="UserPost" SortProperty="UserPost.User.Last_name" GroupProperty="UserPost.User.Last_name" FilterProperty="UserPost.User.Last_name" Title="Фамилия сотрудника">
+                                    <Template Context="data">
+                                        @(data.UserPost?.User?.Last_name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Order" Property="UserPost" SortProperty="UserPost.User.First_name" GroupProperty="UserPost.User.First_name" FilterProperty="UserPost.User.First_name" Title="Имя сотрудника">
+                                    <Template Context="data">
+                                        @(data.UserPost?.User?.First_name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Order" Property="UserPost" SortProperty="UserPost.User.Otch" GroupProperty="UserPost.User.Otch" FilterProperty="UserPost.User.Otch" Title="Отчество сотрудника">
+                                    <Template Context="data">
+                                        @(data.UserPost?.User?.Otch)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Order" Property="UserPost" SortProperty="UserPost.Post.Name" GroupProperty="UserPost.Post.Name" FilterProperty="UserPost.Post.Name" Title="Должность сотрудника">
+                                    <Template Context="data">
+                                        @(data.UserPost?.Post?.Name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Order" Property="Date_Order" Title="Дата заказа">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Order" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                                    <Template Context="_context">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" @onclick:stopPropagation="true" Click="@((args) => DeleteOrder(args, _context))">
+                                        </RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGrid>
+                    </div>
+                </div>
+            </ChildContent>
+        </RadzenContent>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center" Text="@ConstantValues.ERROR_CLAIMS" />
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+
+
+
+
+
+
+
+

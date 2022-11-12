@@ -129,6 +129,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[30.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -192,6 +198,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "BlazorDownloadFile": {
+              "target": "Package",
+              "version": "[2.4.0.2, )"
+            },
             "Blazored.LocalStorage": {
               "target": "Package",
               "version": "[4.2.0, )"
@@ -199,6 +209,10 @@
             "Blazored.Toast": {
               "target": "Package",
               "version": "[3.2.2, )"
+            },
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[30.0.0, )"
             },
             "Microsoft.AspNetCore.Components.Authorization": {
               "target": "Package",
@@ -217,6 +231,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.10, )"
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[6.0.18, )"
             },
             "Radzen.Blazor": {
               "target": "Package",

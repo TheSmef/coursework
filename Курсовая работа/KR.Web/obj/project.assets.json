@@ -2,6 +2,25 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "BlazorDownloadFile/2.4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.3",
+          "Microsoft.AspNetCore.Components.Web": "3.1.3"
+        },
+        "compile": {
+          "lib/netstandard2.1/BlazorDownloadFile.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/BlazorDownloadFile.dll": {}
+        },
+        "build": {
+          "buildTransitive/BlazorDownloadFile.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorDownloadFile.props": {}
+        }
+      },
       "Blazored.LocalStorage/4.2.0": {
         "type": "package",
         "dependencies": {
@@ -32,6 +51,19 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Blazored.Toast.props": {}
+        }
+      },
+      "CsvHelper/30.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -149,10 +181,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/6.0.0": {
+      "Microsoft.AspNetCore.Components.Forms/6.0.10": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.0"
+          "Microsoft.AspNetCore.Components": "6.0.10"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -165,14 +197,14 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Web/6.0.0": {
+      "Microsoft.AspNetCore.Components.Web/6.0.10": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.0",
-          "Microsoft.AspNetCore.Components.Forms": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Microsoft.JSInterop": "6.0.0",
-          "System.IO.Pipelines": "6.0.0"
+          "Microsoft.AspNetCore.Components": "6.0.10",
+          "Microsoft.AspNetCore.Components.Forms": "6.0.10",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1",
+          "Microsoft.JSInterop": "6.0.10",
+          "System.IO.Pipelines": "6.0.3"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll": {
@@ -1500,7 +1532,7 @@
           }
         }
       },
-      "Microsoft.JSInterop/6.0.0": {
+      "Microsoft.JSInterop/6.0.10": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.JSInterop.dll": {
@@ -1793,6 +1825,29 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "MudBlazor/6.0.18": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.10",
+          "Microsoft.AspNetCore.Components.Web": "6.0.10"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
         }
       },
       "NETStandard.Library/1.6.1": {
@@ -2770,7 +2825,7 @@
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.IO.Pipelines/6.0.0": {
+      "System.IO.Pipelines/6.0.3": {
         "type": "package",
         "compile": {
           "lib/net6.0/System.IO.Pipelines.dll": {
@@ -3774,6 +3829,9 @@
       "KR.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CsvHelper": "30.0.0"
+        },
         "compile": {
           "bin/placeholder/KR.Models.dll": {}
         },
@@ -3784,6 +3842,24 @@
     }
   },
   "libraries": {
+    "BlazorDownloadFile/2.4.0.2": {
+      "sha512": "saaPX9vc/tCknXu0YHkER5ePVajil/40DjlCCCEakr4p6Rsby3sbK5mbNjaGJssdLKlR8C3NxSsIDyoGvawUvQ==",
+      "type": "package",
+      "path": "blazordownloadfile/2.4.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "blazordownloadfile.2.4.0.2.nupkg.sha512",
+        "blazordownloadfile.nuspec",
+        "build/BlazorDownloadFile.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/BlazorDownloadFile.props",
+        "buildTransitive/BlazorDownloadFile.props",
+        "lib/netstandard2.1/BlazorDownloadFile.dll",
+        "staticwebassets/BlazorDownloadFileScript.js"
+      ]
+    },
     "Blazored.LocalStorage/4.2.0": {
       "sha512": "cn6h0QrLw0AIwkx/LiogtBycBFHIeqT/ptXIt871/07qTCvIGXCQZpc1s38wpmTfYLvpha5+5yn6TvIaY9ziyg==",
       "type": "package",
@@ -3816,6 +3892,30 @@
         "lib/netstandard2.1/Blazored.Toast.dll",
         "staticwebassets/blazored-toast.css",
         "staticwebassets/blazored-toast.min.css"
+      ]
+    },
+    "CsvHelper/30.0.0": {
+      "sha512": "0VXyouC1g43bXtEJRReJfB5C3RwxZOUSk9FnNv8/47PptzrVYKrEi/H3PP14+MvP+mLCnDiAtOXbIwvnEMSPxw==",
+      "type": "package",
+      "path": "csvhelper/30.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.30.0.0.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net45/CsvHelper.dll",
+        "lib/net45/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net5.0/CsvHelper.dll",
+        "lib/net5.0/CsvHelper.xml",
+        "lib/net6.0/CsvHelper.dll",
+        "lib/net6.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -3975,10 +4075,10 @@
         "microsoft.aspnetcore.components.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Forms/6.0.0": {
-      "sha512": "POjep/9qy79PD/q/5Gai7Xsg6Oybmo10+bVsCkoTrfu1kAO8dWgbQgJWH8I/VMfOPZY/dPgfo+BitqEriWMuKQ==",
+    "Microsoft.AspNetCore.Components.Forms/6.0.10": {
+      "sha512": "rAJm3ss1RQKayO/KPNNa5fP8iLzdK1fdumVT3Kgj4xxRTZXIzHM+oDdmunVHZKvK8qFg/iFbzMdsfZJBT94uGA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/6.0.0",
+      "path": "microsoft.aspnetcore.components.forms/6.0.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3986,14 +4086,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.6.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.6.0.10.nupkg.sha512",
         "microsoft.aspnetcore.components.forms.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Web/6.0.0": {
-      "sha512": "EvTZEhXCqcIxEs01ScF0ts/CyMOzXQIFfcgwTeLae7dQV7WnPEFhqrlD+1l78lA/h+Uer1RvaRbkAScGE/0tyQ==",
+    "Microsoft.AspNetCore.Components.Web/6.0.10": {
+      "sha512": "X1TrvIZ6NJWXgy6SsmK4IKphylIwCFU/EMEdM80AJCjU5h4Ui3HufVonzGTGrsMjIURgqihXBqjUAuzOjIaIlA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.web/6.0.0",
+      "path": "microsoft.aspnetcore.components.web/6.0.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4001,7 +4101,7 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.Web.xml",
-        "microsoft.aspnetcore.components.web.6.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.components.web.6.0.10.nupkg.sha512",
         "microsoft.aspnetcore.components.web.nuspec"
       ]
     },
@@ -5668,10 +5768,10 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.JSInterop/6.0.0": {
-      "sha512": "M7NyTgOY0vhozRtppvxUDJblgPWBUg6ioJ2vpaKpXVYILB0No8Vrv4HPis+ig5BzaOWd3PR9D3oTovYKGBt3mw==",
+    "Microsoft.JSInterop/6.0.10": {
+      "sha512": "t/63fnJiLzw2hKsReEAej0oSaHx2L/9wn3Wczip89RX+/FuPopssenWHtj9o0oJedbWgLuu6AbMJed/aIYLnxA==",
       "type": "package",
-      "path": "microsoft.jsinterop/6.0.0",
+      "path": "microsoft.jsinterop/6.0.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5679,7 +5779,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net6.0/Microsoft.JSInterop.dll",
         "lib/net6.0/Microsoft.JSInterop.xml",
-        "microsoft.jsinterop.6.0.0.nupkg.sha512",
+        "microsoft.jsinterop.6.0.10.nupkg.sha512",
         "microsoft.jsinterop.nuspec"
       ]
     },
@@ -6438,6 +6538,27 @@
         "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll",
         "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "MudBlazor/6.0.18": {
+      "sha512": "XgPSVmXfoXujsMzkw3F6QKIQhb320CWuqzeHToFpznAktnOV+nEYAoSBHiPOQsZs7Se68/BavMIQzaIVeVN+bw==",
+      "type": "package",
+      "path": "mudblazor/6.0.18",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "Nuget.png",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/MudBlazor.props",
+        "buildMultiTargeting/MudBlazor.props",
+        "buildTransitive/MudBlazor.props",
+        "lib/net6.0/MudBlazor.dll",
+        "lib/net6.0/MudBlazor.xml",
+        "mudblazor.6.0.18.nupkg.sha512",
+        "mudblazor.nuspec",
+        "staticwebassets/MudBlazor.min.css",
+        "staticwebassets/MudBlazor.min.js"
       ]
     },
     "NETStandard.Library/1.6.1": {
@@ -8118,10 +8239,10 @@
         "system.io.filesystem.primitives.nuspec"
       ]
     },
-    "System.IO.Pipelines/6.0.0": {
-      "sha512": "mXX66shZ4xLlI3vNLaJ0lt8OIZdmXTvIqXRdQX5HLVGSkLhINLsVhyZuX2UdRFnOGkqnwmMUs40pIIQ7mna4+A==",
+    "System.IO.Pipelines/6.0.3": {
+      "sha512": "ryTgF+iFkpGZY1vRQhfCzX0xTdlV3pyaTTqRu2ETbEv+HlV7O6y7hyQURnghNIXvctl5DuZ//Dpks6HdL/Txgw==",
       "type": "package",
-      "path": "system.io.pipelines/6.0.0",
+      "path": "system.io.pipelines/6.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8138,7 +8259,7 @@
         "lib/netcoreapp3.1/System.IO.Pipelines.xml",
         "lib/netstandard2.0/System.IO.Pipelines.dll",
         "lib/netstandard2.0/System.IO.Pipelines.xml",
-        "system.io.pipelines.6.0.0.nupkg.sha512",
+        "system.io.pipelines.6.0.3.nupkg.sha512",
         "system.io.pipelines.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -10790,14 +10911,17 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BlazorDownloadFile >= 2.4.0.2",
       "Blazored.LocalStorage >= 4.2.0",
       "Blazored.Toast >= 3.2.2",
+      "CsvHelper >= 30.0.0",
       "KR.API >= 1.0.0",
       "KR.Models >= 1.0.0",
       "Microsoft.AspNetCore.Components.Authorization >= 6.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.10",
+      "MudBlazor >= 6.0.18",
       "Radzen.Blazor >= 4.1.15"
     ]
   },
@@ -10847,6 +10971,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "BlazorDownloadFile": {
+            "target": "Package",
+            "version": "[2.4.0.2, )"
+          },
           "Blazored.LocalStorage": {
             "target": "Package",
             "version": "[4.2.0, )"
@@ -10854,6 +10982,10 @@
           "Blazored.Toast": {
             "target": "Package",
             "version": "[3.2.2, )"
+          },
+          "CsvHelper": {
+            "target": "Package",
+            "version": "[30.0.0, )"
           },
           "Microsoft.AspNetCore.Components.Authorization": {
             "target": "Package",
@@ -10872,6 +11004,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[6.0.10, )"
+          },
+          "MudBlazor": {
+            "target": "Package",
+            "version": "[6.0.18, )"
           },
           "Radzen.Blazor": {
             "target": "Package",

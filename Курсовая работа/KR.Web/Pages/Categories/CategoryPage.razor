@@ -10,7 +10,7 @@
 
 
 
-<AuthorizeView Roles="Администратор, Отдел продаж, Отдел закупок">
+<AuthorizeView Roles="Администратор, Отдел продаж, Отдел закупок, Работник склада">
     <Authorized >
         <RadzenContent Container="main">
     <ChildContent>
@@ -20,7 +20,10 @@
             <div class="col-md-12">
                         <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="AddCategory">
                 </RadzenButton>
-                        <RadzenDataGrid @ref="grid" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getCategoriesResult" TItem="Category" RowSelect="@CategoryRowSelect" EmptyText="@ConstantValues.COLLECTION_EMPTY">
+                        <RadzenDataGrid @ref="grid" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getCategoriesResult" TItem="Category" RowSelect="@CategoryRowSelect" EmptyText="@ConstantValues.COLLECTION_EMPTY" AllowColumnResize="true" PageSize="8"
+                        EqualsText="Равно" NotEqualsText="Не равно" ContainsText="Содержит" DoesNotContainText="Не содержит" IsNotEmptyText="Не пустое" AndOperatorText="И" OrOperatorText="Или"
+                        StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
+                        GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно" FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
                     <Columns>
                         <RadzenDataGridColumn TItem="Category" Property="Name" Title="Название категории">
                         </RadzenDataGridColumn>

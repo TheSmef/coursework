@@ -4,13 +4,18 @@
 @using Kr.Models
 @using System.ComponentModel
 @using KR.Web.Services
+@using MudBlazor
 @attribute [Authorize]
 
 
 <PageTitle>Пользователи</PageTitle>
 
 
-<AuthorizeView Roles="Администратор, Отдел кадров">
+
+
+
+
+<AuthorizeView Roles="Администратор, Отдел кадров" Context="_context">
     <Authorized>
         <RadzenContent Container="main">
             <ChildContent>
@@ -20,7 +25,24 @@
                     <div class="col-md-12">
                         <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="@AddUser">
                         </RadzenButton>
-                        <RadzenDataGrid @ref="grid" RowSelect="@UserRowSelect" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" Data="@getUserResult" AllowPaging="true" AllowSorting="true" TItem="User" EmptyText="@ConstantValues.COLLECTION_EMPTY">
+                        <RadzenButton Icon="assignment_returned" style="margin-bottom: 10px" Text="Экспорт сотрудников" Click="@GetDoc">
+                        </RadzenButton>
+                        <MudFileUpload T="IBrowserFile" FilesChanged="UploadFile" Accept=".csv" style="margin-bottom: 10px">
+                            <ButtonTemplate>
+                                <MudButton HtmlTag="label"
+                                            Variant="MudBlazor.Variant.Filled"
+                                            DisableElevation="true"
+                                            Color="Color.Primary"
+                                            StartIcon="@Icons.Filled.CloudUpload"
+                                            for="@context">
+                                        Импортировать сотрудников
+                                </MudButton>
+                            </ButtonTemplate>
+                        </MudFileUpload>
+                        <RadzenDataGrid @ref="grid" RowSelect="@UserRowSelect" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" Data="@getUserResult" AllowPaging="true" AllowSorting="true" TItem="User" EmptyText="@ConstantValues.COLLECTION_EMPTY" AllowColumnResize="true" PageSize="8"
+                                        EqualsText="Равно" NotEqualsText="Не равно" ContainsText="Содержит" DoesNotContainText="Не содержит" IsNotEmptyText="Не пустое" AndOperatorText="И" OrOperatorText="Или"
+                                        StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
+                                        GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно" FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
                             <Columns>
                                 <RadzenDataGridColumn TItem="User" Property="Last_name" Title="Фамилия">
                                 </RadzenDataGridColumn>
@@ -41,8 +63,8 @@
                                     </Template>
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="User" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
-                                    <Template Context="_context">
-                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" @onclick:stopPropagation="true" Click="@((args) => DeleteUser(args, _context))">
+                                    <Template Context="_context_">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" @onclick:stopPropagation="true" Click="@((args) => DeleteUser(args, _context_))">
                                         </RadzenButton>
                                     </Template>
                                 </RadzenDataGridColumn>
@@ -57,6 +79,11 @@
         <RadzenLabel Style="text-align:center" Text="@ConstantValues.ERROR_CLAIMS" />
     </NotAuthorized>
 </AuthorizeView>
+
+
+
+
+
 
 
 

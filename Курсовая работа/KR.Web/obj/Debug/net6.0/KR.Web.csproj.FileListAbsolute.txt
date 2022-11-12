@@ -281,3 +281,10 @@ C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\b
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\CsvHelper.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\BlazorDownloadFile.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\Microsoft.JSInterop.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\MudBlazor.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Debug\net6.0\System.IO.Pipelines.dll

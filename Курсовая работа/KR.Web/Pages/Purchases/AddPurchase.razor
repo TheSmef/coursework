@@ -1,0 +1,118 @@
+﻿@layout MainLayout
+
+@using KR.Web.Constants
+@using KR.Web.Models
+@using KR.Web.Services
+@using Kr.Models
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Администратор, Отдел закупок")]
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@purchase" TItem="Purchase" Submit="@HandleAdd">
+                    <ChildContent>
+                        <DataAnnotationsValidator/>
+                        @if (@HaveErrors)
+                        {
+                            <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
+                            </RadzenHeading>
+                        }
+                        <div>
+                            <RadzenLabel Text="Договор закупки" Component="Order" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div>
+                            <RadzenDropDownDataGrid SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="PurchaseAgreement" Data="@agreements" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(purchase.PurchaseAgreement)" style="width: 100%" TextProperty="Agreement_Code">
+                                    <Columns>
+                                    <RadzenDropDownDataGridColumn Property="Agreement_Code" Title="Номер договора закупки">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Provider" Title="Название организации">
+                                    </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Date_Of_Purchase" Title="Дата договора">
+                                        </RadzenDropDownDataGridColumn>
+                                    </Columns>
+                                </RadzenDropDownDataGrid>
+                            <ValidationMessage For="@(() => purchase.PurchaseAgreement)" />
+                        </div>
+                        <div>
+                            <RadzenLabel Text="Продукт" Component="Product" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div>
+                            <RadzenDropDownDataGrid SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="ProductStorage" Data="@products" Multiple="false" SelectedItemsText="Выбранных элементов" TextProperty="Name" @bind-Value="@(purchase.ProductStorage)" style="width: 100%">
+                                <Columns>
+                                    <RadzenDropDownDataGridColumn Property="Name" Title="Продукт">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Cost" Title="Цена">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Amount" Title="Количество в наличии">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn  Property="Category" Title="Категория">
+                                        <Template Context="data">
+                                            @(data.Category?.Name)
+                                        </Template>
+                                    </RadzenDropDownDataGridColumn>
+                                </Columns>
+                            </RadzenDropDownDataGrid>
+                            <ValidationMessage For="@(() => purchase.ProductStorage)" />
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Количество" Component="Amount" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(purchase.Amount)"> 
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => purchase.Amount)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Цена состава заказа" Component="Price" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(purchase.Price)">
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => purchase.Price)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Дата поставки" Component="Date_order" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenDatePicker @bind-Value=@purchase.Date_Purchase DateFormat="d" Class="w-100" />
+                                <ValidationMessage For="@(() => purchase.Date_Purchase)" />
+                            </div>
+                        </div>
+                        <div class="row footer">
+                            <div>
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Сохранить" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonType="ButtonType.Button" Text="Закрыть" ButtonStyle="ButtonStyle.Danger" Click="@Close">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+
+
+
+
+
+
+
+

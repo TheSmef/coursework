@@ -27,7 +27,7 @@ AS
 INSERT INTO StorageHistory
 (Id_StorageHistory ,Summary, ProductStorageId_Product_Storage, Date)
 VALUES
-(NEWID(), CONCAT('был создан новый товар "', (SELECT Name FROM INSERTED), '", с начальным количеством ', (SELECT Amount FROM INSERTED)),
+(NEWID(), CONCAT('Р±С‹Р» СЃРѕР·РґР°РЅ РЅРѕРІС‹Р№ С‚РѕРІР°СЂ "', (SELECT Name FROM INSERTED), '", СЃ РЅР°С‡Р°Р»СЊРЅС‹Рј РєРѕР»РёС‡РµСЃС‚РІРѕРј - ', (SELECT Amount FROM INSERTED)),
 (SELECT Id_Product_Storage FROM INSERTED),
 GETDATE())
 GO
@@ -36,12 +36,12 @@ CREATE OR ALTER TRIGGER ProductStorage_UPDATE
 ON ProductStorages
 AFTER UPDATE
 AS
-INSERT INTO StorageHistory
-(Id_StorageHistory, ProductStorageId_Product_Storage, Summary, Date)
-VALUES
-(NEWID(), (SELECT Id_Product_Storage FROM INSERTED),
-CONCAT('Товар "', (SELECT Name FROM INSERTED), '", изменил своё количество на складе, теперь данного товара на складе - ',  (SELECT Amount FROM INSERTED)),
-GETDATE())
+if ((SELECT Amount FROM INSERTED) != (SELECT Amount FROM DELETED))
+	INSERT INTO StorageHistory
+	(Id_StorageHistory, ProductStorageId_Product_Storage, Summary, Date) VALUES
+	(NEWID(), (SELECT Id_Product_Storage FROM INSERTED),
+	CONCAT('РўРѕРІР°СЂ "', (SELECT Name FROM INSERTED), '", РёР·РјРµРЅРёР» СЃРІРѕС‘ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР° СЃРєР»Р°РґРµ, С‚РµРїРµСЂСЊ РґР°РЅРЅРѕРіРѕ С‚РѕРІР°СЂР° РЅР° СЃРєР»Р°РґРµ - ',  (SELECT Amount FROM INSERTED)),
+	GETDATE())
 GO
 
 CREATE OR ALTER TRIGGER OrderProduct_INSERTED
@@ -68,7 +68,7 @@ AFTER DELETE
 AS
 UPDATE ProductStorages
 SET Amount = (SELECT Amount FROM ProductStorages Where Id_Product_Storage = (SELECT ProductId_Product_Storage FROM DELETED)) + (SELECT Amount FROM DELETED)
-WHERE Id_Product_Storage = (SELECT ProductId_Product_Storage FROM INSERTED)
+WHERE Id_Product_Storage = (SELECT ProductId_Product_Storage FROM DELETED)
 GO
 
 CREATE OR ALTER TRIGGER Purchase_INSERT
@@ -98,4 +98,15 @@ SET Amount = (SELECT Amount FROM ProductStorages Where Id_Product_Storage = (SEL
 WHERE Id_Product_Storage = (SELECT ProductStorageId_Product_Storage FROM DELETED)
 GO
 
+insert into users (Id_User, BirthDate, First_name, Last_name, Otch)
+Values ('1d9b1fc1-6273-4102-822b-7d4b92541216', GETDATE(), 'admin', 'admin', 'admin')
+insert into Accounts (UserId, Email, Login, Password)
+values ('1d9b1fc1-6273-4102-822b-7d4b92541216', 'admin@admin.admin', 'admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec')
+insert into Roles (Id_Role, AccountUserUserId, Name)
+Values (NEWID(), '1d9b1fc1-6273-4102-822b-7d4b92541216', 'РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ')
 
+SET ANSI_WARNINGS  OFF;
+
+DBCC TRACEON(460, -1);
+
+GO

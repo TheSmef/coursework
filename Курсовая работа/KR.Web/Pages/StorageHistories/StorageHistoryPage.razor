@@ -1,0 +1,66 @@
+﻿@page "/storagehistory"
+@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using Kr.Models
+@using System.ComponentModel
+@using KR.Web.Services
+@attribute [Authorize]
+
+
+<PageTitle>История склада</PageTitle>
+
+
+<AuthorizeView Roles="Администратор, Отдел продаж, Отдел закупок, Работник склада">
+    <Authorized>
+        <RadzenContent Container="main">
+            <ChildContent>
+                <RadzenHeading Size="H1" Text="История склада">
+                </RadzenHeading>
+                <div class="row">
+                    <div class="col-md-12">
+                        <RadzenDataGrid @ref="grid" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" Data="@getStorageHistoryResult" AllowPaging="true" AllowSorting="true" TItem="StorageHistory" EmptyText="@ConstantValues.COLLECTION_EMPTY" AllowColumnResize="true" PageSize="8"
+                                        EqualsText="Равно" NotEqualsText="Не равно" ContainsText="Содержит" DoesNotContainText="Не содержит" IsNotEmptyText="Не пустое" AndOperatorText="И" OrOperatorText="Или"
+                                        StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
+                                        GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно"FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="StorageHistory" Property="Summary" Title="Описание изменения">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="StorageHistory" Property="Date" Title="Дата изменения" Width="200px">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="StorageHistory" Property="ProductStorage" SortProperty="ProductStorage.Name" GroupProperty="ProductStorage.Name" FilterProperty="ProductStorage.Name" Title="Товар" Width="220px">
+                                    <Template Context="data">
+                                        @(data.ProductStorage?.Name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="StorageHistory" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                                    <Template Context="_context">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" @onclick:stopPropagation="true" Click="@((args) => DeleteStorageHistory(args, _context))">
+                                        </RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGrid>
+                    </div>
+                </div>
+            </ChildContent>
+        </RadzenContent>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center" Text="@ConstantValues.ERROR_CLAIMS" />
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

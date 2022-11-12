@@ -29,14 +29,13 @@ namespace KR.Web.Pages.Users
         protected NavigationManager NavigationManager { get; set; }
 
         [Inject]
+        protected UserService UserService { get; set; }
+        [Inject]
         protected AuthService AuthService { get; set; }
 
         [Inject]
         protected DialogService DialogService { get; set; }
 
-        [Parameter]
-        [SupplyParameterFromQuery]
-        public string? returnUrl { get; set; }
 
         private bool HaveErrors { get; set; }
 
@@ -73,7 +72,7 @@ namespace KR.Web.Pages.Users
                     return;
                 }
 
-                if (!AuthService.CreateNewAccount(account))
+                if (!UserService.CreateNewAccount(account))
                 {
                     Error = ConstantValues.ERROR_REGISTER_UNKNOWN;
                     HaveErrors = true;
@@ -92,7 +91,6 @@ namespace KR.Web.Pages.Users
 
         protected async Task Close(MouseEventArgs? args)
         {
-            AuthService.Reload();
             DialogService.Close(null);
         }
     }

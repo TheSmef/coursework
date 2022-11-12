@@ -26,8 +26,7 @@ namespace KR.Web.Pages.Users
 {
     public partial class EditUser
     {
-        [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+
 
         [Inject]
         protected UserService UserService { get; set; }

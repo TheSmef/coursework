@@ -8,6 +8,7 @@
 <RadzenNotification />
 <RadzenTooltip />
 <RadzenContextMenu />
+<MudThemeProvider/>
 
 <RadzenLayout>
     <ChildContent>
@@ -36,34 +37,79 @@
             <ChildContent>
                 <RadzenPanelMenu style="height: 100%" Click="@NavMenuClicked">
                     <ChildContent>
-                        <AuthorizeView Roles="Администратор">
-                            <Authorized>
-                                <RadzenPanelMenuItem Text="Counter" Path="counter">
-                                </RadzenPanelMenuItem>
-                            </Authorized>
-                        </AuthorizeView>
-                        <AuthorizeView Roles="Администратор, Отдел закупок, Отдел продаж">
-                            <Authorized>
-                                <RadzenPanelMenuItem Text="Категории" Path="category">
-                                </RadzenPanelMenuItem>
-                            </Authorized>
-                        </AuthorizeView>
-                        <AuthorizeView Roles="Администратор, Отдел кадров">
-                            <Authorized>
-                                <RadzenPanelMenuItem Text="Должности" Path="post">
-                                </RadzenPanelMenuItem>
-                            </Authorized>
-                        </AuthorizeView>
-                        <AuthorizeView Roles="Администратор, Отдел кадров">
-                            <Authorized>
-                                <RadzenPanelMenuItem Text="Пользователи" Path="user">
-                                </RadzenPanelMenuItem>
-                            </Authorized>
-                        </AuthorizeView>
-                        <RadzenHtmlEditorSeparator></RadzenHtmlEditorSeparator>
                         <AuthorizeView>
                             <Authorized>
-                                <RadzenPanelMenuItem Text="Выход из аккаунта" Value="1">
+                                <RadzenPanelMenuItem Text="Профиль" Path="profile" Icon="account_circle">
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="Администратор, Отдел закупок, Отдел продаж, Работник склада">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Работа с товарами" Icon="loyalty">
+                                    <RadzenPanelMenuItem Text="Категории" Path="category">
+                                    </RadzenPanelMenuItem>
+                                    <RadzenPanelMenuItem Text="Продукты" Path="product" >
+                                    </RadzenPanelMenuItem>
+                                    <RadzenPanelMenuItem Text="История склада" Path="storagehistory">
+                                    </RadzenPanelMenuItem>
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="Администратор, Отдел кадров">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Отдел кадров" Icon="account_box">
+                                    <RadzenPanelMenuItem Text="Должности" Path="post">
+                                    </RadzenPanelMenuItem>
+                                    <RadzenPanelMenuItem Text="Пользователи" Path="user">
+                                    </RadzenPanelMenuItem>
+                                    <RadzenPanelMenuItem Text="Должности пользователей" Path="userpost">
+                                    </RadzenPanelMenuItem>
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="Администратор, Отдел закупок">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Работа с закупками" Icon="description">
+                                    <RadzenPanelMenuItem Text="Договоры закупок" Path="purchaseagreement">
+                                    </RadzenPanelMenuItem>
+                                    <RadzenPanelMenuItem Text="Закупки" Path="purchase">
+                                    </RadzenPanelMenuItem>
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="Администратор, Отдел продаж">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Работа с заказами" Icon="add_shopping_cart">
+                                    <RadzenPanelMenuItem Text="Заказы" Path="order">
+                                    </RadzenPanelMenuItem>
+                                    <RadzenPanelMenuItem Text="Состав заказов" Path="orderproduct">
+                                    </RadzenPanelMenuItem>
+                                    <RadzenPanelMenuItem Text="Статистика продаж" Path="orderstats">
+                                    </RadzenPanelMenuItem>
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="Администратор, Бухгалтер">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Работа бухгалтерии" Icon="credit_card">
+                                    <RadzenPanelMenuItem Text="История выплат" Path="salaryhistory">
+                                    </RadzenPanelMenuItem>
+                                    <RadzenPanelMenuItem Text="Статистика изменения бюджета" Path="budgetstats">
+                                    </RadzenPanelMenuItem>
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="Администратор">
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Администрирование" Icon="dns">
+                                    <RadzenPanelMenuItem Text="Работа с базой данных" Path="admin">
+                                    </RadzenPanelMenuItem>
+                                </RadzenPanelMenuItem>
+                            </Authorized>
+                        </AuthorizeView>
+                        <AuthorizeView>
+                            <Authorized>
+                                <RadzenPanelMenuItem Text="Выход из аккаунта" Value="1" Icon="exit_to_app">
                                 </RadzenPanelMenuItem>
                             </Authorized>
                         </AuthorizeView>

@@ -20,17 +20,26 @@ using KR.Web.Constants;
 using Kr.Models;
 using System.ComponentModel;
 using KR.Web.Services;
+using Microsoft.AspNetCore.Mvc;
+using BlazorDownloadFile;
 
 namespace KR.Web.Pages.Users
 {
     public partial class UserPage
     {
         [Inject]
+        NavigationManager NavigationManager { get; set; }
+
+        [Inject]
         private DialogService DialogService { get; set; }
 
         private RadzenDataGrid<User>? grid;
         [Inject]
         private UserService UserService { get; set; }
+        [Inject]
+        private ExportService ExportService { get; set; }
+        [Inject]
+        private IBlazorDownloadFileService blazorDownloadFileService { get; set; }
 
         IEnumerable<User> getUserResult;
         protected override async Task OnInitializedAsync()
@@ -45,9 +54,24 @@ namespace KR.Web.Pages.Users
 
         private async Task AddUser()
         {
-            await DialogService.OpenAsync<AddUser>(ConstantValues.ADD_POST);
+            await DialogService.OpenAsync<AddUser>(ConstantValues.ADD_USER);
             UserService.Reload();
             await grid.Reload();
+        }
+
+        private async Task GetDoc()
+        {
+            try
+            {
+                await blazorDownloadFileService.ClearBuffers();
+                await blazorDownloadFileService.AddBuffer(await ExportService.ExportUsersToCsv());
+                await blazorDownloadFileService.DownloadBinaryBuffers("ExportUsers_" + DateTime.Now.ToShortDateString() + ".csv");
+            }
+            catch
+            {
+                await DialogService.OpenAsync<ErrorExport>(ConstantValues.EXPORT_ERROR);
+            }
+
         }
 
 
@@ -81,5 +105,23 @@ namespace KR.Web.Pages.Users
             UserService.Reload();
             await grid.Reload();
         }
+
+
+        private async void UploadFile(IBrowserFile file)
+        {
+            try
+            {
+                MemoryStream ms = new MemoryStream();
+                await file.OpenReadStream().CopyToAsync(ms);
+                byte[] data = ms.ToArray();
+                ExportService.ImportUsersFromCvs(data);
+                grid.Reload();
+            }
+            catch
+            {
+                await DialogService.OpenAsync<ErrorImport>(ConstantValues.IMPORT_ERROR);
+            }
+        }
+
     }
 }

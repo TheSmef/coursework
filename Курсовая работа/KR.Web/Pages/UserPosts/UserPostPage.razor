@@ -1,0 +1,88 @@
+﻿@page "/userpost"
+@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using Kr.Models
+@using System.ComponentModel
+@using KR.Web.Services
+@attribute [Authorize]
+
+
+<PageTitle>Должности пользователей</PageTitle>
+
+
+<AuthorizeView Roles="Администратор, Отдел кадров">
+    <Authorized>
+        <RadzenContent Container="main">
+            <ChildContent>
+                <RadzenHeading Size="H1" Text="Должности пользователей">
+                </RadzenHeading>
+                <div class="row">
+                    <div class="col-md-12">
+                        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="@AddUserPost">
+                        </RadzenButton>
+                        <RadzenDataGrid @ref="grid" RowSelect="@UserPostRowSelect" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" Data="@getUserPostResult" AllowPaging="true" AllowSorting="true" TItem="UserPost" EmptyText="@ConstantValues.COLLECTION_EMPTY" AllowColumnResize="true" PageSize="8"
+                                                EqualsText="Равно" NotEqualsText="Не равно" ContainsText="Содержит" DoesNotContainText="Не содержит" IsNotEmptyText="Не пустое" AndOperatorText="И" OrOperatorText="Или"
+                                                StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
+                                        GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно" FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="UserPost" Property="User" SortProperty="User.Last_name" GroupProperty="User.Last_name" FilterProperty="User.Last_name" Title="Фамилия сотрудника">
+                                    <Template Context="data">
+                                        @(data.User?.Last_name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="UserPost" Property="User" SortProperty="User.First_name" GroupProperty="User.First_name" FilterProperty="User.First_name" Title="Имя сотрудника">
+                                    <Template Context="data">
+                                        @(data.User?.First_name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="UserPost" Property="User" SortProperty="User.Otch" GroupProperty="User.Otch" FilterProperty="User.Otch" Title="Отчество сотрудника">
+                                    <Template Context="data">
+                                        @(data.User?.Otch)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="UserPost" Property="User" SortProperty="User.BirthDate" GroupProperty="User.BirthDate" FilterProperty="User.BirthDate" Title="Дата рождения сотрудника">
+                                    <Template Context="data">
+                                        @(data.User?.BirthDate)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="UserPost" Property="Post" SortProperty="Post.Name" GroupProperty="Post.Name" FilterProperty="Post.Name" Title="Название должности">
+                                    <Template Context="data">
+                                        @(data.Post.Name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="UserPost" Property="Post" Title="Зарплата сотрудника">
+                                    <Template Context="data">
+                                        @((Double)(data.Post.Salary * data.Share))
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="UserPost" Property="Share" Title="Ставка">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="UserPost" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                                    <Template Context="_context">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" @onclick:stopPropagation="true" Click="@((args) => DeleteUserPost(args, _context))">
+                                        </RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGrid>
+                    </div>
+                </div>
+            </ChildContent>
+        </RadzenContent>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center" Text="@ConstantValues.ERROR_CLAIMS" />
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+
+
+
+
+
+
+
+

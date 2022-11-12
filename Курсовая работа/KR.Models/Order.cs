@@ -7,10 +7,17 @@ namespace Kr.Models
     {
         [Key]
         public Guid Id_Order { get; set; } = new Guid();
-        [Required]
+        [Required(ErrorMessage = "Исполнитель - необходимое поле")]
         public virtual UserPost UserPost { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Дата заказа - необходимое поле")]
+        [DateAttribute(ErrorMessage = "Дата заказа должна быть между {1} и {2}")]
         public DateTime Date_Order  { get; set; }
         public virtual ICollection<OrderProduct>? OrderProducts { get; set; }
+
+        public class DateAttribute : RangeAttribute
+        {
+            public DateAttribute()
+              : base(typeof(DateTime), DateTime.Now.AddYears(-50).ToShortDateString(), DateTime.Now.ToShortDateString()) { }
+        }
     }
 }

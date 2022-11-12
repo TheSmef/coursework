@@ -1,0 +1,93 @@
+﻿@page "/orderproduct"
+@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using Kr.Models
+@using System.ComponentModel
+@using KR.Web.Services
+@attribute [Authorize]
+
+
+<PageTitle>Содержания заказов</PageTitle>
+
+
+<AuthorizeView Roles="Администратор, Отдел продаж">
+    <Authorized>
+        <RadzenContent Container="main">
+            <ChildContent>
+                <RadzenHeading Size="H1" Text="Содержания заказов">
+                </RadzenHeading>
+                <div class="row">
+                    <div class="col-md-12">
+                        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="@AddOrderProduct">
+                        </RadzenButton>
+                        <RadzenDataGrid @ref="grid" RowSelect="@OrderProductRowSelect" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" Data="@getOrderProductResult" AllowPaging="true" AllowSorting="true" TItem="OrderProduct" EmptyText="@ConstantValues.COLLECTION_EMPTY" AllowColumnResize="true" PageSize="8"
+                                        EqualsText="Равно" NotEqualsText="Не равно" ContainsText="Содержит" DoesNotContainText="Не содержит" IsNotEmptyText="Не пустое" AndOperatorText="И" OrOperatorText="Или"
+                                        StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
+                                        GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно" FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="OrderProduct" Property="Order.Id_Order" SortProperty="Order.Id_Order" GroupProperty="Order.Id_Order" FilterProperty="Order.Id_Order" Title="Номер заказа">
+                                    <Template Context="data">
+                                        @(data.Order?.Id_Order)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="OrderProduct" Property="Order.Date_Order" SortProperty="Order.Date_Order" GroupProperty="Order.Date_Order" FilterProperty="Order.Date_Order" Title="Дата заказа">
+                                    <Template Context="data">
+                                        @(data.Order?.Date_Order)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="OrderProduct" Property="Order" SortProperty="Order.UserPost.User.Last_name" GroupProperty="Order.UserPost.User.Last_name" FilterProperty="Order.UserPost.User.Last_name" Title="ФИО сотрудника">
+                                    <Template Context="data">
+                                        @(data.Order?.UserPost?.User?.Last_name + " " + data.Order?.UserPost?.User?.First_name + " " + data.Order?.UserPost?.User?.Otch)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="OrderProduct" Property="Order" SortProperty="Order.UserPost.Post.Name" GroupProperty="Order.UserPost.Post.Name" FilterProperty="Order.UserPost.Post.Name" Title="Должность сотрудника">
+                                    <Template Context="data">
+                                        @(data.Order?.UserPost?.Post.Name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="OrderProduct" Property="Product" SortProperty="Product.Name" GroupProperty="Product.Name" FilterProperty="Product.Name" Title="Название продукта">
+                                    <Template Context="data">
+                                        @(data.Product?.Name)
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="OrderProduct" Property="Price" Title="Цена">
+                                    <FooterTemplate>
+                                        Сумма цен элементов: <b>@(grid.View.Sum(x => x.Price))</b>
+                                    </FooterTemplate>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="OrderProduct" Property="Amount" Title="Количество">
+                                    <FooterTemplate>
+                                        Общее количество: <b>@(grid.View.Sum(x => x.Amount))</b>
+                                    </FooterTemplate>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="OrderProduct" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                                    <Template Context="_context">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" @onclick:stopPropagation="true" Click="@((args) => DeleteOrderProduct(args, _context))">
+                                        </RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGrid>
+                    </div>
+                </div>
+            </ChildContent>
+        </RadzenContent>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center" Text="@ConstantValues.ERROR_CLAIMS" />
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

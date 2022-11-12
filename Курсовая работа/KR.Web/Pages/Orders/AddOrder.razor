@@ -1,0 +1,76 @@
+﻿@layout MainLayout
+
+@using KR.Web.Constants
+@using KR.Web.Models
+@using KR.Web.Services
+@using Kr.Models
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Администратор, Отдел кадров")]
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@order" TItem="Order" Submit="@HandleAdd">
+                    <ChildContent>
+                        <DataAnnotationsValidator/>
+                        @if (@HaveErrors)
+                        {
+                            <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
+                            </RadzenHeading>
+                        }
+                        <div>
+                            <RadzenLabel Text="Сотрудник" Component="User" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div>
+                            <RadzenDropDownDataGrid @ref="grid" SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="UserPost" Data="@users" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(order.UserPost)" style="width: 100%" TextProperty="User.Last_name">
+                                    <Columns>
+                                    <RadzenDropDownDataGridColumn Property="User.Last_name" Title="Фамилия">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="User.First_name" Title="Имя">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="User.Otch" Title="Отчество">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Post.Name" Title="Должность">
+                                        </RadzenDropDownDataGridColumn>
+                                    </Columns>
+                                </RadzenDropDownDataGrid>
+                            <ValidationMessage For="@(() => order.UserPost)" />
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Дата заказа" Component="Date_order" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenDatePicker @bind-Value=@order.Date_Order DateFormat="d" Class="w-100"/>
+                                <ValidationMessage For="@(() => order.Date_Order)" />
+                            </div>
+                        </div>
+                        <div class="row footer">
+                            <div>
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Сохранить" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonType="ButtonType.Button" Text="Закрыть" ButtonStyle="ButtonStyle.Danger" Click="@Close">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+
+
+
+
+
+
+
+

@@ -8,18 +8,26 @@ namespace Kr.Models
     {
         [Key]
         public Guid Id_Puchase { get; set; } = new Guid();
+        [Required(ErrorMessage = "Продукт - необходимое поле")]
         public virtual ProductStorage ProductStorage { get; set; }
         [Required(ErrorMessage = "Количество товара - необходимое поле")]
-        [Range(1, int.MaxValue, ErrorMessage = "Количество товара не может быть 0 и меньше")]
+        [Range(1, int.MaxValue, ErrorMessage = "Количество товара не может быть 0 и меньше, и не превышать 2147483647")]
         public int Amount { get; set; }
         [JsonIgnore]
+        [Required(ErrorMessage = "Договор закупки - необходимое поле")]
         public virtual PurchaseAgreement PurchaseAgreement { get; set; }
         [Required(ErrorMessage = "Цена - необходимое поле")]
-        [Range(0.01, Double.MaxValue, ErrorMessage = "Количество товара не может быть 0 и меньше")]
+        [Range(0.01, 999999999999.99, ErrorMessage = "Значение стоимости должно находиться между 0 и 1000000000000.00")]
         public decimal Price { get; set; }
-        [Required(ErrorMessage = "Дата закупки необходма для ввода")]
+        [Required(ErrorMessage = "Дата поставки - необходимое поле")]
+        [DateAttribute(ErrorMessage = "Дата поставки должна быть между {1} и {2}")]
         public DateTime Date_Purchase { get; set; }
-        [Required]
-        public DateTime Date_Creation { get; set; }
+        public DateTime Date_Creation { get; set; } = DateTime.Now;
+
+        public class DateAttribute : RangeAttribute
+        {
+            public DateAttribute()
+              : base(typeof(DateTime), DateTime.Now.AddYears(-50).ToShortDateString(), DateTime.Now.AddYears(2).ToShortDateString()) { }
+        }
     }
 }

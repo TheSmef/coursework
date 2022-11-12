@@ -1,0 +1,68 @@
+﻿@page "/edit-orderproduct/{Id_OrderProduct}"
+@layout MainLayout
+
+@using KR.Web.Constants
+@using KR.Web.Models
+@using KR.Web.Services
+@using Kr.Models
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Администратор, Отдел продаж")]
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@orderproduct" TItem="OrderProduct" Submit="@HandleEdit">
+                    <ChildContent>
+                        <DataAnnotationsValidator/>
+                        @if (@HaveErrors)
+                        {
+                            <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
+                            </RadzenHeading>
+                        }
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Количество" Component="Amount" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(orderproduct.Amount)">
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => orderproduct.Amount)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Цена состава заказа" Component="Price" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(orderproduct.Price)">
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => orderproduct.Price)" />
+                            </div>
+                        </div>
+                        <div class="row footer">
+                            <div>
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Сохранить" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonType="ButtonType.Button" Text="Закрыть" ButtonStyle="ButtonStyle.Danger" Click="@Close">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+
+
+
+
+
+

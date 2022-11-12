@@ -1,0 +1,54 @@
+﻿@page "/purchaseagreement"
+@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using KR.Web.Services
+@using Kr.Models
+@using System.ComponentModel
+@attribute [Authorize]
+
+
+<PageTitle>Договоры поставок</PageTitle>
+
+
+
+<AuthorizeView Roles="Администратор, Отдел закупок">
+    <Authorized >
+        <RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H1" Text="Договоры поставок">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-md-12">
+                        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Добавить" Click="AddPurchaseAgreement">
+                </RadzenButton>
+                        <RadzenDataGrid @ref="grid" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getAreementsResult" TItem="PurchaseAgreement" RowSelect="@PurchaseAgreementRowSelect" EmptyText="@ConstantValues.COLLECTION_EMPTY" AllowColumnResize="true" PageSize="8"
+                                        EqualsText="Равно" NotEqualsText="Не равно" ContainsText="Содержит" DoesNotContainText="Не содержит" IsNotEmptyText="Не пустое" AndOperatorText="И" OrOperatorText="Или"
+                                        StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
+                                        GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно"FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
+                    <Columns>
+                                <RadzenDataGridColumn TItem="PurchaseAgreement" Property="Provider" Title="Название организации">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PurchaseAgreement" Property="Agreement_Code" Title="Номер договора">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PurchaseAgreement" Property="Date_Of_Purchase" Title="Дата закупки">
+                                </RadzenDataGridColumn>
+
+                        <RadzenDataGridColumn TItem="PurchaseAgreement" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                            <Template Context="_context">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) => DeleteAgreement(args, _context))" @onclick:stopPropagation="true">
+                                </RadzenButton>
+                            </Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </RadzenDataGrid>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center"  Text="@ConstantValues.ERROR_CLAIMS"/>
+    </NotAuthorized>
+</AuthorizeView>
+
+

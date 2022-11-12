@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using KR.Models;
 using KR.Web.Models;
 using KR.Web.Security;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace KR.Web.Services
 {
@@ -42,7 +44,6 @@ namespace KR.Web.Services
         {
             return !storeDbContext.Accounts.Where(x => x.Email == email).Any();
         }
-
         public async Task EditUser(User user)
         {
             if (user != null)
@@ -69,6 +70,25 @@ namespace KR.Web.Services
                 return false;
             }
 
+        }
+
+        public bool CreateNewAccount(RegistrationModel registrationData)
+        {
+            User user = new User();
+            Account account = new Account();
+            user.Last_name = registrationData.Last_name;
+            user.First_name = registrationData.First_name;
+            user.Otch = registrationData.Otch;
+            user.BirthDate = registrationData.BirthDate;
+            account.Email = registrationData.Email;
+            account.Login = registrationData.Login;
+            account.Password = HashProvider.MakeHash(registrationData.Password);
+            account.Roles = registrationData.Roles;
+            user.Account = account;
+
+
+            storeDbContext.Users.Add(user);
+            return (storeDbContext.SaveChanges() > 0);
         }
 
         public void Reload()

@@ -530,3 +530,4 @@ C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\o
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Debug\net6.0\KR.API.pdb
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Debug\net6.0\KR.API.genruntimeconfig.cache
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Debug\net6.0\ref\KR.API.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\CsvHelper.dll

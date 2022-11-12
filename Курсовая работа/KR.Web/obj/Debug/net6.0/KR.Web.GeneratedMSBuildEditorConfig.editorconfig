@@ -31,12 +31,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xFZGl0Q2F0ZWdvcnkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/ErrorDelete.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JEZWxldGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/ErrorExport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JFeHBvcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/ErrorImport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JJbXBvcnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Login/Login.razor]
@@ -45,6 +49,30 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Login/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/OrderProducts/AddOrderProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJQcm9kdWN0c1xBZGRPcmRlclByb2R1Y3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/OrderProducts/EditOrderProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJQcm9kdWN0c1xFZGl0T3JkZXJQcm9kdWN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/OrderProducts/OrderProductPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJQcm9kdWN0c1xPcmRlclByb2R1Y3RQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Orders/AddOrder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXEFkZE9yZGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Orders/EditOrder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXEVkaXRPcmRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Orders/OrderPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXE9yZGVyUGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Posts/AddPost.razor]
@@ -57,6 +85,86 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Posts/PostPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcUG9zdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Products/AddProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcQWRkUHJvZHVjdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Products/EditProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcRWRpdFByb2R1Y3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Products/ProductPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcUHJvZHVjdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Profile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/PurchaseAgreements/AddPurchaseAgreemen.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHVyY2hhc2VBZ3JlZW1lbnRzXEFkZFB1cmNoYXNlQWdyZWVtZW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/PurchaseAgreements/EditPurchaseAgreemen.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHVyY2hhc2VBZ3JlZW1lbnRzXEVkaXRQdXJjaGFzZUFncmVlbWVuLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/PurchaseAgreements/PurchaseAgreementPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHVyY2hhc2VBZ3JlZW1lbnRzXFB1cmNoYXNlQWdyZWVtZW50UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Purchases/AddPurchase.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHVyY2hhc2VzXEFkZFB1cmNoYXNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Purchases/EditPurchase.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHVyY2hhc2VzXEVkaXRQdXJjaGFzZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Purchases/PurchasePage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHVyY2hhc2VzXFB1cmNoYXNlUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Salary/AddSalary.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2FsYXJ5XEFkZFNhbGFyeS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Salary/EditSalary.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2FsYXJ5XEVkaXRTYWxhcnkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Salary/SalaryPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2FsYXJ5XFNhbGFyeVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Statistics/PostStats.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdGlzdGljc1xQb3N0U3RhdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Statistics/ProductSalesStats.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdGlzdGljc1xQcm9kdWN0U2FsZXNTdGF0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/StorageHistories/StorageHistoryPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RvcmFnZUhpc3Rvcmllc1xTdG9yYWdlSGlzdG9yeVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/SuccessDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VjY2Vzc0RpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/UserPosts/AddUserPost.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBvc3RzXEFkZFVzZXJQb3N0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/UserPosts/EditUserPost.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBvc3RzXEVkaXRVc2VyUG9zdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/UserPosts/UserPostPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBvc3RzXFVzZXJQb3N0UGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Users/AddUser.razor]

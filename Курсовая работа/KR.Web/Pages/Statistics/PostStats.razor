@@ -1,0 +1,50 @@
+﻿@page "/budgetstats"
+@using KR.Web.Constants
+@using KR.Web.Models
+@using KR.Web.Services
+
+
+<PageTitle>Статистика бюджета</PageTitle>
+
+<AuthorizeView Roles="Администратор, Отдел продаж">
+    <Authorized>
+        <RadzenHeading Size="H1" Text="Статистика изменения бюджета">
+        </RadzenHeading>
+<div style="margin-bottom: 1rem" class="flex-column">
+    <div>
+        <RadzenLabel Text="Дата старта" Component="Date" style="width: 100%">
+        </RadzenLabel>
+    </div>
+    <div>
+        <RadzenDatePicker @bind-Value=@dateFrom DateFormat="d" Class="w-100" />
+    </div>
+</div>
+<div style="margin-bottom: 1rem" class="flex-column">
+    <div>
+        <RadzenLabel Text="Дата конца" Component="Date" style="width: 100%">
+        </RadzenLabel>
+    </div>
+    <div>
+        <RadzenDatePicker @bind-Value=@dateTo DateFormat="d" Class="w-100" />
+    </div>
+</div>
+<RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Составить" Click="@Load">
+</RadzenButton>
+<RadzenChart>
+    <RadzenColumnSeries Data="stats" CategoryProperty="Name" Title="Изм. бюджета" LineType="LineType.Solid" ValueProperty="Summ">
+                        <RadzenSeriesDataLabels Visible="@true"/>
+                    </RadzenColumnSeries>
+                    <RadzenColumnOptions/>
+                    <RadzenCategoryAxis Padding="10"/>
+                    <RadzenValueAxis>
+                        <RadzenGridLines Visible="true"/>
+                        <RadzenAxisTitle Text="Бюджет"/>
+                    </RadzenValueAxis>
+    </RadzenChart>
+    </Authorized>
+    <NotAuthorized>
+        <RadzenLabel Style="text-align:center" Text="@ConstantValues.ERROR_CLAIMS" />
+    </NotAuthorized>
+</AuthorizeView>
+
+

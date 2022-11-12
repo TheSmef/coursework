@@ -8,15 +8,22 @@ namespace Kr.Models
     {
         [Key]
         public Guid Id_SalaryHistory { get; set; } = new Guid();
-        [Required]
+        [Required(ErrorMessage = "Сотрудник - необходимое поле")]
         [JsonIgnore]
         public virtual UserPost UserPost { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Дата - необходимое поле")]
+        [DateAttribute(ErrorMessage = "Дата выплаты должна быть между {1} и {2}")]
         public DateTime Date { get; set; }
         [Required(ErrorMessage = "Фонд оплаты - необходимое поле")]
-        [Range(0.01, Double.MaxValue, ErrorMessage = "Сумма, выданная сотруднику не может быть 0 и меньше")]
+        [Range(0.01, 999999999999.99, ErrorMessage = "Значение выплаты должно находиться между 0 и 1000000000000.00")]
         public decimal Payment { get; set; }
         [Required]
         public bool Premium { get; set; }
+
+        public class DateAttribute : RangeAttribute
+        {
+            public DateAttribute()
+              : base(typeof(DateTime), DateTime.Now.AddYears(-50).ToShortDateString(), DateTime.Now.ToShortDateString()) { }
+        }
     }
 }

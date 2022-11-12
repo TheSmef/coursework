@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2UABsCuIIFH49IJmaghK/5umShFBZPbKBqDKfYotdr4=",
+  "Hash": "g4Xm0gTEIBt5vv873En1Dk2xY9FI9LMz45swVXte+rY=",
   "Source": "KR.Web",
   "BasePath": "_content/KR.Web",
   "Mode": "Default",
@@ -28,6 +28,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\User\\.nuget\\packages\\blazordownloadfile\\2.4.0.2\\staticwebassets\\BlazorDownloadFileScript.js",
+      "SourceId": "BlazorDownloadFile",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\User\\.nuget\\packages\\blazordownloadfile\\2.4.0.2\\staticwebassets\\",
+      "BasePath": "_content/BlazorDownloadFile",
+      "RelativePath": "BlazorDownloadFileScript.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\User\\.nuget\\packages\\blazordownloadfile\\2.4.0.2\\staticwebassets\\BlazorDownloadFileScript.js"
+    },
     {
       "Identity": "C:\\Users\\User\\.nuget\\packages\\blazored.toast\\3.2.2\\staticwebassets\\blazored-toast.css",
       "SourceId": "Blazored.Toast",
@@ -61,6 +78,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\User\\.nuget\\packages\\blazored.toast\\3.2.2\\staticwebassets\\blazored-toast.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.18\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.18\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.18\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.18\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.18\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\User\\.nuget\\packages\\mudblazor\\6.0.18\\staticwebassets\\MudBlazor.min.js"
     },
     {
       "Identity": "C:\\Users\\User\\.nuget\\packages\\radzen.blazor\\4.1.15\\staticwebassets\\css\\dark.css",

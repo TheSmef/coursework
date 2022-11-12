@@ -89,7 +89,7 @@ namespace KR.Web.Pages.Login
                     }
                     else
                     {
-                        NavigationManager.NavigateTo("");
+                        NavigationManager.NavigateTo("profile");
                     }
                 }
                 else

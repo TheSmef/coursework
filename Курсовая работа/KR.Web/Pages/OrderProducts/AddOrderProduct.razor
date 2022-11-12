@@ -1,0 +1,117 @@
+﻿@layout MainLayout
+
+@using KR.Web.Constants
+@using KR.Web.Models
+@using KR.Web.Services
+@using Kr.Models
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Администратор, Отдел продаж")]
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@orderproduct" TItem="OrderProduct" Submit="@HandleAdd">
+                    <ChildContent>
+                        <DataAnnotationsValidator/>
+                        @if (@HaveErrors)
+                        {
+                            <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
+                            </RadzenHeading>
+                        }
+                        <div>
+                            <RadzenLabel Text="Заказ" Component="Order" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div>
+                            <RadzenDropDownDataGrid @ref="grid" SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="Order" Data="@orders" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(orderproduct.Order)" style="width: 100%" TextProperty="Id_Order">
+                                    <Columns>
+                                    <RadzenDropDownDataGridColumn Property="Id_Order" Title="Номер заказа">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Order" Title="ФИО сотрудника">
+                                        <Template Context="data">
+                                            @(data.UserPost?.User.Last_name + " " + data.UserPost?.User.First_name + " " + data.UserPost?.User.Otch)
+                                        </Template>
+                                    </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn  Property="Order" Title="Должность сотрудника">
+                                        <Template Context="data">
+                                            @(data.UserPost?.Post.Name)
+                                        </Template>
+                                    </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Order" Title="Дата заказа">
+                                        <Template Context="data">
+                                            @(data.Date_Order)
+                                        </Template>
+                                    </RadzenDropDownDataGridColumn>
+                                    </Columns>
+                                </RadzenDropDownDataGrid>
+                            <ValidationMessage For="@(() => orderproduct.Order)" />
+                        </div>
+                        <div>
+                            <RadzenLabel Text="Продукт" Component="Product" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div>
+                            <RadzenDropDownDataGrid SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="ProductStorage" Data="@products" Multiple="false" SelectedItemsText="Выбранных элементов" TextProperty="Name" @bind-Value="@(orderproduct.Product)" style="width: 100%">
+                                <Columns>
+                                    <RadzenDropDownDataGridColumn Property="Name" Title="Продукт">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Cost" Title="Цена">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Amount" Title="Количество в наличии">
+                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn  Property="Category" Title="Категория">
+                                        <Template Context="data">
+                                            @(data.Category?.Name)
+                                        </Template>
+                                    </RadzenDropDownDataGridColumn>
+                                </Columns>
+                            </RadzenDropDownDataGrid>
+                            <ValidationMessage For="@(() => orderproduct.Product)" />
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Количество" Component="Amount" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(orderproduct.Amount)"> 
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => orderproduct.Amount)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Цена состава заказа" Component="Price" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(orderproduct.Price)">
+                                </RadzenNumeric>
+                                <ValidationMessage For="@(() => orderproduct.Price)" />
+                            </div>
+                        </div>
+                        <div class="row footer">
+                            <div>
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Сохранить" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonType="ButtonType.Button" Text="Закрыть" ButtonStyle="ButtonStyle.Danger" Click="@Close">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+
+
+
+
+
+
