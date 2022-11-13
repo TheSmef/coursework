@@ -1,4 +1,5 @@
 ﻿using Kr.Models;
+using KR.Models.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
@@ -28,8 +29,8 @@ namespace KR.Web.Models
         [MinLength(3, ErrorMessage = "Имя не может быть менее 3 символов")]
         public string First_name { get; set; }
         [AllowNull]
+        [Nullable(3, ErrorMessage = "Отчество не может быть менее 3 символов")]
         [StringLength(50, ErrorMessage = "Отчество не может быть более 50 символов")]
-        [MinLength(3, ErrorMessage = "Отчество не может быть менее 3 символов")]
         public string? Otch { get; set; }
         [Required(ErrorMessage = "Дата рождения - необходимое поле")]
         [DataType(DataType.Date, ErrorMessage = "Неправильный формат даты")]

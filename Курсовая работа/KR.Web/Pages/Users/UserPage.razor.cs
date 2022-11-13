@@ -63,9 +63,7 @@ namespace KR.Web.Pages.Users
         {
             try
             {
-                await blazorDownloadFileService.ClearBuffers();
-                await blazorDownloadFileService.AddBuffer(await ExportService.ExportUsersToCsv());
-                await blazorDownloadFileService.DownloadBinaryBuffers("ExportUsers_" + DateTime.Now.ToShortDateString() + ".csv");
+                await ExportService.ExportUsersToCsv(grid.View.ToList());
             }
             catch
             {
@@ -112,7 +110,7 @@ namespace KR.Web.Pages.Users
             try
             {
                 MemoryStream ms = new MemoryStream();
-                await file.OpenReadStream().CopyToAsync(ms);
+                await file.OpenReadStream(5120000000).CopyToAsync(ms);
                 byte[] data = ms.ToArray();
                 ExportService.ImportUsersFromCvs(data);
                 grid.Reload();

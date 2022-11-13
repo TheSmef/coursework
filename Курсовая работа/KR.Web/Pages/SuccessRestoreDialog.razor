@@ -1,0 +1,18 @@
+﻿@using Blazored.LocalStorage
+@using KR.Web.Constants
+@using Kr.Models
+@using System.ComponentModel
+@attribute [Authorize]
+
+<div class="col-md-12">
+    <RadzenLabel Text="База данных успешно востановлена" Component="Name" style="width: 100%; text-align:center">
+    </RadzenLabel>
+    <div class="row footer">
+        <div>
+            <RadzenButton ButtonType="ButtonType.Button" Text="Закрыть" ButtonStyle="ButtonStyle.Danger" Click="@Close" style="width: 100%;">
+            </RadzenButton>
+        </div>
+    </div>
+</div>
+
+

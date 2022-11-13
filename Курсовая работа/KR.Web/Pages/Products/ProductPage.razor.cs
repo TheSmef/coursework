@@ -92,7 +92,7 @@ namespace KR.Web.Pages.Products
             try
             {
                 MemoryStream ms = new MemoryStream();
-                await file.OpenReadStream().CopyToAsync(ms);
+                await file.OpenReadStream(5120000000).CopyToAsync(ms);
                 byte[] data = ms.ToArray();
                 ExportService.ImportProductsFromCvs(data);
                 grid.Reload();
@@ -107,9 +107,7 @@ namespace KR.Web.Pages.Products
         {
             try
             {
-                await blazorDownloadFileService.ClearBuffers();
-                await blazorDownloadFileService.AddBuffer(await ExportService.ExportProductsToCsv());
-                await blazorDownloadFileService.DownloadBinaryBuffers("ExportProducts_" + DateTime.Now.ToShortDateString() + ".csv");
+                await ExportService.ExportProductsToCsv(grid.View.ToList());
             }
             catch
             {

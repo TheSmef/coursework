@@ -59,6 +59,7 @@ namespace KR.Web.Pages
             await Load();
         }
 
+
         private async Task Load()
         {
             CurrentUser = await LocalStorage.GetItemAsync<UserData>(ConstantValues.USER_LOCATION);
@@ -74,7 +75,6 @@ namespace KR.Web.Pages
             {
                 return;
             }
-            Console.WriteLine(ExportService.ExportUsersToCsv().ToString());
         }
 
         private async Task HandleEdit()

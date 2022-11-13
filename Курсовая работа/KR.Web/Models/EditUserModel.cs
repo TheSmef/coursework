@@ -1,4 +1,7 @@
-﻿using Kr.Models;
+﻿using CsvHelper.Configuration.Attributes;
+using Kr.Models;
+using KR.Models.Attributes;
+using Microsoft.AspNetCore.Components;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
@@ -26,9 +29,10 @@ namespace KR.Web.Models
         [StringLength(50, ErrorMessage = "Имя не может быть более 50 символов")]
         [MinLength(3, ErrorMessage = "Имя не может быть менее 3 символов")]
         public string First_name { get; set; }
+        [DisplayFormat(ConvertEmptyStringToNull = true, ApplyFormatInEditMode = true)]
         [AllowNull]
         [StringLength(50, ErrorMessage = "Отчество не может быть более 50 символов")]
-        [MinLength(3, ErrorMessage = "Отчество не может быть менее 3 символов")]
+        [Nullable(3, ErrorMessage = "Отчество не может быть менее 3 символов")]
         public string? Otch { get; set; }
         [Required(ErrorMessage = "Дата рождения - необходимое поле")]
         [DataType(DataType.Date, ErrorMessage = "Неправильный формат даты")]
@@ -41,5 +45,6 @@ namespace KR.Web.Models
             public DateAttribute()
               : base(typeof(DateTime), DateTime.Now.AddYears(-80).ToShortDateString(), DateTime.Now.AddYears(-18).ToShortDateString()) { }
         }
+
     }
 }

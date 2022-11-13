@@ -19,6 +19,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/AdminPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Categories/AddCategory.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xBZGRDYXRlZ29yeS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -31,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xFZGl0Q2F0ZWdvcnkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/ErrorBackUp.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JCYWNrVXAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/ErrorDelete.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JEZWxldGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +49,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/ErrorImport.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JJbXBvcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/ErrorRestore.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JSZXN0b3JlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/Login/Login.razor]
@@ -153,6 +165,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/SuccessDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VjY2Vzc0RpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/SuccessRestoreDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VjY2Vzc1Jlc3RvcmVEaWFsb2cucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/GitHub/coursework/Курсовая работа/KR.Web/Pages/UserPosts/AddUserPost.razor]

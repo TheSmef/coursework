@@ -47,6 +47,7 @@ builder.Services.AddScoped<PurchaseService>();
 builder.Services.AddScoped<SalaryHistoryService>();
 builder.Services.AddScoped<StatsService>();
 builder.Services.AddScoped<ExportService>();
+builder.Services.AddScoped<BackupService>();
 
 builder.Services.AddMudServices();
 

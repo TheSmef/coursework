@@ -14,7 +14,7 @@ namespace KR.Web.Services
 
         public async Task<IQueryable<PurchaseAgreement>> GetPurchaseAgreements()
         {
-            var items = storeDbContext.PurchaseAgreements.AsQueryable();
+            var items = storeDbContext.PurchaseAgreements.AsQueryable().Include(x => x.Purchases);
 
             return await Task.FromResult(items);
         }

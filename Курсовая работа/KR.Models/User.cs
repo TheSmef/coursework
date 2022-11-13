@@ -1,5 +1,6 @@
 ﻿using CsvHelper.Configuration.Attributes;
 using KR.Models;
+using KR.Models.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
@@ -27,21 +28,16 @@ namespace Kr.Models
         [Index(2)]
         [Name("Отчество")]
         [AllowNull]
+        [Nullable(3, ErrorMessage = "Отчество не может быть менее 3 символов")]
         [StringLength(50, ErrorMessage = "Отчество не может быть более 50 символов")]
-        [MinLength(3, ErrorMessage = "Отчество не может быть менее 3 символов")]
         public string? Otch { get; set; }
         [Index(3)]
         [Name("Дата рождения")]
         [Required(ErrorMessage = "Дата рождения - необходимое поле")]
-        [DateAttribute(ErrorMessage = "Дата рождения должна быть между {1} и {2}")]
+        [DateAttribute(18, 80, ErrorMessage = "Дата рождения должна быть между {1} и {2}")]
         public DateTime BirthDate { get; set; }
         [AllowNull]
         public virtual Account? Account { get; set; } 
     }
 
-    public class DateAttribute : RangeAttribute
-    {
-        public DateAttribute()
-          : base(typeof(DateTime), DateTime.Now.AddYears(-18).ToShortDateString(), DateTime.Now.AddYears(-80).ToShortDateString()) { }
-    }
 }

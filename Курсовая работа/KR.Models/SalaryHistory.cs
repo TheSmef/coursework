@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using KR.Models;
+using KR.Models.Attributes;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -12,7 +14,7 @@ namespace Kr.Models
         [JsonIgnore]
         public virtual UserPost UserPost { get; set; }
         [Required(ErrorMessage = "Дата - необходимое поле")]
-        [DateAttribute(ErrorMessage = "Дата выплаты должна быть между {1} и {2}")]
+        [DateAttribute(50, 0, ErrorMessage = "Дата выплаты должна быть между {1} и {2}")]
         public DateTime Date { get; set; }
         [Required(ErrorMessage = "Фонд оплаты - необходимое поле")]
         [Range(0.01, 999999999999.99, ErrorMessage = "Значение выплаты должно находиться между 0 и 1000000000000.00")]
@@ -20,10 +22,5 @@ namespace Kr.Models
         [Required]
         public bool Premium { get; set; }
 
-        public class DateAttribute : RangeAttribute
-        {
-            public DateAttribute()
-              : base(typeof(DateTime), DateTime.Now.AddYears(-50).ToShortDateString(), DateTime.Now.ToShortDateString()) { }
-        }
     }
 }

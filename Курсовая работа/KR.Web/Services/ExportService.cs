@@ -1,4 +1,5 @@
-﻿using CsvHelper;
+﻿using BlazorDownloadFile;
+using CsvHelper;
 using Kr.Models;
 using KR.API.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,12 @@ namespace KR.Web.Services
 {
     public class ExportService
     {
+        private readonly BlazorDownloadFile.IBlazorDownloadFileService blazorDownloadFile;
         private readonly StoreDbContext storeDbContext;
-        public ExportService(StoreDbContext storeDbContext)
+        public ExportService(StoreDbContext storeDbContext, IBlazorDownloadFileService blazorDownloadFile)
         {
             this.storeDbContext = storeDbContext;
+            this.blazorDownloadFile = blazorDownloadFile;
         }
 
         public void ImportUsersFromCvs(byte[] stream)
@@ -44,51 +47,35 @@ namespace KR.Web.Services
             Reload();
         }
 
-        public async Task<byte[]> ExportUsersToCsv()
+        public async Task ExportUsersToCsv(List<User> userEx)
         {
-            try
+            List<User> users = userEx;
+            using (MemoryStream mem = new MemoryStream())
             {
-                List<User> users = await storeDbContext.Users.Include(x => x.Account).ThenInclude(x => x.Roles).ToListAsync();
-                using (MemoryStream mem = new MemoryStream())
+                using (var writer = new StreamWriter(mem, Encoding.UTF8))
                 {
-                    using (var writer = new StreamWriter(mem, Encoding.UTF8))
+                    using (var csv = new CsvWriter(writer, CultureInfo.GetCultureInfo("ru")))
                     {
-                        using (var csv = new CsvWriter(writer, CultureInfo.GetCultureInfo("ru")))
-                        {
-                            csv.WriteRecords(users);
-                        }
+                        csv.WriteRecords(users);
                     }
-                    
-                    return mem.ToArray();
                 }
-            }
-            catch
-            {
-                return null;
+                await blazorDownloadFile.DownloadFile("ExportUsers_" + DateTime.Now.ToShortDateString() + ".csv", mem.ToArray(), "application/ostet-stream");
             }
         }
 
-        public async Task<byte[]> ExportProductsToCsv()
+        public async Task ExportProductsToCsv(List<ProductStorage> productsEx)
         {
-            try
+            List<ProductStorage> products = productsEx;
+            using (MemoryStream mem = new MemoryStream())
             {
-                List<ProductStorage> users = await storeDbContext.ProductStorages.Include(x => x.Category).ToListAsync();
-                using (MemoryStream mem = new MemoryStream())
+                using (var writer = new StreamWriter(mem, Encoding.UTF8))
                 {
-                    using (var writer = new StreamWriter(mem, Encoding.UTF8))
+                    using (var csv = new CsvWriter(writer, CultureInfo.GetCultureInfo("ru")))
                     {
-                        using (var csv = new CsvWriter(writer, CultureInfo.GetCultureInfo("ru")))
-                        {
-                            csv.WriteRecords(users);
-                        }
+                        csv.WriteRecords(products);
                     }
-
-                    return mem.ToArray();
                 }
-            }
-            catch
-            {
-                return null;
+                await blazorDownloadFile.DownloadFile("ExportProducts_" + DateTime.Now.ToShortDateString() + ".csv", mem.ToArray(), "application/ostet-stream");
             }
         }
 
@@ -115,6 +102,13 @@ namespace KR.Web.Services
                 }
             }
             categories = categories.GroupBy(x => x.Name).Select(x => x.First()).ToList();
+            for (int i =0; i < categories.Count; i++)
+            {
+                if (storeDbContext.Categories.Where(x => x.Name == categories[i].Name).Any())
+                {
+                    categories[i] = storeDbContext.Categories.Where(x => x.Name == categories[i].Name).First();
+                }
+            }
             for (int i = 0; i < products.Count; i++)
             {
                 for (int j = 0; j < categories.Count; j++)

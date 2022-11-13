@@ -76,5 +76,8 @@
         public const string EDIT_SALARY = "Редактирование выплаты";
         public const string EXPORT_ERROR = "Ошибка при экспортировании";
         public const string IMPORT_ERROR = "Ошибка при импортиировании";
+        public const string BACKUP_ERROR = "Ошибка при создании бэкапа базы данных";
+        public const string RESTORE_ERROR = "Ошибка при выполнении востановлении базы данных";
+        public const string RESTORE_TITLE = "Востановление базы данных";
     }
 }
