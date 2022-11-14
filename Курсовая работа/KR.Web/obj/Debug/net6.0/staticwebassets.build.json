@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "g4Xm0gTEIBt5vv873En1Dk2xY9FI9LMz45swVXte+rY=",
+  "Hash": "Yl2Y1+2ah6ngLJTQQVH2bq5nJImwDU+3nJY6p36qk8I=",
   "Source": "KR.Web",
   "BasePath": "_content/KR.Web",
   "Mode": "Default",
@@ -12,10 +12,10 @@
       "Source": "KR.API",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
       "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
       "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     }
   ],
   "DiscoveryPatterns": [
