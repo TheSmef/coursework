@@ -8,7 +8,7 @@ namespace Kr.Models
     {
         [Key]
         public Guid Id_Purchase_Agreement { get; set; } = new Guid();
-        [Required(ErrorMessage = "Дата рождения - необходимое поле")]
+        [Required(ErrorMessage = "Дата договора - необходимое поле")]
         [DateAttribute(50, 0, ErrorMessage = "Дата договора поставки должна быть между {1} и {2}")]
         public DateTime Date_Of_Purchase { get; set; }
         [Required(ErrorMessage = "Название организации-поставщика - необходимое поле")]

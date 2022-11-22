@@ -202,8 +202,8 @@
       <FileName>Pages\Orders\EditOrder.razor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="OrderService" />
       <Property Name="UserPostService" />
+      <Property Name="OrderService" />
     </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Orders.OrderPage">
@@ -327,8 +327,8 @@
       <FileName>Pages\PurchaseAgreements\EditPurchaseAgreement.razor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="CategoryService" />
       <Property Name="PurchaseAgreementService" />
+      <Property Name="CategoryService" />
     </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.PurchaseAgreements.PurchaseAgreementPage">
