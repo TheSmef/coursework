@@ -27,7 +27,7 @@
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="StorageHistory" Property="Date" Title="Дата изменения" Width="200px">
                                 </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="StorageHistory" Property="ProductStorage" SortProperty="ProductStorage.Name" GroupProperty="ProductStorage.Name" FilterProperty="ProductStorage.Name" Title="Товар" Width="220px">
+                                <RadzenDataGridColumn TItem="StorageHistory" Property="ProductStorage.Name" SortProperty="ProductStorage.Name" GroupProperty="ProductStorage.Name" FilterProperty="ProductStorage.Name" Title="Товар" Width="220px">
                                     <Template Context="data">
                                         @(data.ProductStorage?.Name)
                                     </Template>

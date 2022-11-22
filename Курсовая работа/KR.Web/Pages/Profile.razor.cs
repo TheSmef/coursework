@@ -35,8 +35,6 @@ namespace KR.Web.Pages
 
         [Inject]
         protected UserService UserService { get; set; }
-        [Inject]
-        protected ExportService ExportService { get; set; }
 
         [Inject]
         private DialogService DialogService { get; set; }
@@ -52,8 +50,8 @@ namespace KR.Web.Pages
 
         private List<Role> roles { get; set; }
 
-        EditUserModel account = new EditUserModel();
-        User user = new User();
+        private EditUserModel account = new EditUserModel();
+        private User user = new User();
         protected override async Task OnInitializedAsync()
         {
             await Load();

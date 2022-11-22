@@ -83,6 +83,11 @@ namespace KR.API.Migrations
                     b.Property<DateTime>("Date_Order")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Order_Number")
+                        .IsRequired()
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
+
                     b.Property<Guid>("UserPostId_User_Post")
                         .HasColumnType("uniqueidentifier");
 

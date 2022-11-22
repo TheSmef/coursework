@@ -32,11 +32,11 @@ namespace KR.Web.Pages.Login
         [Inject]
         protected ILocalStorageService LocalStorage { get; set; }   
         [Inject]
-        AuthenticationStateProvider AuthStateProvider { get; set; }
+        private AuthenticationStateProvider AuthStateProvider { get; set; }
         [Inject]
-        NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
         [Inject]
-        AuthService AuthService { get; set; }
+        private AuthService AuthService { get; set; }
 
         [Inject]
         protected DialogService DialogService { get; set; }

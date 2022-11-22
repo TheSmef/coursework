@@ -30,7 +30,7 @@
                                 </RadzenLabel>
                             </div>
                             <div>
-                                <RadzenTextBox MaxLength="40" style="display: block; width: 100%" @bind-Value="@(product.Name)">
+                                <RadzenTextBox MaxLength="45" style="display: block; width: 100%" @bind-Value="@(product.Name)">
                                 </RadzenTextBox>
                                 <ValidationMessage For="@(() => product.Name)" />
                             </div>
@@ -74,7 +74,7 @@
                                 </RadzenLabel>
                             </div>
                             <div>
-                                <RadzenDropDown AllowFiltering="true" TValue="Category" Data="@categories" Multiple="false" TextProperty="Name" SelectedItemsText="Выбранных элементов" @bind-Value="@(product.Category)" style="width: 100%">
+                                <RadzenDropDown AllowFiltering="true" TValue="Category" Data="@categories" Multiple="false" TextProperty="Name" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" SelectedItemsText="Выбранных элементов" @bind-Value="@(product.Category)" style="width: 100%">
                                  </RadzenDropDown>
                                  <ValidationMessage For="@(() => product.Category)" />
                             </div>

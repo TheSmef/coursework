@@ -26,22 +26,22 @@ namespace KR.Web.Pages.PurchaseAgreements
     public partial class AddPurchaseAgreemen
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected PurchaseAgreementService PurchaseAgreementService { get; set; }
+        private PurchaseAgreementService PurchaseAgreementService { get; set; }
 
         [Inject]
-        protected CategoryService CategoryService { get; set; }
+        private CategoryService CategoryService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private bool HaveErrors { get; set; }
 
         private string Error { get; set; }
 
-        PurchaseAgreement purchaseAgreement = new PurchaseAgreement();
+        private PurchaseAgreement purchaseAgreement = new PurchaseAgreement();
         private async Task HandleAdd()
         {
             try

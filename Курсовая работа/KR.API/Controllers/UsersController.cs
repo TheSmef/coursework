@@ -43,7 +43,7 @@ namespace KR.API.Controllers
                 return NotFound();
             }
             _context.Entry(user).Reference(x => x.Account).Load();
-            _context.Entry(user).Reference(x => x.Account.Roles).Load();
+            _context.Entry(user.Account).Collection(x => x.Roles).Load();
             return user;
         }
 

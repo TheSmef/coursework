@@ -25,7 +25,7 @@ namespace KR.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SalaryHistory>>> GetSalaryHistories()
         {
-            return await _context.SalaryHistories.Include(x => x.UserPost).ThenInclude(x => User).ToListAsync();
+            return await _context.SalaryHistories.Include(x => x.UserPost).ThenInclude(x => x.User).Include(x => x.UserPost).ThenInclude(x => x.Post).ToListAsync();
         }
 
         // GET: api/SalaryHistories/5
@@ -39,7 +39,8 @@ namespace KR.API.Controllers
                 return NotFound();
             }
             _context.Entry(salaryHistory).Reference(x => x.UserPost).Load();
-            _context.Entry(salaryHistory).Reference(x => x.UserPost.User).Load();
+            _context.Entry(salaryHistory.UserPost).Reference(x => x.User).Load();
+            _context.Entry(salaryHistory.UserPost).Reference(x => x.Post).Load();
             return salaryHistory;
         }
 

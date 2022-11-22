@@ -26,19 +26,19 @@ namespace KR.Web.Pages.Purchases
     public partial class AddPurchase
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected PurchaseService PurchaseService { get; set; }
+        private PurchaseService PurchaseService { get; set; }
 
         [Inject]
-        protected PurchaseAgreementService PurchaseAgreementService { get; set; }
+        private PurchaseAgreementService PurchaseAgreementService { get; set; }
 
         [Inject]
-        protected ProductService ProductService { get; set; }
+        private ProductService ProductService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private bool HaveErrors { get; set; }
 
@@ -55,11 +55,11 @@ namespace KR.Web.Pages.Purchases
 
         private async Task Load()
         {
-            products = await ProductService.GetProducts();
-            agreements = await PurchaseAgreementService.GetPurchaseAgreements();
+            products = (await ProductService.GetProducts()).ToList();
+            agreements = (await PurchaseAgreementService.GetPurchaseAgreements()).ToList();
         }
 
-        Purchase purchase = new Purchase();
+        private Purchase purchase = new Purchase();
         private async Task HandleAdd()
         {
             try

@@ -30,24 +30,24 @@
                                         @(data.PurchaseAgreement.Agreement_Code)
                                     </Template>
                                 </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="Purchase" Property="PurchaseAgreement" SortProperty="PurchaseAgreement.Agreement_Code" GroupProperty="PurchaseAgreement.Agreement_Code" FilterProperty="PurchaseAgreement.Agreement_Code" Title="Огранизация - поставщик">
+                                <RadzenDataGridColumn TItem="Purchase" Property="PurchaseAgreement.Provider" SortProperty="PurchaseAgreement.Provider" GroupProperty="PurchaseAgreement.Provider" FilterProperty="PurchaseAgreement.Provider" Title="Организация - поставщик">
                                     <Template Context="data">
                                         @(data.PurchaseAgreement.Provider)
                                     </Template>
                                 </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="Purchase" Property="PurchaseAgreement" SortProperty="PurchaseAgreement.Date_Of_Purchase" GroupProperty="PurchaseAgreement.Date_Of_Purchase" FilterProperty="PurchaseAgreement.Date_Of_Purchase" Title="Дата договора">
+                                <RadzenDataGridColumn TItem="Purchase" Property="PurchaseAgreement.Date_Of_Purchase" SortProperty="PurchaseAgreement.Date_Of_Purchase" GroupProperty="PurchaseAgreement.Date_Of_Purchase" FilterProperty="PurchaseAgreement.Date_Of_Purchase" Title="Дата договора">
                                     <Template Context="data">
                                         @(data.PurchaseAgreement.Date_Of_Purchase)
                                     </Template>
                                 </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="Purchase" Property="Product" SortProperty="Product.Name" GroupProperty="Product.Name" FilterProperty="Product.Name" Title="Название продукта">
+                                <RadzenDataGridColumn TItem="Purchase" Property="ProductStorage.Name" SortProperty="ProductStorage.Name" GroupProperty="ProductStorage.Name" FilterProperty="ProductStorage.Name" Title="Название продукта">
                                     <Template Context="data">
                                         @(data.ProductStorage.Name)
                                     </Template>
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="Purchase" Property="Price" Title="Цена">
                                     <FooterTemplate>
-                                        Сумма стоимостей элементов: <b>@(grid.View.Sum(x => x.Price))</b>
+                                        Сумма цен элементов: <b>@(grid.View.Sum(x => x.Price))</b>
                                     </FooterTemplate>
                                 </RadzenDataGridColumn> 
                                 <RadzenDataGridColumn TItem="Purchase" Property="Amount" Title="Количество">

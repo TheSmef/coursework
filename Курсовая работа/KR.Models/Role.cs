@@ -16,8 +16,6 @@ namespace Kr.Models
         [StringLength(30)]
         [MinLength(3)]
         public string Name { get; set; }
-        [Required]
-        [JsonIgnore]
         public virtual Account AccountUser { get; set; }
 
         enum NameRole

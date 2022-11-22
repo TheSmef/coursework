@@ -19,6 +19,7 @@ namespace KR.Web.Services
         {
             var items = storeDbContext.UserPosts.AsQueryable().Include(x => x.User).Include(x => x.Post);
 
+
             return await Task.FromResult(items);
         }
 

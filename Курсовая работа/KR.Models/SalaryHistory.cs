@@ -11,7 +11,6 @@ namespace Kr.Models
         [Key]
         public Guid Id_SalaryHistory { get; set; } = new Guid();
         [Required(ErrorMessage = "Сотрудник - необходимое поле")]
-        [JsonIgnore]
         public virtual UserPost UserPost { get; set; }
         [Required(ErrorMessage = "Дата - необходимое поле")]
         [DateAttribute(50, 0, ErrorMessage = "Дата выплаты должна быть между {1} и {2}")]

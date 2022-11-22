@@ -23,11 +23,11 @@ namespace KR.Web.Pages.Statistics
 {
     public partial class ProductSalesStats
     {
-        DateTime dateFrom = DateTime.Now.AddMonths(-3);
-        DateTime dateTo = DateTime.Now;
-        List<SalesStats> sales = new List<SalesStats>();
+        private DateTime dateFrom = DateTime.Now.AddMonths(-3);
+        private DateTime dateTo = DateTime.Now;
+        private List<SalesStats> sales = new List<SalesStats>();
         [Inject]
-        protected StatsService StatsService { get; set; }
+        private StatsService StatsService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {

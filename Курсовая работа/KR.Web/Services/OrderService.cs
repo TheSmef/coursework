@@ -14,7 +14,7 @@ namespace KR.Web.Services
 
         public async Task<IQueryable<Order>> GetOrders()
         {
-            var items = storeDbContext.Orders.AsQueryable().Include(x => x.UserPost).ThenInclude(x => x.User).Include(x => x.UserPost).ThenInclude(x => x.Post).Include(x => x.OrderProducts);
+            var items = storeDbContext.Orders.AsQueryable().Include(x => x.UserPost).ThenInclude(x => x.User).Include(x => x.UserPost).ThenInclude(x => x.Post);
 
             return await Task.FromResult(items);
         }
@@ -40,6 +40,7 @@ namespace KR.Web.Services
             if (order != null)
             {
                 await storeDbContext.Orders.AddAsync(order);
+                order.Order_Number = order.Id_Order.ToString();
                 await storeDbContext.SaveChangesAsync();
             }
         }

@@ -16,7 +16,6 @@ namespace Kr.Models
         [Name("Название категории")]
         [Index(4)]
         public string Name { get; set; }
-        public virtual ICollection<ProductStorage>? ProductStorages { get; set; }
 
     }
 }

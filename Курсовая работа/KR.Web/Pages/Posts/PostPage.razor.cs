@@ -34,7 +34,7 @@ namespace KR.Web.Pages.Posts
         [Inject]
         private PostService PostService { get; set; }
 
-        IEnumerable<Post> getPostResult;
+        private IEnumerable<Post> getPostResult;
 
         protected override async Task OnInitializedAsync()
         {

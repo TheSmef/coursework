@@ -26,13 +26,13 @@ namespace KR.Web.Pages.Purchases
     public partial class EditPurchase
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected PurchaseService PurchaseService { get; set; }
+        private PurchaseService PurchaseService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         [Parameter]
         public dynamic Id_Purchase { get; set; }
@@ -51,7 +51,7 @@ namespace KR.Web.Pages.Purchases
             purchase = await PurchaseService.GetPurchaseById(Id_Purchase);
         }
 
-        Purchase purchase = new Purchase();
+        private Purchase purchase = new Purchase();
         private async Task HandleEdit()
         {
             try

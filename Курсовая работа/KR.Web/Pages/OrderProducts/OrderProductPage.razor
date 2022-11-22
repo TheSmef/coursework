@@ -25,24 +25,14 @@
                                         StartsWithText="Начинается с" EndsWithText="Заказнчивается с" IsNullText="Не записано" IsNotNullText="Записано" IsEmptyText="Пустое" LessThanText="Меньше чем" LessThanOrEqualsText="Меньше или равно"
                                         GreaterThanText="Больше чем" GreaterThanOrEqualsText="Больше или равно" FilterText="Фильтр" ApplyFilterText="Применить" ClearFilterText="Очистить">
                             <Columns>
-                                <RadzenDataGridColumn TItem="OrderProduct" Property="Order.Id_Order" SortProperty="Order.Id_Order" GroupProperty="Order.Id_Order" FilterProperty="Order.Id_Order" Title="Номер заказа">
+                                <RadzenDataGridColumn TItem="OrderProduct" Property="Order.Order_Number" SortProperty="Order.Order_Number" GroupProperty="Order.Order_Number" FilterProperty="Order.Order_Number" Title="Номер заказа">
                                     <Template Context="data">
-                                        @(data.Order?.Id_Order)
+                                        @(data.Order?.Order_Number)
                                     </Template>
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="OrderProduct" Property="Order.Date_Order" SortProperty="Order.Date_Order" GroupProperty="Order.Date_Order" FilterProperty="Order.Date_Order" Title="Дата заказа">
                                     <Template Context="data">
                                         @(data.Order?.Date_Order)
-                                    </Template>
-                                </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="OrderProduct" Property="Order" SortProperty="Order.UserPost.User.Last_name" GroupProperty="Order.UserPost.User.Last_name" FilterProperty="Order.UserPost.User.Last_name" Title="ФИО сотрудника">
-                                    <Template Context="data">
-                                        @(data.Order?.UserPost?.User?.Last_name + " " + data.Order?.UserPost?.User?.First_name + " " + data.Order?.UserPost?.User?.Otch)
-                                    </Template>
-                                </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="OrderProduct" Property="Order" SortProperty="Order.UserPost.Post.Name" GroupProperty="Order.UserPost.Post.Name" FilterProperty="Order.UserPost.Post.Name" Title="Должность сотрудника">
-                                    <Template Context="data">
-                                        @(data.Order?.UserPost?.Post.Name)
                                     </Template>
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="OrderProduct" Property="Product" SortProperty="Product.Name" GroupProperty="Product.Name" FilterProperty="Product.Name" Title="Название продукта">

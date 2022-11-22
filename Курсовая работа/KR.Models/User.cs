@@ -37,7 +37,10 @@ namespace Kr.Models
         [DateAttribute(18, 80, ErrorMessage = "Дата рождения должна быть между {1} и {2}")]
         public DateTime BirthDate { get; set; }
         [AllowNull]
-        public virtual Account? Account { get; set; } 
+        public virtual Account? Account { get; set; }
+        [NotMapped]
+        [JsonIgnore]
+        public string Fullname { get { return this.Last_name + " " + this.First_name + " " + this.Otch; } }
     }
 
 }

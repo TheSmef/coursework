@@ -15,7 +15,6 @@ namespace Kr.Models
         [Required(ErrorMessage = "Количество товара - необходимое поле")]
         [Range(1, int.MaxValue, ErrorMessage = "Количество товара не может быть 0 и меньше, и не превышать 2147483647")]
         public int Amount { get; set; }
-        [JsonIgnore]
         [Required(ErrorMessage = "Договор закупки - необходимое поле")]
         public virtual PurchaseAgreement PurchaseAgreement { get; set; }
         [Required(ErrorMessage = "Цена - необходимое поле")]

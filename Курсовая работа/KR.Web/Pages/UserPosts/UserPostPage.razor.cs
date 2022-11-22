@@ -32,7 +32,7 @@ namespace KR.Web.Pages.UserPosts
         [Inject]
         private UserPostService UserPostService { get; set; }
 
-        IEnumerable<UserPost> getUserPostResult;
+        private IEnumerable<UserPost> getUserPostResult;
         protected override async Task OnInitializedAsync()
         {
             await Load();

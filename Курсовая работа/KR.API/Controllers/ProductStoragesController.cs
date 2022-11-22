@@ -25,7 +25,7 @@ namespace KR.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductStorage>>> GetProductStorages()
         {
-            return await _context.ProductStorages.ToListAsync();
+            return await _context.ProductStorages.Include(x => x.Category).ToListAsync();
         }
 
         // GET: api/ProductStorages/5
@@ -39,6 +39,7 @@ namespace KR.API.Controllers
             {
                 return NotFound();
             }
+            _context.Entry(productStorage).Reference(x => x.Category).Load();
             return productStorage;
         }
 

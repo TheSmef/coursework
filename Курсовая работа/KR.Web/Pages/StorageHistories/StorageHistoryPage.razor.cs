@@ -32,7 +32,7 @@ namespace KR.Web.Pages.StorageHistories
         [Inject]
         private StorageHistoryService StorageHistoryService { get; set; }
 
-        IEnumerable<StorageHistory> getStorageHistoryResult;
+        private IEnumerable<StorageHistory> getStorageHistoryResult;
         protected override async Task OnInitializedAsync()
         {
             await Load();

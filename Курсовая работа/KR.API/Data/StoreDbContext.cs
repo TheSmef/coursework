@@ -24,15 +24,16 @@ namespace KR.API.Data
             modelBuilder.Entity<OrderProduct>().HasOne(e => e.Product).WithMany().OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<OrderProduct>().HasOne(e => e.Order).WithMany(x => x.OrderProducts).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<Role>().HasOne(e => e.AccountUser).WithMany(x => x.Roles).OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<ProductStorage>().HasOne(e => e.Category).WithMany(x => x.ProductStorages).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<ProductStorage>().HasOne(e => e.Category).WithMany().OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<UserPost>().HasOne(e => e.User).WithMany().OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<UserPost>().HasOne(e => e.Post).WithMany(x => x.UserPosts).OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<SalaryHistory>().HasOne(e => e.UserPost).WithMany(x => x.SalaryHistories).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<UserPost>().HasOne(e => e.Post).WithMany().OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<SalaryHistory>().HasOne(e => e.UserPost).WithMany().OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Account>().HasOne(e => e.User).WithOne(x => x.Account).OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<StorageHistory>().HasOne(e => e.ProductStorage).WithMany().IsRequired(true);
 
             modelBuilder.Entity<User>().Property(e => e.Otch).IsRequired(false);
+
 
             modelBuilder.Entity<Post>().Property(p => p.Salary).HasPrecision(15, 2);
             modelBuilder.Entity<ProductStorage>().Property(p => p.Cost).HasPrecision(15, 2);

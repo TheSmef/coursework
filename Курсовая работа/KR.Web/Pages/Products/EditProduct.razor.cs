@@ -26,16 +26,16 @@ namespace KR.Web.Pages.Products
     public partial class EditProduct
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected ProductService ProductService { get; set; }
+        private ProductService ProductService { get; set; }
 
         [Inject]
-        protected CategoryService CategoryService { get; set; }
+        private CategoryService CategoryService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         [Parameter]
         public dynamic Id_Product { get; set; }
@@ -59,11 +59,10 @@ namespace KR.Web.Pages.Products
                 await Close(null);
                 return;
             }
-
-            categories = CategoryService.GetCategories().Result.ToList();
+            categories = (await CategoryService.GetCategories()).ToList();
         }
 
-        ProductStorage product = new ProductStorage();
+        private ProductStorage product = new ProductStorage();
         private async Task HandleUserCreation()
         {
             try

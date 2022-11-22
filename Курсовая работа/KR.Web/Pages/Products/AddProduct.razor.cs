@@ -26,16 +26,16 @@ namespace KR.Web.Pages.Products
     public partial class AddProduct
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected ProductService ProductService { get; set; }
+        private ProductService ProductService { get; set; }
 
         [Inject]
-        protected CategoryService CategoryService { get; set; }
+        private CategoryService CategoryService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private bool HaveErrors { get; set; }
 
@@ -50,10 +50,10 @@ namespace KR.Web.Pages.Products
 
         private async Task Load()
         {
-            categories = CategoryService.GetCategories().Result.ToList();
+            categories = (await CategoryService.GetCategories()).ToList();
         }
 
-        ProductStorage product = new ProductStorage();
+        private ProductStorage product = new ProductStorage();
         private async Task HandleAdd()
         {
             try

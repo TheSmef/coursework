@@ -26,10 +26,10 @@ namespace KR.Web.Pages.UserPosts
     public partial class EditUserPost
     {
         [Inject]
-        protected UserPostService UserPostService { get; set; }
+        private UserPostService UserPostService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private bool HaveErrors { get; set; }
 
@@ -48,7 +48,7 @@ namespace KR.Web.Pages.UserPosts
             userpost = await UserPostService.GetUserPostById(Id_UserPost);
         }
 
-        UserPost userpost = new UserPost();
+        private UserPost userpost = new UserPost();
         private async Task HandleEdit()
         {
             try

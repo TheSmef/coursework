@@ -26,10 +26,10 @@ namespace KR.Web.Pages.OrderProducts
     public partial class EditOrderProduct
     {
         [Inject]
-        protected OrderProductService OrderProductService { get; set; }
+        private OrderProductService OrderProductService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         [Parameter]
         public dynamic Id_OrderProduct { get; set; }
@@ -52,7 +52,7 @@ namespace KR.Web.Pages.OrderProducts
             orderproduct = await OrderProductService.GetOrderProductById(Id_OrderProduct);
         }
 
-        OrderProduct orderproduct = new OrderProduct();
+        private OrderProduct orderproduct = new OrderProduct();
         private async Task HandleEdit()
         {
             try

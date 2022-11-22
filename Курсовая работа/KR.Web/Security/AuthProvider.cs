@@ -11,8 +11,8 @@ namespace KR.Web.Security
 {
     public class AuthProvider : AuthenticationStateProvider
     {
-        public readonly ILocalStorageService LocalStorage;
-        public readonly AuthService authService;
+        private readonly ILocalStorageService LocalStorage;
+        private readonly AuthService authService;
         public AuthProvider(ILocalStorageService localStorage, AuthService authService)
         {
             LocalStorage = localStorage;

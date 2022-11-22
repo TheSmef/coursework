@@ -38,7 +38,7 @@
                                 </RadzenLabel>
                             </div>
                             <div>
-                                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(account.Login)">
+                                <RadzenTextBox MaxLength="255" style="display: block; width: 100%" @bind-Value="@(account.Login)">
                                 </RadzenTextBox>
                                 <ValidationMessage For="@(() => account.Login)" />
                             </div>

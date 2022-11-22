@@ -26,16 +26,16 @@ namespace KR.Web.Pages.Orders
     public partial class EditOrder
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected UserPostService UserPostService { get; set; }
+        private UserPostService UserPostService { get; set; }
 
         [Inject]
-        protected OrderService OrderService { get; set; }
+        private OrderService OrderService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private RadzenDropDownDataGrid<UserPost>? grid;
         private bool HaveErrors { get; set; }
@@ -55,7 +55,7 @@ namespace KR.Web.Pages.Orders
         private async Task Load()
         {
             order = await OrderService.GetOrderById(Id_Order);
-            users = await UserPostService.GetUserPosts();
+            users = (await UserPostService.GetUserPosts()).ToList();
             grid?.Reload();
         }
 

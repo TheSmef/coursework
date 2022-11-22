@@ -28,14 +28,10 @@
                             </RadzenLabel>
                         </div>
                         <div>
-                            <RadzenDropDownDataGrid @ref="grid" SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="User" Data="@users" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(userpost.User)" style="width: 100%" TextProperty="Last_name">
+                            <RadzenDropDownDataGrid @ref="grid" SearchText="Поиск по ФИО" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="User" Data="@users" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(userpost.User)" style="width: 100%" TextProperty="Last_name">
                                     <Columns>
-                                    <RadzenDropDownDataGridColumn Property="Last_name" Title="Фамилия">
-                                        </RadzenDropDownDataGridColumn>
-                                    <RadzenDropDownDataGridColumn Property="First_name" Title="Имя">
-                                        </RadzenDropDownDataGridColumn>
-                                    <RadzenDropDownDataGridColumn Property="Otch" Title="Отчество">
-                                        </RadzenDropDownDataGridColumn>
+                                    <RadzenDropDownDataGridColumn Property="Fullname" Title="ФИО сотрудника">
+                                    </RadzenDropDownDataGridColumn>
                                     <RadzenDropDownDataGridColumn Property="BirthDate" Title="Дата рождения">
                                         </RadzenDropDownDataGridColumn>
                                     </Columns>
@@ -47,7 +43,7 @@
                             </RadzenLabel>
                         </div>
                         <div>
-                            <RadzenDropDownDataGrid SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="Post" Data="@posts" Multiple="false" SelectedItemsText="Выбранных элементов" TextProperty="Name" @bind-Value="@(userpost.Post)" style="width: 100%">
+                            <RadzenDropDownDataGrid SearchText="Поиск по названию" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="Post" Data="@posts" Multiple="false" SelectedItemsText="Выбранных элементов" TextProperty="Name" @bind-Value="@(userpost.Post)" style="width: 100%">
                                 <Columns>
                                     <RadzenDropDownDataGridColumn Property="Name" Title="Название должности">
                                         </RadzenDropDownDataGridColumn>

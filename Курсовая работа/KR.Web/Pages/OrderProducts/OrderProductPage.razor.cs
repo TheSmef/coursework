@@ -32,7 +32,7 @@ namespace KR.Web.Pages.OrderProducts
         [Inject]
         private OrderProductService OrderProductService { get; set; }
 
-        IEnumerable<OrderProduct> getOrderProductResult;
+        private IEnumerable<OrderProduct> getOrderProductResult;
         protected override async Task OnInitializedAsync()
         {
             await Load();

@@ -31,7 +31,7 @@ namespace KR.Web.Pages.Login
         [Inject]
         protected ILocalStorageService LocalStorage { get; set; }
         [Inject]
-        AuthenticationStateProvider AuthStateProvider { get; set; }
+        private AuthenticationStateProvider AuthStateProvider { get; set; }
 
         [Inject]
         protected DialogService DialogService { get; set; }

@@ -45,7 +45,7 @@ namespace KR.Web.Services
         {
             List<SalaryHistory> salary = storeDbContext.SalaryHistories.AsQueryable().Where(x => x.Date >= dateFrom && x.Date <= dateTo).ToList();
             List<Order> orders = storeDbContext.Orders.AsQueryable().Where(x => x.Date_Order >= dateFrom && x.Date_Order <= dateTo).Include(x => x.OrderProducts).ToList();
-            List<PurchaseAgreement> purchases = storeDbContext.PurchaseAgreements.AsQueryable().Where(x => x.Date_Of_Purchase >= dateFrom && x.Date_Of_Purchase <= dateTo).ToList();
+            List<PurchaseAgreement> purchases = storeDbContext.PurchaseAgreements.AsQueryable().Where(x => x.Date_Of_Purchase >= dateFrom && x.Date_Of_Purchase <= dateTo).Include(x => x.Purchases).ToList();
             List<SpentStats> stats = new List<SpentStats>();
             SpentStats statsalary = new SpentStats();
             statsalary.Name = "Зарплаты";
@@ -86,8 +86,7 @@ namespace KR.Web.Services
             {
                 foreach (PurchaseAgreement purchase in purchases)
                 {
-                    List<Purchase> purchasesAct = storeDbContext.Purchases.AsQueryable().Include(x => x.PurchaseAgreement).Where(x => x.PurchaseAgreement == purchase).ToList();
-                    foreach (Purchase purchaseAct in purchasesAct)
+                    foreach (Purchase purchaseAct in purchase.Purchases)
                     {
                         statpurchase.Summ -= (double)purchaseAct.Price;
                     }

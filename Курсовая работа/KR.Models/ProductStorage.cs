@@ -11,7 +11,6 @@ namespace Kr.Models
         [Ignore]
         public Guid Id_Product_Storage { get; set; } = new Guid();
         [Required(ErrorMessage = "Категория - необходимое поле")]
-        [JsonIgnore]
         public virtual Category Category { get; set; }
         [Required(ErrorMessage = "Стоимость товара - необходимое поле")]
         [Range(0.01, 999999999999.99, ErrorMessage = "Значение цены должно находиться между 0 и 1000000000000.00")]

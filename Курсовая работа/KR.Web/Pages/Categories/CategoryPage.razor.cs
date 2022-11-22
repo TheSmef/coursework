@@ -1,23 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using System.Net.Http;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.Web.Virtualization;
-using Microsoft.JSInterop;
-using KR.Web;
-using KR.Web.Shared;
 using Radzen;
 using Radzen.Blazor;
-using Blazored.LocalStorage;
 using Kr.Models;
-using System.ComponentModel;
 using KR.Web.Services;
 using KR.Web.Constants;
 
@@ -42,7 +27,7 @@ namespace KR.Web.Pages.Categories
             set;
         }
 
-        IEnumerable<Category> getCategoriesResult;
+        private IEnumerable<Category> getCategoriesResult;
 
 
         protected override async Task OnInitializedAsync()

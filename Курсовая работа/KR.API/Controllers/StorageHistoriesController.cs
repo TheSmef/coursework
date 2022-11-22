@@ -25,7 +25,7 @@ namespace KR.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StorageHistory>>> GetStorageHistory()
         {
-            return await _context.StorageHistory.Include(x => x.ProductStorage)
+            return await _context.StorageHistory.Include(x => x.ProductStorage).ThenInclude(x => x.Category)
                 .ToListAsync();
         }
 
@@ -40,6 +40,7 @@ namespace KR.API.Controllers
                 return NotFound();
             }
             _context.Entry(storageHistory).Reference(x => x.ProductStorage).Load();
+            _context.Entry(storageHistory.ProductStorage).Reference(x => x.Category).Load();
             return storageHistory;
         }
 

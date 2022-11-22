@@ -3,6 +3,7 @@ using KR.Models.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace Kr.Models
 {
@@ -21,8 +22,8 @@ namespace Kr.Models
         [StringLength(20, ErrorMessage = "Код договора должен быть не более 20 символов")]
         [MinLength(3, ErrorMessage = "Код договора должен быть не менее 3 символов")]
         public string Agreement_Code { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Purchase>? Purchases { get; set; }
-
 
     }
 }

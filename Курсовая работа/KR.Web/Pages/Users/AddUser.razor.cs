@@ -26,15 +26,15 @@ namespace KR.Web.Pages.Users
     public partial class AddUser
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected UserService UserService { get; set; }
+        private UserService UserService { get; set; }
         [Inject]
-        protected AuthService AuthService { get; set; }
+        private AuthService AuthService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
 
         private bool HaveErrors { get; set; }
@@ -53,7 +53,7 @@ namespace KR.Web.Pages.Users
             roles = Role.GetRoles();
         }
 
-        RegistrationModel account = new RegistrationModel();
+        private RegistrationModel account = new RegistrationModel();
         private async Task HandleUserCreation()
         {
             try

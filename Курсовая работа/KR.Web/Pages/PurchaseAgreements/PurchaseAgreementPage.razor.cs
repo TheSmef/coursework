@@ -32,7 +32,7 @@ namespace KR.Web.Pages.PurchaseAgreements
         [Inject]
         private PurchaseAgreementService PurchaseAgreementService { get; set; }
 
-        IEnumerable<PurchaseAgreement> getAreementsResult;
+        private IEnumerable<PurchaseAgreement> getAreementsResult;
         protected override async Task OnInitializedAsync()
         {
             await Load();
@@ -45,7 +45,7 @@ namespace KR.Web.Pages.PurchaseAgreements
 
         private async Task AddPurchaseAgreement()
         {
-            await DialogService.OpenAsync<AddPurchaseAgreemen>(ConstantValues.ADD_PRODUCT);
+            await DialogService.OpenAsync<AddPurchaseAgreemen>(ConstantValues.ADD_AGREEMENT);
             PurchaseAgreementService.Reload();
             await grid.Reload();
         }

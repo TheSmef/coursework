@@ -16,7 +16,5 @@ namespace Kr.Models
         [Required(ErrorMessage = "Зарплата - необходимое поле")]
         [Range(0.01, 999999999999.99, ErrorMessage = "Значение зарплаты должно находиться между 0 и 1000000000000.00")]
         public decimal Salary { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<UserPost>? UserPosts { get; set; }
     }
 }

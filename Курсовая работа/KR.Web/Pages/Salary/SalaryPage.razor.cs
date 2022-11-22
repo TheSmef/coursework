@@ -32,7 +32,7 @@ namespace KR.Web.Pages.Salary
         [Inject]
         private SalaryHistoryService SalaryHistoryService { get; set; }
 
-        IEnumerable<SalaryHistory> getSalaryHistoryResult;
+        private IEnumerable<SalaryHistory> getSalaryHistoryResult;
         protected override async Task OnInitializedAsync()
         {
             await Load();

@@ -26,19 +26,19 @@ namespace KR.Web.Pages.UserPosts
     public partial class AddUserPost
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected UserService UserService { get; set; }
+        private UserService UserService { get; set; }
 
         [Inject]
-        protected PostService PostService { get; set; }
+        private PostService PostService { get; set; }
 
         [Inject]
-        protected UserPostService UserPostService { get; set; }
+        private UserPostService UserPostService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private RadzenDropDownDataGrid<User>? grid;
         private bool HaveErrors { get; set; }
@@ -56,12 +56,12 @@ namespace KR.Web.Pages.UserPosts
 
         private async Task Load()
         {
-            users = await UserService.GetUsers();
-            posts = await PostService.GetPosts();
+            users = (await UserService.GetUsers()).ToList();
+            posts = (await PostService.GetPosts()).ToList();
             grid?.Reload();
         }
 
-        UserPost userpost = new UserPost();
+        private UserPost userpost = new UserPost();
         private async Task HandleUserPostCreation()
         {
             try

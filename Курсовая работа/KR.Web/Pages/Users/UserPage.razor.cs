@@ -28,7 +28,7 @@ namespace KR.Web.Pages.Users
     public partial class UserPage
     {
         [Inject]
-        NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
         private DialogService DialogService { get; set; }
@@ -41,7 +41,7 @@ namespace KR.Web.Pages.Users
         [Inject]
         private IBlazorDownloadFileService blazorDownloadFileService { get; set; }
 
-        IEnumerable<User> getUserResult;
+        private IEnumerable<User> getUserResult;
         protected override async Task OnInitializedAsync()
         {
             await Load();

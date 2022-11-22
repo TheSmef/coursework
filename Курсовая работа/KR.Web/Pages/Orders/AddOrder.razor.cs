@@ -26,13 +26,13 @@ namespace KR.Web.Pages.Orders
     public partial class AddOrder
     {
         [Inject]
-        protected UserPostService UserPostService { get; set; }
+        private UserPostService UserPostService { get; set; }
 
         [Inject]
-        protected OrderService OrderService { get; set; }
+        private OrderService OrderService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private RadzenDropDownDataGrid<UserPost>? grid;
         private bool HaveErrors { get; set; }
@@ -48,11 +48,11 @@ namespace KR.Web.Pages.Orders
 
         private async Task Load()
         {
-            users = await UserPostService.GetUserPosts();
+            users = (await UserPostService.GetUserPosts()).ToList();
             grid?.Reload();
         }
 
-        Order order = new Order();
+        private Order order = new Order();
         private async Task HandleAdd()
         {
             try

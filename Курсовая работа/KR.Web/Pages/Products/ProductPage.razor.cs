@@ -37,7 +37,7 @@ namespace KR.Web.Pages.Products
         [Inject]
         private IBlazorDownloadFileService blazorDownloadFileService { get; set; }
 
-        IEnumerable<ProductStorage> getProductResult;
+        private IEnumerable<ProductStorage> getProductResult;
         protected override async Task OnInitializedAsync()
         {
             await Load();

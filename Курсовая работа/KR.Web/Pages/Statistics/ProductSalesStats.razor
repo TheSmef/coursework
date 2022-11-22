@@ -10,26 +10,30 @@
     <Authorized>
         <RadzenHeading Size="H1" Text="Статистика продаж">
         </RadzenHeading>
-        <div style="margin-bottom: 1rem" class="flex-column">
-            <div>
-                <RadzenLabel Text="Дата старта" Component="Date" style="width: 100%">
-                </RadzenLabel>
-            </div>
-            <div>
-                <RadzenDatePicker @bind-Value=@dateFrom DateFormat="d" Class="w-100" />
-            </div>
-        </div>
-        <div style="margin-bottom: 1rem" class="flex-column">
-            <div>
-                <RadzenLabel Text="Дата конца" Component="Date" style="width: 100%">
-                </RadzenLabel>
-            </div>
-            <div>
-                <RadzenDatePicker @bind-Value=@dateTo DateFormat="d" Class="w-100" />
-            </div>
-        </div>
-        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Составить" Click="@Load">
-        </RadzenButton>
+        <RadzenTemplateForm TItem="DateTime" Submit="@Load">
+            <ChildContent Context="data">
+                <div style="margin-bottom: 1rem" class="flex-column">
+                    <div>
+                        <RadzenLabel Text="Дата старта" Component="Date" style="width: 100%">
+                        </RadzenLabel>
+                    </div>
+                    <div>
+                        <RadzenDatePicker @bind-Value=@dateFrom DateFormat="d" Class="w-100" />
+                    </div>
+                </div>
+                <div style="margin-bottom: 1rem" class="flex-column">
+                    <div>
+                        <RadzenLabel Text="Дата конца" Component="Date" style="width: 100%">
+                        </RadzenLabel>
+                    </div>
+                    <div>
+                        <RadzenDatePicker @bind-Value=@dateTo DateFormat="d" Class="w-100" />
+                    </div>
+                </div>
+                <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Составить" ButtonType="ButtonType.Submit">
+                </RadzenButton>
+            </ChildContent>
+        </RadzenTemplateForm>
         <div style="margin-bottom: 1rem" class="flex-column">
             <div>
                 <RadzenChart>

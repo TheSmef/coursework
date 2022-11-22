@@ -29,16 +29,16 @@ namespace KR.Web.Pages.PurchaseAgreements
         public dynamic Id_Purchase_Agreement { get; set; }
 
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected PurchaseAgreementService PurchaseAgreementService { get; set; }
+        private PurchaseAgreementService PurchaseAgreementService { get; set; }
 
         [Inject]
-        protected CategoryService CategoryService { get; set; }
+        private CategoryService CategoryService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private bool HaveErrors { get; set; }
 
@@ -59,7 +59,7 @@ namespace KR.Web.Pages.PurchaseAgreements
             }
         }
 
-        PurchaseAgreement purchaseAgreement = new PurchaseAgreement();
+        private PurchaseAgreement purchaseAgreement = new PurchaseAgreement();
         private async Task HandleEdit()
         {
             try

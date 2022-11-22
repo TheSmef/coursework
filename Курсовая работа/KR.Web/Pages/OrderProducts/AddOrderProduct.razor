@@ -28,24 +28,13 @@
                             </RadzenLabel>
                         </div>
                         <div>
-                            <RadzenDropDownDataGrid @ref="grid" SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="Order" Data="@orders" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(orderproduct.Order)" style="width: 100%" TextProperty="Id_Order">
+                            <RadzenDropDownDataGrid @ref="grid" SearchText="Поиск по номеру заказа или ФИО сотрудника" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"  TValue="Order" Data="@orders" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(orderproduct.Order)" style="width: 100%" TextProperty="Order_Number">
                                     <Columns>
-                                    <RadzenDropDownDataGridColumn Property="Id_Order" Title="Номер заказа">
-                                        </RadzenDropDownDataGridColumn>
-                                    <RadzenDropDownDataGridColumn Property="Order" Title="ФИО сотрудника">
-                                        <Template Context="data">
-                                            @(data.UserPost?.User.Last_name + " " + data.UserPost?.User.First_name + " " + data.UserPost?.User.Otch)
-                                        </Template>
+                                    <RadzenDropDownDataGridColumn Property="Order_Number" Title="Номер заказа">
                                     </RadzenDropDownDataGridColumn>
-                                    <RadzenDropDownDataGridColumn  Property="Order" Title="Должность сотрудника">
-                                        <Template Context="data">
-                                            @(data.UserPost?.Post.Name)
-                                        </Template>
+                                    <RadzenDropDownDataGridColumn Property="UserPost.User.Fullname" Title="ФИО сотрудника">
                                     </RadzenDropDownDataGridColumn>
-                                    <RadzenDropDownDataGridColumn Property="Order" Title="Дата заказа">
-                                        <Template Context="data">
-                                            @(data.Date_Order)
-                                        </Template>
+                                    <RadzenDropDownDataGridColumn Property="Date_Order" SortProperty="Date_Order" GroupProperty="Date_Order" FilterProperty="Date_Order" Title="Дата заказа">
                                     </RadzenDropDownDataGridColumn>
                                     </Columns>
                                 </RadzenDropDownDataGrid>
@@ -56,7 +45,7 @@
                             </RadzenLabel>
                         </div>
                         <div>
-                            <RadzenDropDownDataGrid SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="ProductStorage" Data="@products" Multiple="false" SelectedItemsText="Выбранных элементов" TextProperty="Name" @bind-Value="@(orderproduct.Product)" style="width: 100%">
+                            <RadzenDropDownDataGrid SearchText="Поиск по названию продукта или категории" AllowFilteringByAllStringColumns="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" TValue="ProductStorage" Data="@products" Multiple="false" SelectedItemsText="Выбранных элементов" TextProperty="Name" @bind-Value="@(orderproduct.Product)" style="width: 100%">
                                 <Columns>
                                     <RadzenDropDownDataGridColumn Property="Name" Title="Продукт">
                                         </RadzenDropDownDataGridColumn>
@@ -64,7 +53,7 @@
                                         </RadzenDropDownDataGridColumn>
                                     <RadzenDropDownDataGridColumn Property="Amount" Title="Количество в наличии">
                                         </RadzenDropDownDataGridColumn>
-                                    <RadzenDropDownDataGridColumn  Property="Category" Title="Категория">
+                                    <RadzenDropDownDataGridColumn  Property="Category.Name" Title="Категория">
                                         <Template Context="data">
                                             @(data.Category?.Name)
                                         </Template>

@@ -29,7 +29,7 @@
                             </RadzenLabel>
                         </div>
                         <div>
-                            <RadzenLabel Text="@order.Id_Order.ToString()" Component="User" style="width: 100%">
+                            <RadzenLabel Text="@order.Order_Number" Component="User" style="width: 100%">
                             </RadzenLabel>
                         </div>
                         <div>
@@ -39,11 +39,7 @@
                         <div>
                             <RadzenDropDownDataGrid @ref="grid" SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="UserPost" Data="@users" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(order.UserPost)" style="width: 100%" TextProperty="User.Last_name">
                                 <Columns>
-                                    <RadzenDropDownDataGridColumn Property="User.Last_name" Title="Фамилия">
-                                    </RadzenDropDownDataGridColumn>
-                                    <RadzenDropDownDataGridColumn Property="User.First_name" Title="Имя">
-                                    </RadzenDropDownDataGridColumn>
-                                    <RadzenDropDownDataGridColumn Property="User.Otch" Title="Отчество">
+                                    <RadzenDropDownDataGridColumn Property="User.Fullname" Title="ФИО сотрудника">
                                     </RadzenDropDownDataGridColumn>
                                     <RadzenDropDownDataGridColumn Property="Post.Name" Title="Должность">
                                     </RadzenDropDownDataGridColumn>

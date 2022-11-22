@@ -10,7 +10,6 @@ namespace Kr.Models
         [Key]
         public Guid Id_order_product { get; set; } = new Guid();
         [Required(ErrorMessage = "Заказ - необходимое поле")]
-        [JsonIgnore]
         public virtual Order Order { get; set; }
         [Required(ErrorMessage = "Продукт - необходимое поле")]
         public virtual ProductStorage Product { get; set; }

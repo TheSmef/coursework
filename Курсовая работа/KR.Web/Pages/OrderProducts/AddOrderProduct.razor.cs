@@ -26,19 +26,19 @@ namespace KR.Web.Pages.OrderProducts
     public partial class AddOrderProduct
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        protected OrderProductService OrderProductService { get; set; }
+        private OrderProductService OrderProductService { get; set; }
 
         [Inject]
-        protected OrderService OrderService { get; set; }
+        private OrderService OrderService { get; set; }
 
         [Inject]
-        protected ProductService ProductService { get; set; }
+        private ProductService ProductService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private RadzenDropDownDataGrid<Order>? grid;
         private bool HaveErrors { get; set; }
@@ -56,12 +56,12 @@ namespace KR.Web.Pages.OrderProducts
 
         private async Task Load()
         {
-            products = await ProductService.GetProducts();
-            orders = await OrderService.GetOrders();
+            products = (await ProductService.GetProducts()).ToList();
+            orders = (await OrderService.GetOrders()).ToList();
             grid?.Reload();
         }
 
-        OrderProduct orderproduct = new OrderProduct();
+        private OrderProduct orderproduct = new OrderProduct();
         private async Task HandleAdd()
         {
             try

@@ -29,10 +29,10 @@ namespace KR.Web.Pages.Salary
         public dynamic Id_SalaryHistory { get; set; }
 
         [Inject]
-        protected SalaryHistoryService SalaryHistoryService { get; set; }
+        private SalaryHistoryService SalaryHistoryService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private bool HaveErrors { get; set; }
 
@@ -48,7 +48,7 @@ namespace KR.Web.Pages.Salary
             salaryHistory = await SalaryHistoryService.GetSalaryHistoryById(Id_SalaryHistory);
         }
 
-        SalaryHistory salaryHistory = new SalaryHistory();
+        private SalaryHistory salaryHistory = new SalaryHistory();
         private async Task HandleEdit()
         {
             try

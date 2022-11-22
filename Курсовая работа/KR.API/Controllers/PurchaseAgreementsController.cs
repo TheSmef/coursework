@@ -25,7 +25,7 @@ namespace KR.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PurchaseAgreement>>> GetPurchaseAgreements()
         {
-            return await _context.PurchaseAgreements.Include(x => x.Purchases).ToListAsync();
+            return await _context.PurchaseAgreements.ToListAsync();
         }
 
         // GET: api/PurchaseAgreements/5
@@ -38,7 +38,6 @@ namespace KR.API.Controllers
             {
                 return NotFound();
             }
-            _context.Entry(purchaseAgreement).Reference(x => x.Purchases).Load();
             return purchaseAgreement;
         }
 

@@ -32,7 +32,7 @@ namespace KR.Web.Pages.Purchases
         [Inject]
         private PurchaseService PurchaseService { get; set; }
 
-        IEnumerable<Purchase> getPurchaseResult;
+        private IEnumerable<Purchase> getPurchaseResult;
         protected override async Task OnInitializedAsync()
         {
             await Load();

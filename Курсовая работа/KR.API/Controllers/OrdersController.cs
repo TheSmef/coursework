@@ -25,7 +25,7 @@ namespace KR.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-            return await _context.Orders.Include(x => x.OrderProducts).Include(x => x.UserPost).ThenInclude(x => x.User).ToListAsync();
+            return await _context.Orders.Include(x => x.UserPost).ThenInclude(x => x.User).Include(x => x.UserPost).ThenInclude(x => x.Post).ToListAsync();
         }
 
         // GET: api/Orders/5
@@ -39,8 +39,8 @@ namespace KR.API.Controllers
                 return NotFound();
             }
             _context.Entry(order).Reference(x => x.UserPost).Load();
-            _context.Entry(order).Reference(x => x.OrderProducts).Load();
-            _context.Entry(order).Reference(x => x.UserPost.User).Load();
+            _context.Entry(order.UserPost).Reference(x => x.User).Load();
+            _context.Entry(order.UserPost).Reference(x => x.Post).Load();
             return order;
         }
 
@@ -81,6 +81,7 @@ namespace KR.API.Controllers
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
             _context.Orders.Add(order);
+            order.Order_Number = order.Id_Order.ToString();
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetOrder", new { id = order.Id_Order }, order);

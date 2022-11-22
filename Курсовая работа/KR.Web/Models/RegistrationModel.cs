@@ -34,14 +34,9 @@ namespace KR.Web.Models
         public string? Otch { get; set; }
         [Required(ErrorMessage = "Дата рождения - необходимое поле")]
         [DataType(DataType.Date, ErrorMessage = "Неправильный формат даты")]
-        [DateAttribute(ErrorMessage = "Дата рождения должна быть между {1} и {2}")]
+        [DateAttribute(18, 80, ErrorMessage = "Дата рождения должна быть между {1} и {2}")]
         public DateTime BirthDate { get; set; }
         public virtual List<Role>? Roles { get; set; }
 
-        public class DateAttribute : RangeAttribute
-        {
-            public DateAttribute()
-              : base(typeof(DateTime), DateTime.Now.AddYears(-80).ToShortDateString(), DateTime.Now.AddYears(-18).ToShortDateString()) { }
-        }
     }
 }

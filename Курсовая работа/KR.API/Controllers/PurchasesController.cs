@@ -25,7 +25,7 @@ namespace KR.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Purchase>>> GetPurchases()
         {
-            return await _context.Purchases.Include(x => x.ProductStorage).Include(x => x.PurchaseAgreement).ToListAsync();
+            return await _context.Purchases.Include(x => x.ProductStorage).ThenInclude(x => x.Category).Include(x => x.PurchaseAgreement).ToListAsync();
         }
 
         // GET: api/Purchases/5
@@ -39,6 +39,7 @@ namespace KR.API.Controllers
                 return NotFound();
             }
             _context.Entry(purchase).Reference(x => x.ProductStorage).Load();
+            _context.Entry(purchase.ProductStorage).Reference(x => x.Category).Load();
             _context.Entry(purchase).Reference(x => x.PurchaseAgreement).Load();
             return purchase;
         }

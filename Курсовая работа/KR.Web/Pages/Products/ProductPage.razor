@@ -48,7 +48,7 @@
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="ProductStorage" Property="Exipiration_Date" Title="Срок годности товара (в днях)">
                                 </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="ProductStorage" Property="Category" SortProperty="Category.Name" GroupProperty="Category.Name" FilterProperty="Category.Name" Title="Категория товара">
+                                <RadzenDataGridColumn TItem="ProductStorage" Property="Category.Name" SortProperty="Category.Name" GroupProperty="Category.Name" FilterProperty="Category.Name" Title="Категория товара">
                                     <Template Context="data">
                                         @(data.Category?.Name)
                                     </Template>

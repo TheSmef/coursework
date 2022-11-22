@@ -31,7 +31,7 @@ namespace KR.Web.Pages.Posts
         [Inject]
         private DialogService DialogService { get; set; }
 
-        Post? post = new Post();
+        private Post? post = new Post();
         private bool HaveErrors { get; set; }
 
         private string Error { get; set; }

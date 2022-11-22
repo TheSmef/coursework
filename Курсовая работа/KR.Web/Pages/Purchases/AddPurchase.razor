@@ -28,7 +28,7 @@
                             </RadzenLabel>
                         </div>
                         <div>
-                            <RadzenDropDownDataGrid SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="PurchaseAgreement" Data="@agreements" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(purchase.PurchaseAgreement)" style="width: 100%" TextProperty="Agreement_Code">
+                            <RadzenDropDownDataGrid SearchText="Поиск номеру договора или названию организации" AllowFilteringByAllStringColumns="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" TValue="PurchaseAgreement" Data="@agreements" Multiple="false" SelectedItemsText="Выбранных элементов" @bind-Value="@(purchase.PurchaseAgreement)" style="width: 100%" TextProperty="Agreement_Code">
                                     <Columns>
                                     <RadzenDropDownDataGridColumn Property="Agreement_Code" Title="Номер договора закупки">
                                         </RadzenDropDownDataGridColumn>
@@ -45,7 +45,7 @@
                             </RadzenLabel>
                         </div>
                         <div>
-                            <RadzenDropDownDataGrid SearchText="Поиск" AllowFilteringByAllStringColumns="true" AllowColumnResize="true" TValue="ProductStorage" Data="@products" Multiple="false" SelectedItemsText="Выбранных элементов" TextProperty="Name" @bind-Value="@(purchase.ProductStorage)" style="width: 100%">
+                            <RadzenDropDownDataGrid SearchText="Поиск названию продукта или категории" AllowFilteringByAllStringColumns="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" TValue="ProductStorage" Data="@products" Multiple="false" SelectedItemsText="Выбранных элементов" TextProperty="Name" @bind-Value="@(purchase.ProductStorage)" style="width: 100%">
                                 <Columns>
                                     <RadzenDropDownDataGridColumn Property="Name" Title="Продукт">
                                         </RadzenDropDownDataGridColumn>
@@ -53,7 +53,7 @@
                                         </RadzenDropDownDataGridColumn>
                                     <RadzenDropDownDataGridColumn Property="Amount" Title="Количество в наличии">
                                         </RadzenDropDownDataGridColumn>
-                                    <RadzenDropDownDataGridColumn  Property="Category" Title="Категория">
+                                    <RadzenDropDownDataGridColumn  Property="Category.Name" Title="Категория">
                                         <Template Context="data">
                                             @(data.Category?.Name)
                                         </Template>

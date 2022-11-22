@@ -26,13 +26,13 @@ namespace KR.Web.Pages.Salary
     public partial class AddSalary
     {
         [Inject]
-        protected UserPostService UserPostService { get; set; }
+        private UserPostService UserPostService { get; set; }
 
         [Inject]
-        protected SalaryHistoryService SalaryHistoryService { get; set; }
+        private SalaryHistoryService SalaryHistoryService { get; set; }
 
         [Inject]
-        protected DialogService DialogService { get; set; }
+        private DialogService DialogService { get; set; }
 
         private RadzenDropDownDataGrid<UserPost>? grid;
         private bool HaveErrors { get; set; }
@@ -48,11 +48,11 @@ namespace KR.Web.Pages.Salary
 
         private async Task Load()
         {
-            users = await UserPostService.GetUserPosts();
+            users = (await UserPostService.GetUserPosts()).ToList();
             grid?.Reload();
         }
 
-        SalaryHistory salaryHistory = new SalaryHistory();
+        private SalaryHistory salaryHistory = new SalaryHistory();
         private async Task HandleAdd()
         {
             try
