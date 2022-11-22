@@ -34,7 +34,7 @@ namespace KR.Web.Models
         public string? Otch { get; set; }
         [Required(ErrorMessage = "Дата рождения - необходимое поле")]
         [DataType(DataType.Date, ErrorMessage = "Неправильный формат даты")]
-        [DateAttribute(18, 80, ErrorMessage = "Дата рождения должна быть между {1} и {2}")]
+        [DateAttribute(80, -18, ErrorMessage = "Дата рождения должна быть между {1} и {2}")]
         public DateTime BirthDate { get; set; }
         public virtual List<Role>? Roles { get; set; }
 

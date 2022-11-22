@@ -33,6 +33,7 @@ namespace KR.Web.Pages.Posts
         private async Task PostRowSelect(Post args)
         {
             await DialogService.OpenAsync<EditPost>(ConstantValues.EDIT_POST, new Dictionary<string, object>() { { ConstantValues.Id_Post, args.Id_Post } });
+            PostService.Reload();
             await grid.Reload();
         }
 

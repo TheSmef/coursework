@@ -34,7 +34,7 @@ namespace Kr.Models
         [Index(3)]
         [Name("Дата рождения")]
         [Required(ErrorMessage = "Дата рождения - необходимое поле")]
-        [DateAttribute(18, 80, ErrorMessage = "Дата рождения должна быть между {1} и {2}")]
+        [DateAttribute(80, -18, ErrorMessage = "Дата рождения должна быть между {1} и {2}")]
         public DateTime BirthDate { get; set; }
         [AllowNull]
         public virtual Account? Account { get; set; }
