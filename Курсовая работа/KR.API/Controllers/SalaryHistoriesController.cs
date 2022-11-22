@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KR.API.Data;
 using Kr.Models;
@@ -21,14 +16,13 @@ namespace KR.API.Controllers
             _context = context;
         }
 
-        // GET: api/SalaryHistories
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SalaryHistory>>> GetSalaryHistories()
         {
             return await _context.SalaryHistories.Include(x => x.UserPost).ThenInclude(x => x.User).Include(x => x.UserPost).ThenInclude(x => x.Post).ToListAsync();
         }
 
-        // GET: api/SalaryHistories/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SalaryHistory>> GetSalaryHistory(Guid id)
         {
@@ -44,8 +38,7 @@ namespace KR.API.Controllers
             return salaryHistory;
         }
 
-        // PUT: api/SalaryHistories/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSalaryHistory(Guid id, SalaryHistory salaryHistory)
         {
@@ -75,8 +68,7 @@ namespace KR.API.Controllers
             return NoContent();
         }
 
-        // POST: api/SalaryHistories
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPost]
         public async Task<ActionResult<SalaryHistory>> PostSalaryHistory(SalaryHistory salaryHistory)
         {
@@ -86,7 +78,7 @@ namespace KR.API.Controllers
             return CreatedAtAction("GetSalaryHistory", new { id = salaryHistory.Id_SalaryHistory }, salaryHistory);
         }
 
-        // DELETE: api/SalaryHistories/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSalaryHistory(Guid id)
         {

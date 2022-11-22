@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KR.API.Data;
 using Kr.Models;
@@ -21,14 +16,12 @@ namespace KR.API.Controllers
             _context = context;
         }
 
-        // GET: api/UserPosts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserPost>>> GetUserPosts()
         {
             return await _context.UserPosts.Include(x => x.User).Include(x => x.Post).ToListAsync();
         }
 
-        // GET: api/UserPosts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<UserPost>> GetUserPost(Guid id)
         {
@@ -43,8 +36,6 @@ namespace KR.API.Controllers
             return userPost;
         }
 
-        // PUT: api/UserPosts/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUserPost(Guid id, UserPost userPost)
         {
@@ -74,8 +65,6 @@ namespace KR.API.Controllers
             return NoContent();
         }
 
-        // POST: api/UserPosts
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<UserPost>> PostUserPost(UserPost userPost)
         {
@@ -85,7 +74,6 @@ namespace KR.API.Controllers
             return CreatedAtAction("GetUserPost", new { id = userPost.Id_User_Post }, userPost);
         }
 
-        // DELETE: api/UserPosts/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUserPost(Guid id)
         {

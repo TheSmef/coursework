@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KR.API.Data;
 using Kr.Models;
@@ -21,14 +16,12 @@ namespace KR.API.Controllers
             _context = context;
         }
 
-        // GET: api/Purchases
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Purchase>>> GetPurchases()
         {
             return await _context.Purchases.Include(x => x.ProductStorage).ThenInclude(x => x.Category).Include(x => x.PurchaseAgreement).ToListAsync();
         }
 
-        // GET: api/Purchases/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Purchase>> GetPurchase(Guid id)
         {
@@ -44,8 +37,6 @@ namespace KR.API.Controllers
             return purchase;
         }
 
-        // PUT: api/Purchases/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPurchase(Guid id, Purchase purchase)
         {
@@ -75,8 +66,6 @@ namespace KR.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Purchases
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Purchase>> PostPurchase(Purchase purchase)
         {
@@ -86,7 +75,6 @@ namespace KR.API.Controllers
             return CreatedAtAction("GetPurchase", new { id = purchase.Id_Puchase }, purchase);
         }
 
-        // DELETE: api/Purchases/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePurchase(Guid id)
         {

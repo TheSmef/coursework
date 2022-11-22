@@ -1,9 +1,6 @@
 ﻿using Kr.Models;
 using KR.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
-using System.Xml;
 
 namespace KR.API.Data
 {

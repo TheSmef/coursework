@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KR.API.Data;
 using Kr.Models;
@@ -21,14 +16,12 @@ namespace KR.API.Controllers
             _context = context;
         }
 
-        // GET: api/Posts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Post>>> GetPosts()
         {
             return await _context.Posts.ToListAsync();
         }
 
-        // GET: api/Posts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Post>> GetPost(Guid id)
         {
@@ -42,8 +35,7 @@ namespace KR.API.Controllers
             return post;
         }
 
-        // PUT: api/Posts/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPost(Guid id, Post post)
         {
@@ -73,8 +65,6 @@ namespace KR.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Posts
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Post>> PostPost(Post post)
         {
@@ -84,7 +74,6 @@ namespace KR.API.Controllers
             return CreatedAtAction("GetPost", new { id = post.Id_Post }, post);
         }
 
-        // DELETE: api/Posts/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePost(Guid id)
         {

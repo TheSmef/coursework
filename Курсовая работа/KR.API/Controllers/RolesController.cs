@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KR.API.Data;
 using Kr.Models;
@@ -22,8 +17,6 @@ namespace KR.API.Controllers
             _context = context;
         }
 
-        // PUT: api/Roles/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRole(Guid id, Role role)
         {
@@ -53,8 +46,7 @@ namespace KR.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Roles
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPost]
         public async Task<ActionResult<Role>> PostRole(Role role)
         {
@@ -64,7 +56,7 @@ namespace KR.API.Controllers
             return CreatedAtAction("GetRole", new { id = role.Id_Role }, role);
         }
 
-        // DELETE: api/Roles/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRole(Guid id)
         {

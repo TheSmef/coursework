@@ -4,17 +4,16 @@ using Microsoft.EntityFrameworkCore;
 using KR.Models;
 using KR.Web.Models;
 using KR.Web.Security;
-using Microsoft.AspNetCore.Authorization;
 
 
 namespace KR.Web.Services
 {
-    public class UserService
+    public class UserService : ServiceBase
     {
-        private readonly StoreDbContext storeDbContext;
-        public UserService(StoreDbContext storeDbContext)
+
+        public UserService(StoreDbContext storeDbContext) : base(storeDbContext)
         {
-            this.storeDbContext = storeDbContext;
+
         }
 
         public async Task<IQueryable<User>> GetUsers()
@@ -89,22 +88,6 @@ namespace KR.Web.Services
 
             storeDbContext.Users.Add(user);
             return (storeDbContext.SaveChanges() > 0);
-        }
-
-        public void Reload()
-        {
-            foreach (var entry in storeDbContext.ChangeTracker.Entries())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Modified:
-                        entry.State = EntityState.Unchanged;
-                        break;
-                    case EntityState.Deleted:
-                        entry.Reload();
-                        break;
-                }
-            }
         }
     }
 }

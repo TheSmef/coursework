@@ -1,16 +1,14 @@
 ﻿using KR.API.Data;
 using Kr.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
 
 namespace KR.Web.Services
 {
-    public class ProductService
+    public class ProductService : ServiceBase
     {
-        private readonly StoreDbContext storeDbContext;
-        public ProductService(StoreDbContext storeDbContext)
+        public ProductService(StoreDbContext storeDbContext) : base(storeDbContext)
         {
-            this.storeDbContext = storeDbContext;
+
         }
 
         public async Task<IQueryable<ProductStorage>> GetProducts()
@@ -74,20 +72,5 @@ namespace KR.Web.Services
             return !storeDbContext.ProductStorages.Where(x => x.Name == name).Any();
         }
 
-        public void Reload()
-        {
-            foreach (var entry in storeDbContext.ChangeTracker.Entries())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Modified:
-                        entry.State = EntityState.Unchanged;
-                        break;
-                    case EntityState.Deleted:
-                        entry.Reload();
-                        break;
-                }
-            }
-        }
     }
 }

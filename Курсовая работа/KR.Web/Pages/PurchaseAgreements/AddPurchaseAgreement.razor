@@ -1,0 +1,67 @@
+﻿@layout MainLayout
+
+
+@attribute [Authorize(Roles = "Администратор, Отдел закупок")]
+
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@purchaseAgreement" TItem="PurchaseAgreement" Submit="HandleAdd">
+                    <ChildContent>
+                        @if (@HaveErrors)
+                        {
+                            <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
+                            </RadzenHeading>
+                        }
+                        <DataAnnotationsValidator />
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Название организации" Component="Name" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(purchaseAgreement.Provider)">
+                                </RadzenTextBox>
+                                <ValidationMessage For="@(() => purchaseAgreement.Provider)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Номер договора" Component="AgreementNumber" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(purchaseAgreement.Agreement_Code)">
+                                </RadzenTextBox>
+                                <ValidationMessage For="@(() => purchaseAgreement.Agreement_Code)" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="flex-column">
+                            <div>
+                                <RadzenLabel Text="Дата поставки" Component="Date" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div>
+                                <RadzenDatePicker @bind-Value="@(purchaseAgreement.Date_Of_Purchase)"  DateFormat="d" Class="w-100" />
+                                <ValidationMessage For="@(() => purchaseAgreement.Date_Of_Purchase)"/>
+                            </div>
+                        </div>
+                        <div class="row footer">
+                            <div>
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Сохранить" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonType="ButtonType.Button" Text="Закрыть" ButtonStyle="ButtonStyle.Danger" Click="@Close">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+
+

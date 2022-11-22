@@ -1,27 +1,20 @@
-﻿using CsvHelper;
-using KR.API.Data;
-using Kr.Models;
+﻿using KR.API.Data;
 using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System.Data;
-using System.Globalization;
-using System.Text;
 using BlazorDownloadFile;
 
 namespace KR.Web.Services
 {
-    public class BackupService
+    public class BackupService : ServiceBase
     {
         private readonly IConfiguration _configuration;
         private readonly string _connectionString;
         private readonly string _backupFolderFullPath = AppDomain.CurrentDomain.BaseDirectory + "Backup\\backup.bak";
         private readonly string _directory = AppDomain.CurrentDomain.BaseDirectory + "Backup";
         private readonly BlazorDownloadFile.IBlazorDownloadFileService blazorDownloadFile;
-        private readonly StoreDbContext storeDbContext;
 
 
 
-        public BackupService(IConfiguration configuration, IBlazorDownloadFileService blazorDownloadFile, StoreDbContext storeDbContext)
+        public BackupService(IConfiguration configuration, IBlazorDownloadFileService blazorDownloadFile, StoreDbContext storeDbContext) : base(storeDbContext)
         {
             _configuration = configuration;
             _connectionString = _configuration.GetConnectionString("StoreBaseConncetion");
@@ -30,7 +23,6 @@ namespace KR.Web.Services
                 Directory.CreateDirectory(_directory);
             }
             this.blazorDownloadFile = blazorDownloadFile;
-            this.storeDbContext = storeDbContext;
         }
 
 

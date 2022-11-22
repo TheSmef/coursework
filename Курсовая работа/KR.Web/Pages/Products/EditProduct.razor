@@ -1,14 +1,6 @@
 ﻿@page "/edit-product/{Id_Product}"
 @layout MainLayout
 
-@using KR.Web.Constants
-@using KR.Web.Models
-@using KR.Web.Services
-@using Kr.Models
-@using Radzen
-@using Radzen.Blazor
-@using Microsoft.AspNetCore.Identity;
-@using Microsoft.AspNetCore.Authorization
 @attribute [Authorize(Roles = "Администратор, Отдел продаж, Отдел закупок, Работник склада")]
 
 <RadzenContent Container="main">

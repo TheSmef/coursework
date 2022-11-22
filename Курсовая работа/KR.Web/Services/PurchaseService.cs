@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KR.Web.Services
 {
-    public class PurchaseService
+    public class PurchaseService : ServiceBase
     {
-        private readonly StoreDbContext storeDbContext;
-        public PurchaseService(StoreDbContext storeDbContext)
+
+        public PurchaseService(StoreDbContext storeDbContext) : base(storeDbContext)
         {
-            this.storeDbContext = storeDbContext;
+
         }
 
         public async Task<IQueryable<Purchase>> GetPurchases()
@@ -73,20 +73,5 @@ namespace KR.Web.Services
 
         }
 
-        public void Reload()
-        {
-            foreach (var entry in storeDbContext.ChangeTracker.Entries())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Modified:
-                        entry.State = EntityState.Unchanged;
-                        break;
-                    case EntityState.Deleted:
-                        entry.Reload();
-                        break;
-                }
-            }
-        }
     }
 }

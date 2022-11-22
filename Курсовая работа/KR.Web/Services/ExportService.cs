@@ -2,24 +2,17 @@
 using CsvHelper;
 using Kr.Models;
 using KR.API.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Radzen;
-using System.Collections;
-using System.Diagnostics.Metrics;
 using System.Globalization;
-using System.IO;
 using System.Text;
 
 namespace KR.Web.Services
 {
-    public class ExportService
+    public class ExportService : ServiceBase
     {
         private readonly BlazorDownloadFile.IBlazorDownloadFileService blazorDownloadFile;
-        private readonly StoreDbContext storeDbContext;
-        public ExportService(StoreDbContext storeDbContext, IBlazorDownloadFileService blazorDownloadFile)
+        public ExportService(StoreDbContext storeDbContext, IBlazorDownloadFileService blazorDownloadFile) : base(storeDbContext)
         {
-            this.storeDbContext = storeDbContext;
             this.blazorDownloadFile = blazorDownloadFile;
         }
 
@@ -125,20 +118,5 @@ namespace KR.Web.Services
             Reload();
         }
 
-        public void Reload()
-        {
-            foreach (var entry in storeDbContext.ChangeTracker.Entries())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Modified:
-                        entry.State = EntityState.Unchanged;
-                        break;
-                    case EntityState.Deleted:
-                        entry.Reload();
-                        break;
-                }
-            }
-        }
     }
 }

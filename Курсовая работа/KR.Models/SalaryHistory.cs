@@ -1,8 +1,5 @@
-﻿using KR.Models;
-using KR.Models.Attributes;
+﻿using KR.Models.Attributes;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
 namespace Kr.Models
 {

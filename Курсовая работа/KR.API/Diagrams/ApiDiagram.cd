@@ -1,112 +1,151 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="KR.API.Controllers.AccountsController">
-    <Position X="11.75" Y="7" Width="5" />
+    <Position X="2.75" Y="16.5" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAIAAAAAAAAAAAAAQBAAIAUAAAAA=</HashCode>
       <FileName>Controllers\AccountsController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.CategoriesController">
-    <Position X="11.75" Y="0.5" Width="4.75" />
+    <Position X="2.75" Y="0.5" Width="4.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIABAEAAAAAAAAAAQAAgAAAAAAAAAgAEAA=</HashCode>
       <FileName>Controllers\CategoriesController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.OrderProductsController">
-    <Position X="11.75" Y="3.75" Width="5.75" />
+    <Position X="15.25" Y="16.5" Width="5.75" />
     <TypeIdentifier>
       <HashCode>AAgAEAAAAAEABgAAAAAAAAAAAAACAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\OrderProductsController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.OrdersController">
-    <Position X="2.75" Y="23.5" Width="4" />
+    <Position X="16.25" Y="8.5" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAACQQAAAAABAAAAAAAAAAAAAAAAAIAAEAAAAAAAAA=</HashCode>
       <FileName>Controllers\OrdersController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.PostsController">
-    <Position X="0.75" Y="19.75" Width="3.75" />
+    <Position X="2.25" Y="12.5" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAAAAAAAEAIAAQAAAEACAgAAAAA=</HashCode>
       <FileName>Controllers\PostsController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.ProductStoragesController">
-    <Position X="5.25" Y="27.5" Width="6" />
+    <Position X="1.25" Y="8.5" Width="6" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAABAAAAAAAAAQAAJAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>Controllers\ProductStoragesController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.PurchaseAgreementsController">
-    <Position X="11.75" Y="27.5" Width="7.5" />
+    <Position X="7.5" Y="4.5" Width="7.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABACAAAEAAAAACgAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Controllers\PurchaseAgreementsController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.PurchasesController">
-    <Position X="11.75" Y="12.75" Width="5.25" />
+    <Position X="16.5" Y="4.5" Width="5.25" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAABBAAAAAAAABAAAAAAAAAAAAAAAEAQAAA=</HashCode>
       <FileName>Controllers\PurchasesController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.RolesController">
-    <Position X="11.75" Y="15.75" Width="5.25" />
+    <Position X="8.5" Y="1.75" Width="5.25" />
     <TypeIdentifier>
       <HashCode>QAAAAAAQAAAABAAAAAAAQAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Controllers\RolesController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.SalaryHistoriesController">
-    <Position X="11.75" Y="18.5" Width="5.25" />
+    <Position X="0.5" Y="4.5" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAABgBAAAAAAAAAAIAAAAAAAABAAABAAAAAA=</HashCode>
       <FileName>Controllers\SalaryHistoriesController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.StorageHistoriesController">
-    <Position X="11.75" Y="10" Width="5.5" />
+    <Position X="8.5" Y="16.75" Width="5.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACgAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\StorageHistoriesController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.UserPostsController">
-    <Position X="11.75" Y="24.5" Width="5.25" />
+    <Position X="8.5" Y="13.5" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAABAAAAACAAAAAAAAgAAAAAgAAAAAAABA=</HashCode>
       <FileName>Controllers\UserPostsController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Controllers.UsersController">
-    <Position X="11.75" Y="21.5" Width="5.25" />
+    <Position X="15.5" Y="12.5" Width="5.25" />
     <TypeIdentifier>
       <HashCode>IgAAAAAAAAAABQAEAAAAAAAAAAAAAAAAMAAAAAAAAAA=</HashCode>
       <FileName>Controllers\UsersController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.API.Data.StoreDbContext">
-    <Position X="3.75" Y="10.5" Width="5" />
+    <Position X="8.75" Y="8" Width="5" />
     <TypeIdentifier>
       <HashCode>AAUAACAJgAAAAAAABAAAAAAKEgAAEACAAAAgAAAAAAA=</HashCode>
       <FileName>Data\StoreDbContext.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.API.Migrations.InitialCreate">
-    <Position X="4.5" Y="0.5" Width="4.25" />
+    <Position X="15" Y="0.5" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
       <FileName>Migrations\20221115121729_InitialCreate.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.API.Migrations.StoreDbContextModelSnapshot">
-    <Position X="0.75" Y="0.5" Width="3.25" />
+    <Position X="15.25" Y="2.75" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Migrations\StoreDbContextModelSnapshot.cs</FileName>

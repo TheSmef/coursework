@@ -4,12 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KR.Web.Services
 {
-    public class SalaryHistoryService
+    public class SalaryHistoryService : ServiceBase
     {
-        private readonly StoreDbContext storeDbContext;
-        public SalaryHistoryService(StoreDbContext storeDbContext)
+        public SalaryHistoryService(StoreDbContext storeDbContext) : base(storeDbContext)
         {
-            this.storeDbContext = storeDbContext;
+
         }
 
         public async Task<IQueryable<SalaryHistory>> GetSalaryHistorys()
@@ -64,20 +63,5 @@ namespace KR.Web.Services
 
         }
 
-        public void Reload()
-        {
-            foreach (var entry in storeDbContext.ChangeTracker.Entries())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Modified:
-                        entry.State = EntityState.Unchanged;
-                        break;
-                    case EntityState.Deleted:
-                        entry.Reload();
-                        break;
-                }
-            }
-        }
     }
 }

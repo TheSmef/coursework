@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KR.Web.Services
 {
-    public class StatsService
+    public class StatsService : ServiceBase
     {
-        private readonly StoreDbContext storeDbContext;
-        public StatsService(StoreDbContext storeDbContext)
-        {
-            this.storeDbContext = storeDbContext;
+
+        public StatsService(StoreDbContext storeDbContext) : base(storeDbContext)
+    {
+
         }
 
         public async Task<List<SalesStats>> GetStats(DateTime dateFrom, DateTime dateTo)

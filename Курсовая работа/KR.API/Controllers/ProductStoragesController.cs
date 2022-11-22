@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KR.API.Data;
 using Kr.Models;
@@ -21,14 +16,12 @@ namespace KR.API.Controllers
             _context = context;
         }
 
-        // GET: api/ProductStorages
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductStorage>>> GetProductStorages()
         {
             return await _context.ProductStorages.Include(x => x.Category).ToListAsync();
         }
 
-        // GET: api/ProductStorages/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductStorage>> GetProductStorage(Guid id)
         {
@@ -43,8 +36,6 @@ namespace KR.API.Controllers
             return productStorage;
         }
 
-        // PUT: api/ProductStorages/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProductStorage(Guid id, ProductStorage productStorage)
         {
@@ -74,8 +65,6 @@ namespace KR.API.Controllers
             return NoContent();
         }
 
-        // POST: api/ProductStorages
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<ProductStorage>> PostProductStorage(ProductStorage productStorage)
         {
@@ -85,7 +74,6 @@ namespace KR.API.Controllers
             return CreatedAtAction("GetProductStorage", new { id = productStorage.Id_Product_Storage }, productStorage);
         }
 
-        // DELETE: api/ProductStorages/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProductStorage(Guid id)
         {

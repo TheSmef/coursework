@@ -1,18 +1,15 @@
 ﻿using KR.API.Data;
 using Kr.Models;
 using Microsoft.EntityFrameworkCore;
-using KR.Models;
-using KR.Web.Models;
-using KR.Web.Security;
 
 namespace KR.Web.Services
 {
-    public class UserPostService
+    public class UserPostService : ServiceBase
     {
-        private readonly StoreDbContext storeDbContext;
-        public UserPostService(StoreDbContext storeDbContext)
+
+        public UserPostService(StoreDbContext storeDbContext) : base(storeDbContext)
         {
-            this.storeDbContext = storeDbContext;
+
         }
 
         public async Task<IQueryable<UserPost>> GetUserPosts()
@@ -74,22 +71,6 @@ namespace KR.Web.Services
             {
                 await storeDbContext.UserPosts.AddAsync(userPost);
                 await storeDbContext.SaveChangesAsync();
-            }
-        }
-
-        public void Reload()
-        {
-            foreach (var entry in storeDbContext.ChangeTracker.Entries())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Modified:
-                        entry.State = EntityState.Unchanged;
-                        break;
-                    case EntityState.Deleted:
-                        entry.Reload();
-                        break;
-                }
             }
         }
     }

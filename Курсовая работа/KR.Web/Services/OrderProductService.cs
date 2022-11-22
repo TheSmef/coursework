@@ -2,16 +2,15 @@
 using Kr.Models;
 using Microsoft.EntityFrameworkCore;
 using Radzen;
-using System;
 
 namespace KR.Web.Services
 {
-    public class OrderProductService
+    public class OrderProductService : ServiceBase
     {
-        private readonly StoreDbContext storeDbContext;
-        public OrderProductService(StoreDbContext storeDbContext)
+
+        public OrderProductService(StoreDbContext storeDbContext) : base(storeDbContext)
         {
-            this.storeDbContext = storeDbContext;
+
         }
 
         public async Task<IQueryable<OrderProduct>> GetOrderProducts()
@@ -75,20 +74,5 @@ namespace KR.Web.Services
 
         }
 
-        public void Reload()
-        {
-            foreach (var entry in storeDbContext.ChangeTracker.Entries())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Modified:
-                        entry.State = EntityState.Unchanged;
-                        break;
-                    case EntityState.Deleted:
-                        entry.Reload();
-                        break;
-                }
-            }
-        }
     }
 }

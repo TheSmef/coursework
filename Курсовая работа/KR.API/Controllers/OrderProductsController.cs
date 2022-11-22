@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KR.API.Data;
 using Kr.Models;
@@ -21,7 +16,6 @@ namespace KR.API.Controllers
             _context = context;
         }
 
-        // GET: api/OrderProducts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OrderProduct>>> GetOrderProducts()
         {
@@ -29,7 +23,6 @@ namespace KR.API.Controllers
                 .Include(x => x.Order).ThenInclude(x => x.UserPost).ThenInclude(x => x.Post).Include(x => x.Product).ThenInclude(x => x.Category).ToListAsync();
         }
 
-        // GET: api/OrderProducts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderProduct>> GetOrderProduct(Guid id)
         {
@@ -48,8 +41,7 @@ namespace KR.API.Controllers
             return orderProduct;
         }
 
-        // PUT: api/OrderProducts/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrderProduct(Guid id, OrderProduct orderProduct)
         {
@@ -79,8 +71,7 @@ namespace KR.API.Controllers
             return NoContent();
         }
 
-        // POST: api/OrderProducts
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPost]
         public async Task<ActionResult<OrderProduct>> PostOrderProduct(OrderProduct orderProduct)
         {
@@ -90,7 +81,6 @@ namespace KR.API.Controllers
             return CreatedAtAction("GetOrderProduct", new { id = orderProduct.Id_order_product }, orderProduct);
         }
 
-        // DELETE: api/OrderProducts/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrderProduct(Guid id)
         {

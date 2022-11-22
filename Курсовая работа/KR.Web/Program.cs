@@ -1,13 +1,9 @@
 using BlazorDownloadFile;
 using Blazored.LocalStorage;
 using KR.API.Data;
-using KR.Web.Models;
 using KR.Web.Security;
 using KR.Web.Services;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 using Radzen;
@@ -54,11 +50,9 @@ builder.Services.AddMudServices();
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

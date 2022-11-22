@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="KR.Web.Constants.ConstantValues">
-    <Position X="44.75" Y="0.5" Width="3" />
+    <Position X="87.25" Y="2.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AARIALCwJSAQIRROCwLQEAiCYEQMYgQJ4hCLBMWBQRI=</HashCode>
       <FileName>Constants\ConstantValues.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kr.Web.Models.AccountModel">
-    <Position X="17.5" Y="13.75" Width="2.25" />
+    <Position X="78" Y="1.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
       <FileName>Models\AccountModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Models.EditUserModel">
-    <Position X="34.75" Y="23.25" Width="2.75" />
+    <Position X="63.25" Y="18.75" Width="2.75" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -25,7 +25,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Models.RegistrationModel">
-    <Position X="21.25" Y="17.25" Width="2.75" />
+    <Position X="67" Y="18.75" Width="2.75" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -35,466 +35,724 @@
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Models.SalesStats">
-    <Position X="1.5" Y="17.5" Width="2.25" />
+    <Position X="62.25" Y="2.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\SalesStats.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Models.SpentStats">
-    <Position X="1.5" Y="20.5" Width="2.5" />
+    <Position X="83" Y="6" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\SpentStats.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Models.UserData">
-    <Position X="31.25" Y="22.75" Width="2.25" />
+    <Position X="47.5" Y="2.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAACAAAQAAAAAAA=</HashCode>
       <FileName>Models\UserData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Pages.Categories.AddCategory">
-    <Position X="38.75" Y="33.5" Width="3.25" />
+    <Position X="69" Y="2" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAQAAAAAAAAAAAgAAAAAAAAAIAACAEAA=</HashCode>
       <FileName>Pages\Categories\AddCategory.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CategoryService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Categories.CategoryPage">
-    <Position X="33.5" Y="35" Width="4" />
+    <Position X="68.75" Y="5.75" Width="4" />
+    <AssociationLine Name="CategoryService" Type="KR.Web.Services.CategoryService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.147" Y="0.085" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAYABQAAAAQAgAAAAAAAAAACAAAIAAAAEAA=</HashCode>
       <FileName>Pages\Categories\CategoryPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CategoryService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Categories.EditCategory">
-    <Position X="39" Y="37.25" Width="3.25" />
+    <Position X="74" Y="2" Width="3.25" />
+    <AssociationLine Name="CategoryService" Type="KR.Web.Services.CategoryService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.286" Y="0.073" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAEQAAAAAAAAAAAgAAAAACAAAIAACAEAA=</HashCode>
       <FileName>Pages\Categories\EditCategory.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CategoryService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Login.Login">
-    <Position X="29" Y="13" Width="4.25" />
+    <Position X="34.5" Y="13.75" Width="4.25" />
+    <AssociationLine Name="AuthStateProvider" Type="Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.511" Y="0.201" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="AuthService" Type="KR.Web.Services.AuthService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.04" Y="0.147" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAACAAEAAYACAAAAMAAACgAAEAACAAAAQAAAAAA=</HashCode>
       <FileName>Pages\Login\Login.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AuthStateProvider" />
+      <Property Name="AuthService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Login.Register">
-    <Position X="24.75" Y="16" Width="4" />
+    <Position X="31" Y="18.5" Width="4" />
+    <AssociationLine Name="AuthService" Type="KR.Web.Services.AuthService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.036" Y="0.122" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAACAAIAAYAAAAAAMAAACgAAAAAAAAAAQACAAAA=</HashCode>
       <FileName>Pages\Login\Register.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AuthStateProvider" />
+      <Property Name="AuthService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.OrderProducts.AddOrderProduct">
-    <Position X="1.5" Y="33.5" Width="3.75" />
+    <Position X="34" Y="5.5" Width="3.75" />
+    <AssociationLine Name="OrderProductService" Type="KR.Web.Services.OrderProductService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.052" Y="0.053" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="OrderService" Type="KR.Web.Services.OrderService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.068" Y="0.044" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAgAABAAISAYAAAAAAQAAAAgAAAAACAAAgBACAAAA=</HashCode>
       <FileName>Pages\OrderProducts\AddOrderProduct.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OrderProductService" />
+      <Property Name="OrderService" />
+      <Property Name="ProductService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.OrderProducts.EditOrderProduct">
-    <Position X="6" Y="39.75" Width="3.75" />
+    <Position X="15.5" Y="0.5" Width="3.75" />
+    <AssociationLine Name="OrderProductService" Type="KR.Web.Services.OrderProductService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.685" Y="0.053" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAgAABAAACEQBAAAAAAAAAAgAAAAACAAAgBACAAAA=</HashCode>
       <FileName>Pages\OrderProducts\EditOrderProduct.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OrderProductService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.OrderProducts.OrderProductPage">
-    <Position X="6.5" Y="35.25" Width="4.25" />
+    <Position X="10.25" Y="16.75" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAICAUAAAgAQAAAAAAACAAACAAAAAAAAAAA=</HashCode>
       <FileName>Pages\OrderProducts\OrderProductPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OrderProductService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Orders.AddOrder">
-    <Position X="5.25" Y="25.5" Width="3.25" />
+    <Position X="16" Y="5.5" Width="3.25" />
+    <AssociationLine Name="OrderService" Type="KR.Web.Services.OrderService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.028" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>IAAAgAARAAIQAQAAAAAAAAAAAgAAAAACAAAAAACAAAA=</HashCode>
       <FileName>Pages\Orders\AddOrder.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserPostService" />
+      <Property Name="OrderService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Orders.EditOrder">
-    <Position X="6.25" Y="30" Width="3.5" />
+    <Position X="20.75" Y="13.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>IAAAgAARIAIQAYAAAAAAAAAAAgAAAAACAAAAAACAAAA=</HashCode>
       <FileName>Pages\Orders\EditOrder.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OrderService" />
+      <Property Name="UserPostService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Orders.OrderPage">
-    <Position X="10.75" Y="27.75" Width="3.75" />
+    <Position X="11.25" Y="5.75" Width="3.75" />
+    <AssociationLine Name="OrderService" Type="KR.Web.Services.OrderService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.274" Y="0.011" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAgQAgAAIAAQAAAAAAAAAAAAAAAAASAEAAAAAAAAA=</HashCode>
       <FileName>Pages\Orders\OrderPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OrderService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Posts.AddPost">
-    <Position X="43" Y="24.25" Width="3" />
+    <Position X="79.5" Y="6" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAQAQAAAAAAAAAAAgAAAAgAAAAAAACAAAA=</HashCode>
       <FileName>Pages\Posts\AddPost.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PostService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Posts.EditPost">
-    <Position X="43" Y="29.75" Width="3" />
+    <Position X="78.5" Y="14" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAQABAAAEQAAAAAAAAAAAgAAAAgCAAAAAACAAAA=</HashCode>
       <FileName>Pages\Posts\EditPost.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PostService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Posts.PostPage">
-    <Position X="38.5" Y="26" Width="3.75" />
+    <Position X="74" Y="6" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAgAQCAAYAAQAAAAAAAAAQAAAAAAACAAAAAgAAAAA=</HashCode>
       <FileName>Pages\Posts\PostPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PostService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Products.AddProduct">
-    <Position X="21.75" Y="41.75" Width="3.5" />
+    <Position X="73.25" Y="13.75" Width="4.25" />
+    <AssociationLine Name="ProductService" Type="KR.Web.Services.ProductService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.882" Y="0.122" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAgAAAAgAQAYAAAAAAQAAQAgAAAAACAAAAAACAEAA=</HashCode>
       <FileName>Pages\Products\AddProduct.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ProductService" />
+      <Property Name="CategoryService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Products.EditProduct">
-    <Position X="16" Y="40.5" Width="3.5" />
+    <Position X="63.5" Y="13.5" Width="3.5" />
+    <AssociationLine Name="ProductService" Type="KR.Web.Services.ProductService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.033" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="CategoryService" Type="KR.Web.Services.CategoryService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.261" Y="0.185" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAgAAAAgAAAYAAAABBQAAQAgAAAAACAAAAAACAEAA=</HashCode>
       <FileName>Pages\Products\EditProduct.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ProductService" />
+      <Property Name="CategoryService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Products.ProductPage">
-    <Position X="17.75" Y="36" Width="4.5" />
+    <Position X="55.5" Y="5.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>ICAAgAAAAAIEAQAAAAAAQAiAABAAAAADAAAAAAAAAAA=</HashCode>
       <FileName>Pages\Products\ProductPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ProductService" />
+      <Property Name="ExportService" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="KR.Web.Pages.PurchaseAgreements.AddPurchaseAgreemen">
-    <Position X="18" Y="5" Width="4.5" />
+  <Class Name="KR.Web.Pages.PurchaseAgreements.AddPurchaseAgreement">
+    <Position X="46.5" Y="18" Width="4.5" />
+    <AssociationLine Name="CategoryService" Type="KR.Web.Services.CategoryService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.102" Y="0.122" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAQAYAAAAAAAAAAAgAAAgAAAAAAAACAEAA=</HashCode>
-      <FileName>Pages\PurchaseAgreements\AddPurchaseAgreemen.razor.cs</FileName>
+      <FileName>Pages\PurchaseAgreements\AddPurchaseAgreement.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PurchaseAgreementService" />
+      <Property Name="CategoryService" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="KR.Web.Pages.PurchaseAgreements.EditPurchaseAgreemen">
-    <Position X="23.5" Y="7.75" Width="4.5" />
+  <Class Name="KR.Web.Pages.PurchaseAgreements.EditPurchaseAgreement">
+    <Position X="49.5" Y="13.5" Width="4.5" />
+    <AssociationLine Name="CategoryService" Type="KR.Web.Services.CategoryService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.222" Y="0.135" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAgAABAAAAEYAAAAAAAAAAQgAAAgACAAAAAACAEAA=</HashCode>
-      <FileName>Pages\PurchaseAgreements\EditPurchaseAgreemen.razor.cs</FileName>
+      <FileName>Pages\PurchaseAgreements\EditPurchaseAgreement.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CategoryService" />
+      <Property Name="PurchaseAgreementService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.PurchaseAgreements.PurchaseAgreementPage">
-    <Position X="17.75" Y="9.5" Width="4.5" />
+    <Position X="24.5" Y="5.75" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAABAAIAAQAAAAAAAIAAACAAAAACBAAAAAgAAAA=</HashCode>
       <FileName>Pages\PurchaseAgreements\PurchaseAgreementPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PurchaseAgreementService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Purchases.AddPurchase">
-    <Position X="0.75" Y="3.5" Width="4.5" />
+    <Position X="39" Y="2.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAFAAAQAYAIAAAAQAAAAgAAAAACAAAABACAABA=</HashCode>
       <FileName>Pages\Purchases\AddPurchase.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PurchaseService" />
+      <Property Name="PurchaseAgreementService" />
+      <Property Name="ProductService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Purchases.EditPurchase">
-    <Position X="1.75" Y="8.5" Width="3.5" />
+    <Position X="20" Y="5.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAEAAAAEYAIAAAAAAAAAgAAAAACAACAAACAAAA=</HashCode>
       <FileName>Pages\Purchases\EditPurchase.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PurchaseService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Purchases.PurchasePage">
-    <Position X="6.5" Y="5.75" Width="4" />
+    <Position X="15.75" Y="13.75" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAJBAQAIAAAAAAAAAAAAAAACAAAAgAAAAAQ=</HashCode>
       <FileName>Pages\Purchases\PurchasePage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PurchaseService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Salary.AddSalary">
-    <Position X="6.5" Y="10.75" Width="3.75" />
+    <Position X="39.5" Y="17.5" Width="3.75" />
+    <AssociationLine Name="UserPostService" Type="KR.Web.Services.UserPostService">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.179" Y="0.212" Height="0.182" Width="1.227" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="SalaryHistoryService" Type="KR.Web.Services.SalaryHistoryService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.999" Y="-1.759" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>ICAAgAAQAAIQAQAABAAAAAAAAgAAAAACAAAAAACAAAA=</HashCode>
       <FileName>Pages\Salary\AddSalary.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserPostService" />
+      <Property Name="SalaryHistoryService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Salary.EditSalary">
-    <Position X="5.75" Y="15" Width="3.75" />
+    <Position X="51" Y="0.5" Width="3.75" />
+    <AssociationLine Name="SalaryHistoryService" Type="KR.Web.Services.SalaryHistoryService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.06" Y="0.023" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>ACAAgAAAAAAAEQAABgAAAAAAAgAAAAACAAAAAACAAAA=</HashCode>
       <FileName>Pages\Salary\EditSalary.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SalaryHistoryService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Salary.SalaryPage">
-    <Position X="11.25" Y="14" Width="4.25" />
+    <Position X="43.75" Y="13.75" Width="4.25" />
     <TypeIdentifier>
       <HashCode>ACEAgAAAAIIAAQAAAAIAAAAAAAAAEAACAAAAAAAAAAA=</HashCode>
       <FileName>Pages\Salary\SalaryPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SalaryHistoryService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Statistics.PostStats">
-    <Position X="7.75" Y="21.5" Width="2.75" />
+    <Position X="7" Y="6.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAQAgAAQAAAAAAAAACAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
       <FileName>Pages\Statistics\PostStats.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StatsService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Statistics.ProductSalesStats">
-    <Position X="4.25" Y="22.25" Width="2.75" />
+    <Position X="8" Y="12.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAAAEACAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
       <FileName>Pages\Statistics\ProductSalesStats.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StatsService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.StorageHistories.StorageHistoryPage">
-    <Position X="23.75" Y="4.25" Width="4.25" />
+    <Position X="55.25" Y="13.5" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AQAAgAAAAAIAAQCAAAAAAAAAIAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Pages\StorageHistories\StorageHistoryPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StorageHistoryService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.UserPosts.AddUserPost">
-    <Position X="20.75" Y="26.5" Width="3.5" />
+    <Position X="57" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>IAAAgAQQAAIEAYAAAAgAgAAAEgAAAAACAAAAAACAAAA=</HashCode>
       <FileName>Pages\UserPosts\AddUserPost.razor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Pages.UserPosts.EditUserPost">
-    <Position X="17" Y="28.75" Width="3.25" />
+    <Position X="30" Y="13.75" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAgAAQAAAAEQAAAAgAAAAAAgAAAAACQAAAAACAAAA=</HashCode>
       <FileName>Pages\UserPosts\EditUserPost.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserPostService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.UserPosts.UserPostPage">
-    <Position X="15.25" Y="25.25" Width="4" />
+    <Position X="26" Y="18" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAgAAQAAIAAQAAAAAAAAAAAAAAAIBCAgAAAACAAAA=</HashCode>
       <FileName>Pages\UserPosts\UserPostPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserPostService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Users.AddUser">
-    <Position X="20.75" Y="21" Width="3.5" />
+    <Position X="68.5" Y="13.75" Width="3.75" />
+    <AssociationLine Name="UserService" Type="KR.Web.Services.UserService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.269" Y="-0.264" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="AuthService" Type="KR.Web.Services.AuthService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.135" Y="0.135" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAYAAAAADgAAACgAAAAACAAAAQACAAAA=</HashCode>
       <FileName>Pages\Users\AddUser.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserService" />
+      <Property Name="AuthService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Users.EditUser">
-    <Position X="24.5" Y="24.75" Width="3" />
+    <Position X="82.5" Y="9.5" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAEQAAAAACgAAAAgAAAAACKAAAQACAAQA=</HashCode>
       <FileName>Pages\Users\EditUser.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.Users.UserPage">
-    <Position X="25.25" Y="20" Width="4.5" />
+    <Position X="62.75" Y="5.5" Width="4.25" />
+    <AssociationLine Name="UserService" Type="KR.Web.Services.UserService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.26" Y="-0.351" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>QCAAgAAAAAIEAYAEAAAAgACAABAAAAAiAAAAAAAAAAA=</HashCode>
       <FileName>Pages\Users\UserPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserService" />
+      <Property Name="ExportService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.AdminPage">
-    <Position X="8" Y="0.5" Width="4.5" />
+    <Position X="33.25" Y="2.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAQAgAAAAAACAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\AdminPage.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BackupService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.ErrorBackUp">
-    <Position X="1" Y="0.5" Width="3" />
+    <Position X="78.25" Y="3.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Pages\ErrorBackUp.razor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Pages.ErrorDelete">
-    <Position X="35.5" Y="7.75" Width="3" />
+    <Position X="81" Y="1.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Pages\ErrorDelete.razor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Pages.ErrorExport">
-    <Position X="30.25" Y="39.25" Width="3" />
+    <Position X="73.25" Y="17.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Pages\ErrorExport.razor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Pages.ErrorImport">
-    <Position X="26.75" Y="37.75" Width="3" />
+    <Position X="80.75" Y="17.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Pages\ErrorImport.razor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Pages.ErrorRestore">
-    <Position X="4.25" Y="1.25" Width="3" />
+    <Position X="81.75" Y="3.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Pages\ErrorRestore.razor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Pages.Profile">
-    <Position X="38" Y="19" Width="4" />
+    <Position X="47" Y="5.5" Width="4" />
+    <AssociationLine Name="UserService" Type="KR.Web.Services.UserService">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.002" Y="0.135" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="AuthStateProvider" Type="Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.403" Y="0.428" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAgAAAAIAAEQAAAAACsAAAAgAAAAACCAAAQAAAAQA=</HashCode>
       <FileName>Pages\Profile.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserService" />
+      <Property Name="CurrentUser" />
+      <Property Name="AuthStateProvider" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.SuccessDialog">
-    <Position X="43.25" Y="20" Width="3" />
+    <Position X="77" Y="17.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Pages\SuccessDialog.razor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Pages.SuccessRestoreDialog">
-    <Position X="7.75" Y="3.5" Width="3" />
+    <Position X="83.5" Y="15" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Pages\SuccessRestoreDialog.razor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Security.AuthProvider">
-    <Position X="34.75" Y="15.75" Width="4.75" />
+    <Position X="2.25" Y="14" Width="4.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Security\AuthProvider.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="authService" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Security.HashProvider">
-    <Position X="18" Y="16.25" Width="2.5" />
+    <Position X="83.25" Y="7.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Security\HashProvider.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.AuthService">
-    <Position X="23" Y="12.5" Width="4.25" />
+    <Position X="59" Y="10.25" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAACAAAgAAACAAAAAAAIAAgACAAAAAAAAAA=</HashCode>
+      <HashCode>AACAAAAAAAACAAAAAAACAAAAAAAIAAgACAAAAAAAAAA=</HashCode>
       <FileName>Services\AuthService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.BackupService">
-    <Position X="14.25" Y="0.5" Width="7.75" />
+    <Position X="34.5" Y="10.25" Width="7.75" />
     <TypeIdentifier>
-      <HashCode>EAQAAAAACAAAAAAgAQAAAABAAAAAAAAIAAEAAAAAAAA=</HashCode>
+      <HashCode>EAQAAAAACAAAAAAAAQAAAABAAAAAAAAIAAEAAAAAAAA=</HashCode>
       <FileName>Services\BackupService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.CategoryService">
-    <Position X="29" Y="31.25" Width="3.75" />
+    <Position X="68.75" Y="10.25" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAYAAAAoAAAAIAAAAQAAAQAACAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAYAAAAIAAAAIAAAAQAAAQAAAAAAACAAAAA=</HashCode>
       <FileName>Services\CategoryService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.ExportService">
-    <Position X="16" Y="32.75" Width="6" />
+    <Position X="47.5" Y="10.25" Width="6" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAAAgAQAAEAAAAAgAAAAACEAAAAAAAAA=</HashCode>
+      <HashCode>AAAIAAAAAAAAAAAAAQAAEAAAAAgAAAAAAEAAAAAAAAA=</HashCode>
       <FileName>Services\ExportService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.OrderProductService">
-    <Position X="11.5" Y="34" Width="3.75" />
+    <Position X="15.5" Y="10.25" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAgAAAAAAAAAAACMQAACAAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAACMQAAAAAAAABAAAA=</HashCode>
       <FileName>Services\OrderProductService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.OrderService">
-    <Position X="11.5" Y="20.5" Width="3.25" />
+    <Position X="11.5" Y="10.25" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAQAgAAAAAAAgAAAAAAAAAAAEAAAAiEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAQAgAAAAAAAAAAAAAAAAAAAEAAAAgEAAAAAAAAA=</HashCode>
       <FileName>Services\OrderService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.PostService">
-    <Position X="30.25" Y="27" Width="3.25" />
+    <Position X="73.25" Y="10.25" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAAAAwAAAEAAEAAAgAAAAACEAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAAAAQAAAEAAEAAAgAAAAAAEAAAgAAAAA=</HashCode>
       <FileName>Services\PostService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.ProductService">
-    <Position X="23.5" Y="34" Width="4" />
+    <Position X="64" Y="10.25" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAIAAAgAAAAQAgAAAAAAAAASUAAAAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAQAgAAAAAAAAAQUAAAAAAAQA=</HashCode>
       <FileName>Services\ProductService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.PurchaseAgreementService">
-    <Position X="12" Y="8.5" Width="5" />
+    <Position X="24.25" Y="10.25" Width="5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAAoAACAAAAAAADAAAAAAAIAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAoAACAAAAAAABAAAAAAAIAA=</HashCode>
       <FileName>Services\PurchaseAgreementService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.PurchaseService">
-    <Position X="12" Y="4.25" Width="3.5" />
+    <Position X="20" Y="10.25" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQABAAAkAAAAAAAAAAAAAAAACAAQgEAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQABAAAEAAAAAAAAAAAAAAAAAAAQgEAAAAA=</HashCode>
       <FileName>Services\PurchaseService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.SalaryHistoryService">
-    <Position X="16.5" Y="17.75" Width="3.75" />
+    <Position X="43" Y="10.25" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAEAAABAAAAAAAAgAAIAAAAACAAAAAAACAAAAAAAAAg=</HashCode>
+      <HashCode>AAEAAABAAAAAAAAAAAIAAAAACAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Services\SalaryHistoryService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.StatsService">
-    <Position X="5.25" Y="19" Width="5" />
+    <Position X="5.75" Y="10.25" Width="5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAACAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAABAAA=</HashCode>
       <FileName>Services\StatsService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.StorageHistoryService">
-    <Position X="22.25" Y="1" Width="4" />
+    <Position X="54.25" Y="10.25" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAgAAAAAAAAIAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Services\StorageHistoryService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.UserPostService">
-    <Position X="16" Y="21.5" Width="3.75" />
+    <Position X="30" Y="10.25" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAQIAAAAAgAAAgAACAAAAAAAAAAAAACkAAAAAAgAA=</HashCode>
+      <HashCode>AAAAQIAAAAAgAAAAAACAAAAAAAAAAAAAAkAAAAAAgAA=</HashCode>
       <FileName>Services\UserPostService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Services.UserService">
-    <Position X="31" Y="18.5" Width="4.25" />
+    <Position X="77.25" Y="10.25" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>KAAAAAAIAAAAAIAkAAAAAAAAAAAYAAAACAAAAAAAAgA=</HashCode>
+      <HashCode>KAAAAAAIAAAAAIAEAAAAAAAAAAAYAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Services\UserService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KR.Web.Shared.MainLayout">
-    <Position X="49.5" Y="0.5" Width="4" />
+    <Position X="0.75" Y="8.5" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAoAAAAAAMQABAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Shared\MainLayout.razor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AuthStateProvider" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.ErrorModel">
-    <Position X="31.75" Y="1.5" Width="3" />
+    <Position X="65.25" Y="1.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAIAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Pages\Error.cshtml.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="KR.Web.Services.ServiceBase">
+    <Position X="42" Y="7.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Services\Base\ServiceBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider" Collapsed="true">
+    <Position X="4" Y="12.75" Width="1.5" />
+    <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -1,7 +1,5 @@
-﻿using CsvHelper.Configuration.Attributes;
-using Kr.Models;
+﻿using Kr.Models;
 using KR.Models.Attributes;
-using Microsoft.AspNetCore.Components;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 

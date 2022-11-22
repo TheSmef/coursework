@@ -4,16 +4,14 @@ using KR.Models;
 using KR.Web.Models;
 using KR.Web.Security;
 using Microsoft.EntityFrameworkCore;
-using System.Xml.Linq;
 
 namespace KR.Web.Services
 {
-    public class AuthService
+    public class AuthService : ServiceBase
     {
-        private readonly StoreDbContext storeDbContext;
-        public AuthService(StoreDbContext storeDbContext)
+        public AuthService(StoreDbContext storeDbContext) : base(storeDbContext)
         {
-            this.storeDbContext = storeDbContext;
+
         }
 
         public Guid PrepareAuth(String login, String password)

@@ -1,0 +1,85 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\standard.css",
+      "PackagePath": "staticwebassets\\css\\standard.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\styles-generated.css",
+      "PackagePath": "staticwebassets\\css\\styles-generated.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.KR.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.build.KR.Web.props",
+      "PackagePath": "build\\KR.Web.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.KR.Web.props",
+      "PackagePath": "buildMultiTargeting\\KR.Web.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildTransitive.KR.Web.props",
+      "PackagePath": "buildTransitive\\KR.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
