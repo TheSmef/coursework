@@ -36,7 +36,7 @@ namespace KR.Web.Pages.Admin
             try
             {
                 MemoryStream ms = new MemoryStream();
-                await file.OpenReadStream(5120000000).CopyToAsync(ms);
+                await file.OpenReadStream(file.Size).CopyToAsync(ms);
                 byte[] data = ms.ToArray();
                 await BackupService.RestoreBatabase(data);
                 await DialogService.OpenAsync<SuccessRestoreDialog>(ConstantValues.RESTORE_TITLE);

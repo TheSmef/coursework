@@ -2,6 +2,7 @@
 using Kr.Models;
 using Microsoft.EntityFrameworkCore;
 using Radzen;
+using KR.Web.Services.Base;
 
 namespace KR.Web.Services
 {

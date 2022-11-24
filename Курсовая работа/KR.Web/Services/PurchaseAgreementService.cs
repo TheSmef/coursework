@@ -1,6 +1,7 @@
 ﻿using KR.API.Data;
 using Kr.Models;
 using Microsoft.EntityFrameworkCore;
+using KR.Web.Services.Base;
 
 namespace KR.Web.Services
 {
@@ -14,7 +15,7 @@ namespace KR.Web.Services
 
         public async Task<IQueryable<PurchaseAgreement>> GetPurchaseAgreements()
         {
-            var items = storeDbContext.PurchaseAgreements.AsQueryable();
+            var items = storeDbContext.PurchaseAgreements.AsQueryable().Include(x => x.Purchases);
 
             return await Task.FromResult(items);
         }

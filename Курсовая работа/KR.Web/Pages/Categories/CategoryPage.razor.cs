@@ -19,7 +19,6 @@ namespace KR.Web.Pages.Categories
 
         private RadzenDataGrid<Category>? grid;
 
-
         private Category category
         {
             get;

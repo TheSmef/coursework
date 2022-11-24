@@ -95,7 +95,7 @@ namespace KR.Web.Pages.Users
             try
             {
                 MemoryStream ms = new MemoryStream();
-                await file.OpenReadStream(5120000000).CopyToAsync(ms);
+                await file.OpenReadStream(file.Size).CopyToAsync(ms);
                 byte[] data = ms.ToArray();
                 ExportService.ImportUsersFromCvs(data);
                 grid.Reload();

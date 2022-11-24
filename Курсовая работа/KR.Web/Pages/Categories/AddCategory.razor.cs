@@ -18,7 +18,7 @@ namespace KR.Web.Pages.Categories
         private Category? category = new Category();
         private bool HaveErrors { get; set; }
 
-        private string Error { get; set; }
+        private string Error { get; set; }   
 
         private async Task HandleAdd()
         {

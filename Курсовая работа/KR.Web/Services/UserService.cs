@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using KR.Models;
 using KR.Web.Models;
 using KR.Web.Security;
-
+using KR.Web.Services.Base;
 
 namespace KR.Web.Services
 {

@@ -1,6 +1,7 @@
 ﻿using KR.API.Data;
 using Kr.Models;
 using Microsoft.EntityFrameworkCore;
+using KR.Web.Services.Base;
 
 namespace KR.Web.Services
 {
@@ -13,7 +14,7 @@ namespace KR.Web.Services
 
         public async Task<IQueryable<Order>> GetOrders()
         {
-            var items = storeDbContext.Orders.AsQueryable().Include(x => x.UserPost).ThenInclude(x => x.User).Include(x => x.UserPost).ThenInclude(x => x.Post);
+            var items = storeDbContext.Orders.AsQueryable().Include(x => x.UserPost).ThenInclude(x => x.User).Include(x => x.UserPost).ThenInclude(x => x.Post).Include(x => x.OrderProducts);
 
             return await Task.FromResult(items);
         }

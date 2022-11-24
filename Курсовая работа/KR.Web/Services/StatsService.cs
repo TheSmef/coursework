@@ -1,6 +1,7 @@
 ﻿using Kr.Models;
 using KR.API.Data;
 using KR.Web.Models;
+using KR.Web.Services.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace KR.Web.Services

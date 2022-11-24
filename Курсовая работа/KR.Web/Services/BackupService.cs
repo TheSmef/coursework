@@ -1,6 +1,7 @@
 ﻿using KR.API.Data;
 using Microsoft.Data.SqlClient;
 using BlazorDownloadFile;
+using KR.Web.Services.Base;
 
 namespace KR.Web.Services
 {
@@ -10,7 +11,7 @@ namespace KR.Web.Services
         private readonly string _connectionString;
         private readonly string _backupFolderFullPath = AppDomain.CurrentDomain.BaseDirectory + "Backup\\backup.bak";
         private readonly string _directory = AppDomain.CurrentDomain.BaseDirectory + "Backup";
-        private readonly BlazorDownloadFile.IBlazorDownloadFileService blazorDownloadFile;
+        private readonly IBlazorDownloadFileService blazorDownloadFile;
 
 
 

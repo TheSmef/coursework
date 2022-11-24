@@ -1,7 +1,7 @@
 ﻿using KR.API.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace KR.Web.Services
+namespace KR.Web.Services.Base
 {
     public abstract class ServiceBase
     {
