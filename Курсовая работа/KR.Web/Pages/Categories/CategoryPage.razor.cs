@@ -11,20 +11,12 @@ namespace KR.Web.Pages.Categories
 {
     public partial class CategoryPage
     {
-        Category _category;
         [Inject]
         private CategoryService CategoryService { get; set; }
         [Inject]
         private DialogService DialogService { get; set; }
 
         private RadzenDataGrid<Category>? grid;
-
-        private Category category
-        {
-            get;
-
-            set;
-        }
 
         private IEnumerable<Category> getCategoriesResult;
 
