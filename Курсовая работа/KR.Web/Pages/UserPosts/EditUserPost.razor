@@ -10,12 +10,12 @@
             <div class="col-md-12">
                 <RadzenTemplateForm Data="@userpost" TItem="UserPost" Submit="@HandleEdit">
                     <ChildContent>
-                        <DataAnnotationsValidator />
                         @if (@HaveErrors)
                         {
                             <RadzenHeading Size="H6" Text="@Error" Style="text-align: center; color: red">
                             </RadzenHeading>
                         }
+                        <DataAnnotationsValidator />
                         <div style="margin-bottom: 1rem" class="flex-column">
                             <div>
                                 <RadzenLabel Text="Ставка" Component="Share" style="width: 100%">
@@ -41,11 +41,3 @@
         </div>
     </ChildContent>
 </RadzenContent>
-
-
-
-
-
-
-
-

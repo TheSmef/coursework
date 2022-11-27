@@ -9,24 +9,24 @@ namespace KR.Web.Shared
     public partial class MainLayout
     {
         [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        private NavigationManager NavigationManager { get; set; }
         [Inject]
-        protected ILocalStorageService LocalStorage { get; set; }
+        private ILocalStorageService LocalStorage { get; set; }
         [Inject]
-        AuthenticationStateProvider AuthStateProvider { get; set; }
+        private AuthenticationStateProvider AuthStateProvider { get; set; }
 
 
-        protected RadzenBody? body0;
-        protected RadzenSidebar? sidebar0;
-        protected async System.Threading.Tasks.Task SidebarToggle0Click(dynamic args)
+        private RadzenBody? body;
+        private RadzenSidebar? sidebar;
+        protected async Task SidebarToggleClick(dynamic args)
         {
             await InvokeAsync(() =>
             {
-                sidebar0.Toggle();
+                sidebar.Toggle();
             });
             await InvokeAsync(() =>
             {
-                body0.Toggle();
+                body.Toggle();
             });
         }
 

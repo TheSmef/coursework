@@ -1,6 +1,7 @@
 ﻿using KR.Models;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Kr.Models
 {
@@ -12,6 +13,7 @@ namespace Kr.Models
         [StringLength(30)]
         [MinLength(3)]
         public string Name { get; set; }
+        [JsonIgnore]
         public virtual Account AccountUser { get; set; }
 
         enum NameRole

@@ -1,6 +1,7 @@
 ﻿using Kr.Models;
 using KR.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace KR.API.Data
 {
@@ -8,7 +9,7 @@ namespace KR.API.Data
     {
         public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
         {
-
+            Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -35,12 +35,21 @@ namespace KR.Web.Pages.PurchaseAgreements
 
         private async Task Load()
         {
-            purchaseAgreement = await PurchaseAgreementService.GetPurchaseAgreementById(Id_Purchase_Agreement);
-            if (purchaseAgreement == null)
+            try
+            {
+                PurchaseAgreement purchaseAgreementCheck = await PurchaseAgreementService.GetPurchaseAgreementById(Id_Purchase_Agreement);
+                if (purchaseAgreementCheck == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                purchaseAgreement = purchaseAgreementCheck;
+            }
+            catch
             {
                 await Close(null);
-                return;
             }
+
         }
 
         private PurchaseAgreement purchaseAgreement = new PurchaseAgreement();

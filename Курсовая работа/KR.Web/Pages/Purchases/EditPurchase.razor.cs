@@ -32,7 +32,20 @@ namespace KR.Web.Pages.Purchases
 
         private async Task Load()
         {
-            purchase = await PurchaseService.GetPurchaseById(Id_Purchase);
+            try
+            {
+                Purchase purchaseCheck = await PurchaseService.GetPurchaseById(Id_Purchase);
+                if (purchaseCheck == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                purchase = purchaseCheck;
+            }
+            catch
+            {
+                await Close(null);
+            }
         }
 
         private Purchase purchase = new Purchase();

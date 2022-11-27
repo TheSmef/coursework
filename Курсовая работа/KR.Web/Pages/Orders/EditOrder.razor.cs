@@ -39,9 +39,22 @@ namespace KR.Web.Pages.Orders
 
         private async Task Load()
         {
-            order = await OrderService.GetOrderById(Id_Order);
-            users = (await UserPostService.GetUserPosts()).ToList();
-            grid?.Reload();
+            try
+            {
+                Order orderCheck = await OrderService.GetOrderById(Id_Order);
+                if (orderCheck == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                order = orderCheck;
+                users = (await UserPostService.GetUserPosts()).ToList();
+                grid?.Reload();
+            }
+            catch
+            {
+                await Close(null);
+            }
         }
 
         Order order = new Order();

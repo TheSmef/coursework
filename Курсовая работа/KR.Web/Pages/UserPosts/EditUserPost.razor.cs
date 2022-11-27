@@ -24,13 +24,22 @@ namespace KR.Web.Pages.UserPosts
 
         protected override async Task OnInitializedAsync()
         {
-            await Load();
+            try
+            {
+                UserPost userpostCheck = await UserPostService.GetUserPostById(Id_UserPost);
+                if (userpostCheck == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                userpost = userpostCheck;
+            }
+            catch
+            {
+                await Close(null);
+            }
         }
 
-        private async Task Load()
-        {
-            userpost = await UserPostService.GetUserPostById(Id_UserPost);
-        }
 
         private UserPost userpost = new UserPost();
         private async Task HandleEdit()

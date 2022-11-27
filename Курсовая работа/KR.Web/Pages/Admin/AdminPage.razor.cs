@@ -25,7 +25,7 @@ namespace KR.Web.Pages.Admin
             {
                 await BackupService.BackupDatabase();
             }
-            catch
+            catch (Exception e)
             {
                 await DialogService.OpenAsync<ErrorBackUp>(ConstantValues.BACKUP_ERROR);
             }
@@ -41,7 +41,7 @@ namespace KR.Web.Pages.Admin
                 await BackupService.RestoreBatabase(data);
                 await DialogService.OpenAsync<SuccessRestoreDialog>(ConstantValues.RESTORE_TITLE);
             }
-            catch
+            catch (Exception e)
             {
                 await DialogService.OpenAsync<ErrorRestore>(ConstantValues.RESTORE_ERROR);
             }

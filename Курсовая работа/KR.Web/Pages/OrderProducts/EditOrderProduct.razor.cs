@@ -33,7 +33,21 @@ namespace KR.Web.Pages.OrderProducts
 
         private async Task Load()
         {
-            orderproduct = await OrderProductService.GetOrderProductById(Id_OrderProduct);
+            try
+            {
+                OrderProduct orderProductCheck = await OrderProductService.GetOrderProductById(Id_OrderProduct);
+                if (orderProductCheck == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                orderproduct = orderProductCheck;
+            }
+            catch
+            {
+                await Close(null);
+            }
+
         }
 
         private OrderProduct orderproduct = new OrderProduct();

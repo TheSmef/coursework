@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using BlazorDownloadFile;
 using KR.Web.Services.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace KR.Web.Services
 {
@@ -29,11 +30,11 @@ namespace KR.Web.Services
 
         public async Task BackupDatabase()
         {
-                if (!File.Exists(_backupFolderFullPath))
-                {
-                    File.Create(_backupFolderFullPath);
-                }
-                using (var connection = new SqlConnection(_connectionString))
+            if (!File.Exists(_backupFolderFullPath))
+            {
+                File.Create(_backupFolderFullPath).Close();
+            }
+            using (var connection = new SqlConnection(_connectionString))
                 {
                     var query = String.Format("BACKUP DATABASE [Store] TO DISK='{0}' WITH INIT, FORMAT", _backupFolderFullPath);
 
@@ -53,7 +54,7 @@ namespace KR.Web.Services
         {
             if (!File.Exists(_backupFolderFullPath))
             {
-                File.Create(_backupFolderFullPath);
+                File.Create(_backupFolderFullPath).Close();
             }
             using (MemoryStream mem = new MemoryStream(stream))
             {
@@ -72,7 +73,7 @@ namespace KR.Web.Services
             var entitiesList = storeDbContext.ChangeTracker.Entries().ToList();
             foreach (var entity in entitiesList)
             {
-                entity.Reload();
+                entity.State = EntityState.Detached;
             }
         }
     }

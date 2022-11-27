@@ -124,7 +124,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAIAAYAAAAAAMAAACgAAAAAAAAAAQACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAIAAYAAAAAAMAAACgAAAAAAAAAAQACAAAA=</HashCode>
       <FileName>Pages\Login\Register.razor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -133,7 +133,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.OrderProducts.AddOrderProduct">
-    <Position X="34" Y="5.5" Width="3.75" />
+    <Position X="34.5" Y="5.5" Width="3.75" />
     <AssociationLine Name="OrderProductService" Type="KR.Web.Services.OrderProductService">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.052" Y="0.053" />
@@ -523,16 +523,6 @@
       <Property Name="ExportService" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="KR.Web.Pages.AdminPage">
-    <Position X="33.25" Y="2.5" Width="4.5" />
-    <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAQAgAAAAAACAABAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Pages\AdminPage.razor.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="BackupService" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="KR.Web.Pages.ErrorBackUp">
     <Position X="78.25" Y="3.75" Width="3" />
     <TypeIdentifier>
@@ -567,28 +557,6 @@
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Pages\ErrorRestore.razor.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="KR.Web.Pages.Profile">
-    <Position X="47" Y="5.5" Width="4" />
-    <AssociationLine Name="UserService" Type="KR.Web.Services.UserService">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.002" Y="0.135" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="AuthStateProvider" Type="Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.403" Y="0.428" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <TypeIdentifier>
-      <HashCode>AAAAgAAAAIAAEQAAAAACsAAAAgAAAAACCAAAQAAAAQA=</HashCode>
-      <FileName>Pages\Profile.razor.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="UserService" />
-      <Property Name="CurrentUser" />
-      <Property Name="AuthStateProvider" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="KR.Web.Pages.SuccessDialog">
     <Position X="77" Y="17.5" Width="3" />
@@ -729,7 +697,7 @@
   <Class Name="KR.Web.Shared.MainLayout">
     <Position X="0.75" Y="8.5" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAoAAAAAAMQABAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAAAAAAAAoAAAAAAMQAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Shared\MainLayout.razor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -743,7 +711,7 @@
       <FileName>Pages\Error.cshtml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KR.Web.Services.ServiceBase">
+  <Class Name="KR.Web.Services.Base.ServiceBase">
     <Position X="42" Y="7.75" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
@@ -753,6 +721,29 @@
   <Class Name="Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider" Collapsed="true">
     <Position X="4" Y="12.75" Width="1.5" />
     <TypeIdentifier />
+  </Class>
+  <Class Name="KR.Web.Pages.Admin.AdminPage">
+    <Position X="29.25" Y="6.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAQAgAAAAAACAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\Admin\AdminPage.razor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BackupService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KR.Web.Pages.Profile.Profile">
+    <Position X="47.25" Y="5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAIAAEQAAAAACsAAAAgAAAAACCAAAQAAAAQA=</HashCode>
+      <FileName>Pages\Profile\Profile.razor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="account" />
+      <Property Name="AuthStateProvider" />
+      <Property Name="CurrentUser" />
+      <Property Name="UserService" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -40,6 +40,7 @@ namespace Kr.Models
         public virtual Account? Account { get; set; }
         [NotMapped]
         [JsonIgnore]
+        [Ignore]
         public string Fullname { get { return this.Last_name + " " + this.First_name + " " + this.Otch; } }
     }
 

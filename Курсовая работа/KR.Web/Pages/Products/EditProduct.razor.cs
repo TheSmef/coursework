@@ -32,19 +32,23 @@ namespace KR.Web.Pages.Products
 
         protected override async Task OnInitializedAsync()
         {
-            await Load();
-        }
-
-        private async Task Load()
-        {
-            product = await ProductService.GetProductById(Id_Product);
-            if (product == null)
+            try
+            {
+                ProductStorage productCheck = await ProductService.GetProductById(Id_Product);
+                if (productCheck == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                product = productCheck;
+                categories = (await CategoryService.GetCategories()).ToList();
+            }
+            catch
             {
                 await Close(null);
-                return;
             }
-            categories = (await CategoryService.GetCategories()).ToList();
         }
+
 
         private ProductStorage product = new ProductStorage();
         private async Task HandleUserCreation()

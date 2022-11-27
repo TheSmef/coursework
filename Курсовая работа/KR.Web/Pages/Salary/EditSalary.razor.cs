@@ -29,7 +29,21 @@ namespace KR.Web.Pages.Salary
 
         private async Task Load()
         {
-            salaryHistory = await SalaryHistoryService.GetSalaryHistoryById(Id_SalaryHistory);
+            try
+            {
+                SalaryHistory salaryHistoryCheck = await SalaryHistoryService.GetSalaryHistoryById(Id_SalaryHistory);
+                if (salaryHistoryCheck == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                salaryHistory = salaryHistoryCheck;
+            }
+            catch
+            {
+                await Close(null);
+            }
+
         }
 
         private SalaryHistory salaryHistory = new SalaryHistory();

@@ -25,14 +25,21 @@ namespace KR.Web.Pages.Posts
 
         protected override async Task OnInitializedAsync()
         {
-            Post postCheck = await PostService.GetPostById(Id_Post);
-            if (postCheck == null)
+            try
+            {
+                Post postCheck = await PostService.GetPostById(Id_Post);
+                if (postCheck == null)
+                {
+                    await Close(null);
+                    return;
+                }
+
+                post = postCheck;
+            }
+            catch
             {
                 await Close(null);
-                return;
             }
-
-            post = postCheck;
         }
 
         private async Task HandleEdit()

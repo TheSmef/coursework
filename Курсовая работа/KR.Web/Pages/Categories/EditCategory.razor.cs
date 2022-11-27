@@ -25,13 +25,21 @@ namespace KR.Web.Pages.Categories
 
         protected override async Task OnInitializedAsync()
         {
-            Category categoryCheck = await CategoryService.GetCategoryById(Id_Category);
-            if (categoryCheck == null)
+            try
+            {
+                Category categoryCheck = await CategoryService.GetCategoryById(Id_Category);
+                if (categoryCheck == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                category = categoryCheck;
+            }
+            catch
             {
                 await Close(null);
-                return;
             }
-            category =  categoryCheck;
+
         }
 
         private async Task HandleEdit()

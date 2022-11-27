@@ -64,21 +64,5 @@ namespace KR.Web.Services
             storeDbContext.Users.Add(user);
             return (storeDbContext.SaveChanges() > 0);
         }
-
-        public void Reload()
-        {
-            foreach (var entry in storeDbContext.ChangeTracker.Entries())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Modified:
-                        entry.State = EntityState.Unchanged;
-                        break;
-                    case EntityState.Deleted:
-                        entry.Reload();
-                        break;
-                }
-            }
-        }
     }
 }

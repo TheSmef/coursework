@@ -42,12 +42,12 @@ namespace KR.Web.Pages.Login
             {
                 if (authenticationState.User.Identity != null)
                 {
-                    NavigationManager.NavigateTo("");
+                    NavigationManager.NavigateTo("profile");
                 }
             }
         }
 
-        private async System.Threading.Tasks.Task HandleLogin()
+        private async Task HandleLogin()
         {
             try
             {
@@ -87,7 +87,7 @@ namespace KR.Web.Pages.Login
             }
         }
 
-        private async System.Threading.Tasks.Task ToRegistration()
+        private async Task ToRegistration()
         {
             var dialogResult = await DialogService.OpenAsync<Register>(ConstantValues.REGISTRATION, null);
         }

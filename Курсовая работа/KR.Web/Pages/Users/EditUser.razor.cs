@@ -39,31 +39,43 @@ namespace KR.Web.Pages.Users
 
         private async Task Load()
         {
-            user = await UserService.GetUserById(Id_User);
-            account.Last_name = user.Last_name;
-            account.First_name = user.First_name;
-            account.Otch = user.Otch;
-            account.BirthDate = user.BirthDate;
-            account.Email = user.Account.Email;
-            account.Login = user.Account.Login;
-            account.Roles = user.Account.Roles.ToList();
-            if (account == null)
+            try
+            {
+                user = await UserService.GetUserById(Id_User);
+                if (user == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                account.Last_name = user.Last_name;
+                account.First_name = user.First_name;
+                account.Otch = user.Otch;
+                account.BirthDate = user.BirthDate;
+                account.Email = user.Account.Email;
+                account.Login = user.Account.Login;
+                account.Roles = user.Account.Roles.ToList();
+                if (account == null)
+                {
+                    await Close(null);
+                    return;
+                }
+                rolesCheck = Role.GetRoles();
+                roles = new List<Role>();
+                foreach (Role role in rolesCheck)
+                {
+                    if (account.Roles.Find(x => x.Name == role.Name) != null)
+                    {
+                        roles.Add(account.Roles.Find(x => x.Name == role.Name));
+                    }
+                    else
+                    {
+                        roles.Add(role);
+                    }
+                }
+            }
+            catch
             {
                 await Close(null);
-                return;
-            }
-            rolesCheck = Role.GetRoles();
-            roles = new List<Role>();
-            foreach (Role role in rolesCheck)
-            {
-                if (account.Roles.Find(x => x.Name == role.Name) != null)
-                {
-                    roles.Add(account.Roles.Find(x => x.Name == role.Name));
-                }
-                else
-                {
-                    roles.Add(role);
-                }
             }
         }
 

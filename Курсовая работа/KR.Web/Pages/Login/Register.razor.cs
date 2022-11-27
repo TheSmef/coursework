@@ -23,9 +23,6 @@ namespace KR.Web.Pages.Login
         protected DialogService DialogService { get; set; }
         [Inject]
         protected AuthService AuthService { get; set; }
-        [Parameter]
-        [SupplyParameterFromQuery]
-        public string? returnUrl { get; set; }
 
         private bool HaveErrors { get; set; }
         private string Error { get; set; }
@@ -63,14 +60,7 @@ namespace KR.Web.Pages.Login
                     userData.Login = account.Login;
                     await LocalStorage.SetItemAsync<UserData>(ConstantValues.USER_LOCATION, userData);
                     await AuthStateProvider.GetAuthenticationStateAsync();
-                    if (!string.IsNullOrEmpty(returnUrl))
-                    {
-                        NavigationManager.NavigateTo($"/{returnUrl}");
-                    }
-                    else
-                    {
-                        NavigationManager.NavigateTo("profile");
-                    }
+                    NavigationManager.NavigateTo("profile");
                 }
                 else
                 {
@@ -87,7 +77,7 @@ namespace KR.Web.Pages.Login
             }
         }
 
-        protected async System.Threading.Tasks.Task Close(MouseEventArgs args)
+        protected async Task Close(MouseEventArgs args)
         {
             DialogService.Close(null);
         }

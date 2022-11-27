@@ -264,8 +264,6 @@ C:\Users\User\Desktop\Курсовая работа\KR.API\bin\Debug\net6.0\runt
 C:\Users\User\Desktop\Курсовая работа\KR.API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\User\Desktop\Курсовая работа\KR.API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\User\Desktop\Курсовая работа\KR.API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\appsettings.json
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\KR.API.exe
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\KR.API.deps.json
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\KR.API.runtimeconfig.json
@@ -536,3 +534,5 @@ C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\o
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.KR.API.props
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.KR.API.props
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\appsettings.json
