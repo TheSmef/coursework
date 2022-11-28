@@ -18,7 +18,7 @@ namespace KR.Web.Pages.Categories
         [Parameter]
         public dynamic Id_Category { get; set; }
 
-        Category category = new Category();
+        private Category category = new Category();
         private bool HaveErrors { get; set; }
 
         private string Error { get; set; }
