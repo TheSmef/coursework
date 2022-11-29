@@ -10,7 +10,7 @@ namespace Kr.Models
         [Required(ErrorMessage = "Продукт - необходимое поле")]
         public virtual ProductStorage ProductStorage { get; set; }
         [Required(ErrorMessage = "Количество товара - необходимое поле")]
-        [Range(1, int.MaxValue, ErrorMessage = "Количество товара не может быть 0 и меньше, и не превышать 2147483647")]
+        [Range(1, int.MaxValue, ErrorMessage = "Количество товара не может быть 0 и меньше")]
         public int Amount { get; set; }
         [Required(ErrorMessage = "Договор закупки - необходимое поле")]
         public virtual PurchaseAgreement PurchaseAgreement { get; set; }

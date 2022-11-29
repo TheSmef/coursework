@@ -1,4 +1,5 @@
 ﻿using CsvHelper.Configuration.Attributes;
+using DataAnnotationsExtensions;
 using System.ComponentModel.DataAnnotations;
 
 namespace Kr.Models
@@ -22,7 +23,7 @@ namespace Kr.Models
         [Index(1)]
         public string Name { get; set; }
         [Required(ErrorMessage = "Количество товара - необходимое поле")]
-        [Range(0, int.MaxValue, ErrorMessage = "Количество товара не может быть 0 и меньше, и не превышать 2147483647")]
+        [Range(1,  int.MaxValue, ErrorMessage = "Количество товара не может быть меньше 0")]
         [Name("Количество продукта")]
         [Index(2)]
         public int Amount { get; set; }
@@ -31,6 +32,5 @@ namespace Kr.Models
         [Index(3)]
         [Range(0, int.MaxValue, ErrorMessage = "Срок годности товара (в днях) не может быть 0 меньше")]
         public int Exipiration_Date { get; set; }
-
     }
 }

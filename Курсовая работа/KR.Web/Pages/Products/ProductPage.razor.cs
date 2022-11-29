@@ -6,7 +6,6 @@ using Radzen.Blazor;
 using KR.Web.Constants;
 using Kr.Models;
 using KR.Web.Services;
-using BlazorDownloadFile;
 
 namespace KR.Web.Pages.Products
 {
@@ -20,8 +19,6 @@ namespace KR.Web.Pages.Products
         private ProductService ProductService { get; set; }
         [Inject]
         private ExportService ExportService { get; set; }
-        [Inject]
-        private IBlazorDownloadFileService blazorDownloadFileService { get; set; }
 
         private IEnumerable<ProductStorage> getProductResult;
         protected override async Task OnInitializedAsync()

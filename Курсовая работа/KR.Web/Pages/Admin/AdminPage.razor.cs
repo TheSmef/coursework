@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Radzen;
-using BlazorDownloadFile;
 using KR.Web.Constants;
 using KR.Web.Services;
 using MudBlazor;
@@ -16,8 +15,6 @@ namespace KR.Web.Pages.Admin
         [Inject]
         private Radzen.DialogService DialogService { get; set; }
 
-        [Inject]
-        private IBlazorDownloadFileService blazorDownloadFileService { get; set; }
 
         private async Task GetDoc()
         {

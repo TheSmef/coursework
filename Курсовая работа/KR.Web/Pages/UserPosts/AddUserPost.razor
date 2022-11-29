@@ -51,7 +51,7 @@
                                 </RadzenLabel>
                             </div>
                             <div>
-                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(userpost.Share)">
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(userpost.Share)" Min="(decimal)0.01" Max="(decimal)1">
                                 </RadzenNumeric>
                                 <ValidationMessage For="@(() => userpost.Share)" />
                             </div>

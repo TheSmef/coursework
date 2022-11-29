@@ -40,7 +40,7 @@
                                 </RadzenLabel>
                             </div>
                             <div>
-                                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(salaryHistory.Payment)">
+                                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(salaryHistory.Payment)" Min="(decimal)0.01" Max="(decimal)999999999999.99">
                                 </RadzenNumeric>
                                 <ValidationMessage For="@(() => salaryHistory.Payment)" />
                             </div>

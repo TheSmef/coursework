@@ -22,7 +22,7 @@
                                 </RadzenLabel>
                             </div>
                             <div>
-                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(purchase.Amount)">
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(purchase.Amount)" Min="1" Max="int.MaxValue">
                                 </RadzenNumeric>
                                 <ValidationMessage For="@(() => purchase.Amount)" />
                             </div>
@@ -33,7 +33,7 @@
                                 </RadzenLabel>
                             </div>
                             <div>
-                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(purchase.Price)">
+                                <RadzenNumeric MaxLength="3" style="display: block; width: 100%" @bind-Value="@(purchase.Price)" Min="(decimal)0.01" Max="(decimal)999999999999.99">
                                 </RadzenNumeric>
                                 <ValidationMessage For="@(() => purchase.Price)" />
                             </div>

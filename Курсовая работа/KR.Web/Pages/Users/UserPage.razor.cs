@@ -6,7 +6,6 @@ using Radzen.Blazor;
 using KR.Web.Constants;
 using Kr.Models;
 using KR.Web.Services;
-using BlazorDownloadFile;
 
 namespace KR.Web.Pages.Users
 {
@@ -23,8 +22,6 @@ namespace KR.Web.Pages.Users
         private UserService UserService { get; set; }
         [Inject]
         private ExportService ExportService { get; set; }
-        [Inject]
-        private IBlazorDownloadFileService blazorDownloadFileService { get; set; }
 
         private IEnumerable<User> getUserResult;
         protected override async Task OnInitializedAsync()

@@ -42,7 +42,7 @@
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="OrderProduct" Property="Amount" Title="Количество">
                                     <FooterTemplate>
-                                        Общее количество: <b>@(grid.View.Sum(x => x.Amount))</b>
+                                        Общее количество: <b>@(grid.View.Sum(x => (long)x.Amount))</b>
                                     </FooterTemplate>
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="OrderProduct" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">

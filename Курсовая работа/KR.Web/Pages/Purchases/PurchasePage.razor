@@ -48,7 +48,7 @@
                                 </RadzenDataGridColumn> 
                                 <RadzenDataGridColumn TItem="Purchase" Property="Amount" Title="Количество">
                                     <FooterTemplate>
-                                        Количество товаров: <b>@(grid.View.Sum(x => x.Amount))</b>
+                                        Количество товаров: <b>@(grid.View.Sum(x => (long)(x.Amount)))</b>
                                     </FooterTemplate>
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="Purchase" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">

@@ -26,7 +26,7 @@ namespace KR.WEB.Tests
 
         [Fact]
         [TestPriority(1)]
-        public void GetPurchaseAgreements_Passed()
+        public void GetStorageHistory_Passed()
         {
             try
             {
@@ -42,11 +42,11 @@ namespace KR.WEB.Tests
 
         [Fact]
         [TestPriority(2)]
-        public void DeleteCategory_True()
+        public void DeleteStorageHistory_True()
         {
             try
             {
-                Assert.True(StorageHistoryService.DeleteStorageHistory(StorageHistoryService.GetStorageHistory().Result.First()));
+                Assert.True(StorageHistoryService.DeleteStorageHistory(StorageHistoryService.GetStorageHistory().Result.Where(x => x.ProductStorage.Name == "Молоко").First()));
                 ProductService.DeleteProduct(ProductService.GetProducts().Result.Where(x => x.Name == "Молоко").First());
                 CategoryService.DeleteCategory(CategoryService.GetCategories().Result.Where(x => x.Name == "Прочее").First());
             }

@@ -11,7 +11,7 @@ namespace KR.Web.Services
 {
     public class ExportService : ServiceBase
     {
-        private readonly BlazorDownloadFile.IBlazorDownloadFileService blazorDownloadFile;
+        private readonly IBlazorDownloadFileService blazorDownloadFile;
         public ExportService(StoreDbContext storeDbContext, IBlazorDownloadFileService blazorDownloadFile) : base(storeDbContext)
         {
             this.blazorDownloadFile = blazorDownloadFile;

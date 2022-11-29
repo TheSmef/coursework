@@ -133,6 +133,10 @@
             "CsvHelper": {
               "target": "Package",
               "version": "[30.0.0, )"
+            },
+            "DataAnnotationsExtensions": {
+              "target": "Package",
+              "version": "[5.0.1.27, )"
             }
           },
           "imports": [

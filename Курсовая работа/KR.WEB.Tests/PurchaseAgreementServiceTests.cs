@@ -85,7 +85,7 @@ namespace KR.WEB.Tests
 
         [Fact]
         [TestPriority(5)]
-        public void DeleteCategory_True()
+        public void DeletePurchaseAgreement_True()
         {
             try
             {

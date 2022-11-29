@@ -371,3 +371,4 @@ C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.WEB.T
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.WEB.Tests\bin\Release\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.WEB.Tests\bin\Release\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.WEB.Tests\bin\Release\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.WEB.Tests\bin\Release\net6.0\DataAnnotationsExtensions.dll
