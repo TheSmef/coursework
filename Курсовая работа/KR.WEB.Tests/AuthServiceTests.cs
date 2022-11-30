@@ -1,11 +1,9 @@
-﻿using Kr.Models;
-using KR.API.Data;
+﻿using KR.API.Data;
 using KR.Models;
 using KR.Web.Models;
 using KR.Web.Services;
 using KR.WEB.Tests.Orderer;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol;
 
 namespace KR.WEB.Tests
 {

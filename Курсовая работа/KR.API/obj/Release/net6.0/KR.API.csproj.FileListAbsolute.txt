@@ -268,6 +268,6 @@ C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\o
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Release\net6.0\KR.API.pdb
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Release\net6.0\KR.API.genruntimeconfig.cache
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Release\net6.0\ref\KR.API.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Release\net6.0\DataAnnotationsExtensions.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Release\net6.0\appsettings.Development.json
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Release\net6.0\appsettings.json
-C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Release\net6.0\DataAnnotationsExtensions.dll

@@ -1,14 +1,7 @@
 ﻿using KR.API.Data;
-using Kr.Models;
 using KR.Web.Services;
 using KR.WEB.Tests.Orderer;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KR.Web.Models;
 
 namespace KR.WEB.Tests
 {

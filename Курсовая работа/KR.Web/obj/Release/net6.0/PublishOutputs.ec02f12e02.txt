@@ -12,6 +12,7 @@ C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\o
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\obj\Release\net6.0\PubTmp\Out\Blazored.LocalStorage.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\obj\Release\net6.0\PubTmp\Out\Blazored.Toast.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\obj\Release\net6.0\PubTmp\Out\CsvHelper.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\obj\Release\net6.0\PubTmp\Out\DataAnnotationsExtensions.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll

@@ -3,7 +3,6 @@ using KR.API.Data;
 using KR.Web.Services;
 using KR.WEB.Tests.Orderer;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol;
 
 namespace KR.WEB.Tests
 {
