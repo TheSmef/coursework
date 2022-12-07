@@ -536,3 +536,4 @@ C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\o
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\appsettings.json
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.API\bin\Debug\net6.0\DataAnnotationsExtensions.dll

@@ -294,3 +294,5 @@ C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\o
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\obj\Release\net6.0\KR.Web.genruntimeconfig.cache
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\obj\Release\net6.0\ref\KR.Web.dll
 C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Release\net6.0\DataAnnotationsExtensions.dll
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Release\net6.0\appsettings1.Development.json
+C:\Users\User\Documents\GitHub\coursework\Курсовая работа\KR.Web\bin\Release\net6.0\appsettings1.json
