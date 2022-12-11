@@ -1,5 +1,4 @@
-﻿using KR.Models;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
 namespace KR.Web.Security
