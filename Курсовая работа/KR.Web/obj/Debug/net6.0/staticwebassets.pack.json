@@ -49,6 +49,18 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\standard.css",
+      "PackagePath": "staticwebassets\\css\\standard.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\styles-generated.css",
+      "PackagePath": "staticwebassets\\css\\styles-generated.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
       "Id": "C:\\Users\\User\\Documents\\GitHub\\coursework\\Курсовая работа\\KR.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
